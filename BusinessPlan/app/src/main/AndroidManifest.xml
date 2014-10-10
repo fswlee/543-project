@@ -16,6 +16,46 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ClientInformation"
+            android:label="@string/title_activity_client_information" >
+        </activity>
+        <activity
+            android:name=".BusinessInformation"
+            android:label="@string/title_activity_business_information" >
+        </activity>
+        <activity
+            android:name=".YourCustomers"
+            android:label="@string/title_activity_your_customers" >
+        </activity>
+        <activity
+            android:name=".YourHours"
+            android:label="@string/title_activity_your_hours" >
+        </activity>
+        <activity
+            android:name=".HowIsBusiness"
+            android:label="@string/title_activity_how_is_business" >
+        </activity>
+        <activity
+            android:name=".YouAndYourCommunity"
+            android:label="@string/title_activity_you_and_your_community" >
+        </activity>
+        <activity
+            android:name=".SuggestionsForImprovement"
+            android:label="@string/title_activity_suggestions_for_improvement" >
+        </activity>
+        <activity
+            android:name=".ActionPlan"
+            android:label="@string/title_activity_action_plan" >
+        </activity>
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/title_activity_menu" >
+        </activity>
+        <activity
+            android:name=".MenuNewPlan"
+            android:label="@string/title_activity_menu_new_plan" >
+        </activity>
     </application>
 
 </manifest>
