@@ -1,3 +1,5 @@
+// Florence Lee
+
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
@@ -8,10 +10,51 @@ import android.view.MenuItem;
 
 public class YourCustomers extends Activity {
 
+    // display the main menu button.
+    // display the name of the page.
+    // display first Q (where do you sell).
+    // display 4 buttons with images in table view
+    // display second Q (who do you sell to).
+    // display 4 buttons with images in table view
+    
+    // If a user selects a button in the first table, change 
+    // the state of that button from unselected to selected.
+    
+    // If a user selects a button in the second table, change 
+    // the state of that button from unselected to selected.
+ 
+    // When the user selects "button1" (next), an onClick event
+    // is triggered. 
+    
+    	// Update the "where do you sell" variable in the algorithm
+    	// that generates the recommendations to include the selected
+    	// options.
+    
+        // Update the "who do you sell to" variable in the algorithm
+        // that generates the recommendations to include the selected
+        // options.
+    
+    	// Load the previous activity (BusinessInformation).
+
+    // When the user selects "button2" (previous), an onClick event
+    // is triggered. 
+    
+    	// Update the "where do you sell" variable in the algorithm
+    	// that generates the recommendations to include the selected
+    	// options.
+    
+        // Update the "who do you sell to" variable in the algorithm
+        // that generates the recommendations to include the selected
+        // options.
+    
+    	// Load the next activity (YourHours).
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_customers);
+         
+        
     }
 
 
