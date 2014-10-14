@@ -1,3 +1,5 @@
+
+
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
@@ -7,6 +9,8 @@ import android.content.Intent;
 import android.view.View;
 
 public class NewPlan extends Activity {
+	
+	
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
