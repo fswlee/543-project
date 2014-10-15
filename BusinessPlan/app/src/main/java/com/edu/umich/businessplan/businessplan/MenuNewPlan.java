@@ -1,9 +1,27 @@
+//Hannah
+
+//This is Activity 11
+    //asks user if he/she really wants to create new plan
+    //pop-out activity
+
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+//on instantiation, display textViews and Buttons
+
+//if the user selects Button1 ("Yes, create new plan") an onClick event occurs
+
+    //Activity1 (NewPlan) loads
+
+
+//if the user selects Button2 ("No, go back!") an onClick event occurs
+
+    //Activity 11 (MenuNewPlan) is destroyed
+    //Activity 10 (MenuActivity) is un-paused
 
 
 public class MenuNewPlan extends Activity {
