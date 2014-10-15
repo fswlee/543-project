@@ -5,6 +5,23 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+//upon instantiation, display textView
+    //from the suggestions algorithm, display suggestions as checkBox
+
+    //allow the user to select no more than five checkBox
+
+//if the user selects back an onCLick event occurs
+    //for the suggestions that the user selected (checkBox), create a new variable,
+    // summary/Action Plan that includes only those suggestions
+
+    // Activity7 (YouAndYourCommunity) loads
+
+
+//if the user selects next an onClick event occurs
+    //for the suggestions that the user selected (checkBox), create a new variable,
+    // summary/Action Plan that includes only those suggestions
+
+    //Activity9 (YourActionPlan) loads
 
 public class SuggestionsForImprovement extends Activity {
 
