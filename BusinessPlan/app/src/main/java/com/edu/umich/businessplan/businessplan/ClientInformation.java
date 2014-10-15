@@ -45,10 +45,11 @@ public class ClientInformation extends Activity {
     }
 
     //load activity 3
-    public void nextActivity(View view) {
+    public void openActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), ClientInformation.class);
         startActivity(intent);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
