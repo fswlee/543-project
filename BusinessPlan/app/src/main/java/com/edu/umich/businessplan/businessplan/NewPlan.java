@@ -3,9 +3,10 @@
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.content.Intent;
+import android.view.MenuItem;
 import android.view.View;
 
 public class NewPlan extends Activity {
@@ -21,7 +22,7 @@ public class NewPlan extends Activity {
     }
 
     //when user selects button1, load activity 2 (ClientInformation)//
-    public void openActivity(View view) {
+    public void createPlan(View view) {
         Intent intent = new Intent(getApplicationContext(), ClientInformation.class);
         startActivity(intent);
     }

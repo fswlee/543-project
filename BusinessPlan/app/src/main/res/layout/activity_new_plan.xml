@@ -22,7 +22,9 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="300px"
         android:background="#ccc"
-        android:padding="20dp" />
+        android:padding="20dp"
+        android:onClick="createPlan"/>
+
 
 </LinearLayout>
 

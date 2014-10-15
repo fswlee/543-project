@@ -1,9 +1,11 @@
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class ClientInformation extends Activity {
@@ -12,9 +14,14 @@ public class ClientInformation extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_information);
+
     }
 
 
+    public void openActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), BusinessInformation.class);
+        startActivity(intent);
+    }
 //display textView1, textView2, textView3, textView4, editText1, editText2, editText3, editText4,
 //imageButton1, imageButton2, imageButton3, and imageButton4
 
@@ -37,6 +44,11 @@ public class ClientInformation extends Activity {
         return true;
     }
 
+    //load activity 3
+    public void nextActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), ClientInformation.class);
+        startActivity(intent);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
