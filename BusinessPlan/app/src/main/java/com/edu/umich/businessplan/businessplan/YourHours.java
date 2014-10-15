@@ -1,3 +1,4 @@
+//Hannah
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
@@ -5,6 +6,28 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+//display textViews and Buttons upon activity instantiation
+
+//if the user selects any, button change its state from unselected to selected. the user can select
+//as many buttons as he or she wants
+
+//if the user selects the back button an onClick event occurs
+
+    //Activity4 (YourCustomers) loads
+
+    //the algorithm that generates suggestions for improvement is updated to include the number
+    //of buttons selected
+        //determine how many weekend shifts
+        //determine how many morning, afternoon, evening shifts
+
+//if the user selects the forward button an onClick event occurs
+
+    //Activity6 (HowIsBusiness) loads
+
+    //the algorithm that generates suggestions for improvement is updated to include the number
+    //of buttons selected
+        //determine how many weekend shifts
+        //determine how many morning, afternoon, evening shifts
 
 public class YourHours extends Activity {
 
