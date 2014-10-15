@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Business Plan"
-        android:id="@+id/textView"
+        android:id="@+id/textView1"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="200px"
         android:textSize="75px" />
@@ -18,16 +18,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create New Plan"
-        android:id="@+id/button2"
+        android:id="@+id/button1"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="300px"
         android:background="#ccc"
         android:padding="20dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText" />
 
 </LinearLayout>
 
