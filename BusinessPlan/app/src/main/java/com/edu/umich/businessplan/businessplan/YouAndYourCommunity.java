@@ -14,11 +14,19 @@ import android.view.View;
 	// display the name of the page.
 	// display textview1 and textview3
 
-	// display Graph using GraphView library? The first bar
-	// data will use the city variable to lookup the poverty
-	// level from the poverty level list. The value of the second bar
-	// will be the value from the i
-	// ncome variable.
+	// display Graph using GraphView library?
+	//
+	//
+	//
+	// The first bar will display the value of the average poverty
+    // in an urban, rural, or suburban area, depending on what is stored
+    // in the location variable.
+
+        // If location == rural, display average rural poverty
+        // If location == suburban, display average suburban poverty
+        // If location == urban, display average urban poverty
+
+    // The value of the second bar will be the value from the income variable.
 
 	// When the user selects "button1" (next), an onClick event
 	// is triggered. Load the previous activity (HowIsBusiness).

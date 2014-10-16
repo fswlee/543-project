@@ -1,3 +1,5 @@
+// Activity 3
+
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
@@ -9,6 +11,10 @@ import android.view.View;
 
 
 public class BusinessInformation extends Activity {
+
+
+    // Store whether the user selects city, suburban, or rural
+    // in a variable, location.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
