@@ -75,8 +75,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageButton"
-            android:layout_gravity="right">
-        </ImageButton>
+            android:layout_gravity="right"
+            android:onClick="openPreviousActivity"/>
+
+
         <!--when the user selects "button1" (the back button),
         an onClick event is triggered for the instantiation of the previous
         activity -->
@@ -86,9 +88,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageButton2"
-            android>
+            android:onClick="openNextActivity"/>
 
-        </ImageButton>
         <!--when the user selects "button2" (the forward button), an onClick
         event is triggered for the instantiation of the next activity -->
 

@@ -20,7 +20,7 @@ public class ClientInformation extends Activity {
     }
 
 
-    public void openActivity(View view) {
+    public void openNextActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), BusinessInformation.class);
         startActivity(intent);
     }
