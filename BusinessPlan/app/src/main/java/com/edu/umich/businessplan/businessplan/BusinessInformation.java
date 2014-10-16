@@ -24,7 +24,7 @@ public class BusinessInformation extends Activity {
 
     //onClick of forward button
     public void openNextActivity(View view) {
-        Intent intent = new Intent(getApplicationContext(), HowIsBusiness.class);
+        Intent intent = new Intent(getApplicationContext(), YourCustomers.class);
         startActivity(intent);
     }
 
