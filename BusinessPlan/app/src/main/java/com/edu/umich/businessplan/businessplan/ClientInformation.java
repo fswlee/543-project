@@ -1,3 +1,5 @@
+//This is Activity2
+
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
@@ -44,9 +46,10 @@ public class ClientInformation extends Activity {
         return true;
     }
 
-    //load activity 3
-    public void openActivity(View view) {
-        Intent intent = new Intent(getApplicationContext(), ClientInformation.class);
+
+    //load activity 3 (BusinessInformation
+    public void openNextActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), BusinessInformation.class);
         startActivity(intent);
     }
 
