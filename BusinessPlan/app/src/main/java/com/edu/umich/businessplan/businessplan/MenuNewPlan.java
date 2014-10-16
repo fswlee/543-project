@@ -7,15 +7,15 @@
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 //on instantiation, display textViews and Buttons
 
-//if the user selects Button1 ("Yes, create new plan") an onClick event occurs
 
-    //Activity1 (NewPlan) loads
 
 
 //if the user selects Button2 ("No, go back!") an onClick event occurs
@@ -32,6 +32,22 @@ public class MenuNewPlan extends Activity {
         setContentView(R.layout.activity_menu_new_plan);
     }
 
+    //if the user selects Button1 ("Yes, create new plan") an onClick event occurs
+    //Activity1 (NewPlan) loads
+
+    public void openNewPlan(View view) {
+        Intent intent = new Intent(getApplicationContext(), NewPlan.class);
+        startActivity(intent);
+    }
+
+    //if the user selects Button2 ("No, go back!") an onClick event occurs
+    //Activity 11 (MenuNewPlan) is destroyed
+    //Activity 10 (MenuActivity) is un-paused
+
+    public void openPreviousActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -27,10 +27,10 @@ public class ActionPlan extends Activity {
 
     //onClick of DONE button?
     //Where will this take the user? How do we close app?
-    //public void openNextActivity(View view) {
-    //    Intent intent = new Intent(getApplicationContext(), YouAndYourCommunity.class);
-    //    startActivity(intent);
-    //}
+    public void openNewPlan(View view) {
+        Intent intent = new Intent(getApplicationContext(), NewPlan.class);
+        startActivity(intent);
+    }
 
 
     @Override

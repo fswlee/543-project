@@ -55,13 +55,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Yes, create new plan"
-                android:id="@+id/button" />
+                android:id="@+id/button"
+                android:onClick="openNewPlan"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No, go back!"
-                android:id="@+id/button2" />
+                android:id="@+id/button2"
+                android:onClick="openPreviousActivity"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

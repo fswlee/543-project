@@ -68,7 +68,8 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton2"/>
+            android:id="@+id/imageButton2"
+            android:onClick="openNewPlan"/>
 \
         <!--when the user selects "button2" (the forward button), an onClick
         event is triggered for the instantiation of the next activity -->

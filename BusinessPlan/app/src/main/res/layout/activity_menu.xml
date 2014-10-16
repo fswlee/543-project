@@ -31,19 +31,22 @@
                 android:id="@+id/button3"
                 android:layout_width="228dp"
                 android:layout_height="wrap_content"
-                android:text="Create New Plan" />
+                android:text="Create New Plan"
+                android:onClick="openMenuNewPlan"/>
         </TableRow>
 
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+>
 
             <Button
                 android:id="@+id/button9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Client Information" />
+                android:text="Client Information"
+                android:onClick="openClientInformation" />
         </TableRow>
 
         <TableRow
@@ -55,7 +58,8 @@
                 android:id="@+id/button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Business Information" />
+                android:text="Business Information"
+                android:onClick="openBusinessInformation"/>
         </TableRow>
 
         <TableRow
@@ -67,7 +71,8 @@
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Your Customers" />
+                android:text="Your Customers"
+                android:onClick="openYourCustomers"/>
         </TableRow>
 
         <TableRow
@@ -79,7 +84,8 @@
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Your Hours" />
+                android:text="Your Hours"
+                android:onClick="openYourHours"/>
         </TableRow>
 
         <TableRow
@@ -91,7 +97,8 @@
                 android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="How is Business?" />
+                android:text="How is Business?"
+                android:onClick="openHowIsBusiness"/>
         </TableRow>
 
         <TableRow
@@ -103,7 +110,8 @@
                 android:id="@+id/button6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="You &amp; Your Community" />
+                android:text="You &amp; Your Community"
+                android:onClick="openYouAndYourCommunity"/>
         </TableRow>
 
         <TableRow
@@ -116,7 +124,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Suggestions for Improvement"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:onClick="openSuggestionsForImprovement"/>
         </TableRow>
 
         <TableRow
@@ -128,7 +137,8 @@
                 android:id="@+id/button8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Your Action Plan" />
+                android:text="Your Action Plan"
+                android:onClick="openActionPlan"/>
 
         </TableRow>
     </TableLayout>
