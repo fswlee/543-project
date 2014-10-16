@@ -1,20 +1,24 @@
 // Florence Lee
+//This is Activity7
 
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-	// display the main menu button.
+// display the main menu button.
 	// display the name of the page.
 	// display textview1 and textview3
 
 	// display Graph using GraphView library? The first bar
 	// data will use the city variable to lookup the poverty
 	// level from the poverty level list. The value of the second bar
-	// will be the value from the income variable. 
+	// will be the value from the i
+	// ncome variable.
 
 	// When the user selects "button1" (next), an onClick event
 	// is triggered. Load the previous activity (HowIsBusiness).
@@ -28,6 +32,19 @@ public class YouAndYourCommunity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_you_and_your_community);
+    }
+
+
+    //onClick of back button
+    public void openPreviousActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), HowIsBusiness.class);
+        startActivity(intent);
+    }
+
+    //onClick of forward button
+    public void openNextActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), SuggestionsForImprovement.class);
+        startActivity(intent);
     }
 
 

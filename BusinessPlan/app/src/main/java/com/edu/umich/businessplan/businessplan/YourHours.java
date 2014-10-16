@@ -1,10 +1,13 @@
 //Hannah
+//This is Activity 5
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 //display textViews and Buttons upon activity instantiation
 
@@ -37,6 +40,17 @@ public class YourHours extends Activity {
         setContentView(R.layout.activity_your_hours);
     }
 
+    //onClick of back button
+    public void openPreviousActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), YourCustomers.class);
+        startActivity(intent);
+    }
+
+    //onClick of forward button
+    public void openNextActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), HowIsBusiness.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

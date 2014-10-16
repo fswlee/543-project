@@ -1,11 +1,15 @@
 // Florence Lee
 
+//This is Activity 4
+
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class YourCustomers extends Activity {
@@ -53,10 +57,20 @@ public class YourCustomers extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_customers);
-         
-        
+
     }
 
+    //onClick of back button
+    public void openPreviousActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), BusinessInformation.class);
+        startActivity(intent);
+    }
+
+    //onClick of forward button
+    public void openNextActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), YourHours.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

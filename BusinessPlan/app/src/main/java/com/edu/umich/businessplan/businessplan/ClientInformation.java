@@ -19,11 +19,12 @@ public class ClientInformation extends Activity {
 
     }
 
-
+    //onCLick of next button
     public void openNextActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), BusinessInformation.class);
         startActivity(intent);
     }
+
 //display textView1, textView2, textView3, textView4, editText1, editText2, editText3, editText4,
 //imageButton1, imageButton2, imageButton3, and imageButton4
 
@@ -44,13 +45,6 @@ public class ClientInformation extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.client_information, menu);
         return true;
-    }
-
-
-    //load activity 3 (BusinessInformation
-    public void openNextActivity(View view) {
-        Intent intent = new Intent(getApplicationContext(), BusinessInformation.class);
-        startActivity(intent);
     }
 
     @Override

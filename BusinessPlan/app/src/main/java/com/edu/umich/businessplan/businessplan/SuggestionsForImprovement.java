@@ -1,9 +1,14 @@
+//Hannah
+//This is Activity8
+
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 //upon instantiation, display textView
     //from the suggestions algorithm, display suggestions as checkBox
@@ -31,6 +36,19 @@ public class SuggestionsForImprovement extends Activity {
         setContentView(R.layout.activity_suggestions_for_improvement);
     }
 
+
+
+    //onClick of back button
+    public void openPreviousActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), YouAndYourCommunity.class);
+        startActivity(intent);
+    }
+
+    //onClick of forward button
+    public void openNextActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), ActionPlan.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

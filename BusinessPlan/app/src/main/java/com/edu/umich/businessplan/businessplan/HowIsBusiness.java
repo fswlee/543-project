@@ -1,9 +1,13 @@
+//This is Activity6
+
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class HowIsBusiness extends Activity {
@@ -14,6 +18,17 @@ public class HowIsBusiness extends Activity {
         setContentView(R.layout.activity_how_is_business);
     }
 
+    //onClick of back button
+    public void openPreviousActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), YourHours.class);
+        startActivity(intent);
+    }
+
+    //onClick of forward button
+    public void openNextActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), YouAndYourCommunity.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

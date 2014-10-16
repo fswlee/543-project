@@ -1,9 +1,13 @@
+//This is Activity9
+
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class ActionPlan extends Activity {
@@ -13,6 +17,20 @@ public class ActionPlan extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_action_plan);
     }
+
+
+    //onClick of back button
+    public void openPreviousActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), SuggestionsForImprovement.class);
+        startActivity(intent);
+    }
+
+    //onClick of DONE button?
+    //Where will this take the user? How do we close app?
+    //public void openNextActivity(View view) {
+    //    Intent intent = new Intent(getApplicationContext(), YouAndYourCommunity.class);
+    //    startActivity(intent);
+    //}
 
 
     @Override
