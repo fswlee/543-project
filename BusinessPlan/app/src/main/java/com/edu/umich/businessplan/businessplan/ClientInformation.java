@@ -30,15 +30,16 @@ public class ClientInformation extends Activity {
 
   //activate keyboard if the user selects any of the editText objects
 
-  //if the user touches any of the image buttons in the first horizantal linear layout, the button
-  //goes from unselected. only one of the three buttons can be selected at one time
+  //For "where do you live" buttons, user can only select one of the three buttons. Keep the value
+  // the user selects in variable, location.
 
   //if the user selected the forward button, an onClick event is triggered
 
-    //the algorithm that generated the You and Your Community Graph is updated to include
-    //information from questions 2, 3, and 4
+    // put all user input into a database
+    // keep # of people in household as variable household
+    // keep # of people in household over 18 as variable over18
 
-    //activity 3 (BusinessInformation) loads
+    // load activity 3 (BusinessInformation)
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

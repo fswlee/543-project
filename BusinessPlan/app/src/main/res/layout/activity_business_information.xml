@@ -12,9 +12,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Describe your business"
         android:id="@+id/textView" />
-    <!--Focus is initially on this box
-    When user types in text for info on their business
-     send to database we have yet to build-->
+
 
     <EditText
         android:layout_width="wrap_content"
@@ -31,11 +29,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Income per month"
         android:id="@+id/textView2" />
-    <!--This is a number field it should pop up a keyboard for numbers
-    It should only accept numbers
-    When user taps on this box focus switches to this box
-    When user types in text for income per month send data to the database
-    -->
+
 
     <EditText
         android:layout_width="wrap_content"
@@ -49,8 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Is there anyone selling similar items as you?
-        What do you know about their business"
+        android:text="Is there anyone selling similar items as you? What do you know about their business?"
         android:id="@+id/textView3" />
     <!--When user taps on this box focus switches to this box
     When user types in text for their compeditors send data to database

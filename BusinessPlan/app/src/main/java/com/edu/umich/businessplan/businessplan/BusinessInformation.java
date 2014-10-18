@@ -13,8 +13,18 @@ import android.view.View;
 public class BusinessInformation extends Activity {
 
 
-    // Store whether the user selects city, suburban, or rural
-    // in a variable, location.
+    // Focus is initially on describe your business textbox
+
+    // income per month should be set up as a number input. field should only accept numbers
+    // and symbols. when a user focuses on this field, the keyboard available for text
+    // entry should be the keypad.
+    // income per month should be stored in variable, income_per_month
+
+
+    // put all user input into the database
+
+    // if the user clicks on next, load activity 4, YourCustomers
+    // if the user clicks on previous, load activity 2, Client Information
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

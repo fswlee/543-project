@@ -30,14 +30,16 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="City:"
         android:id="@+id/textView4"
-        android:paddingTop="20dp" />
+        android:paddingTop="20dp"
+        android:layout_marginLeft="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText4"
         android:background="#eee"
-        android:clickable="false" />
+        android:clickable="false"
+        android:layout_marginLeft="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,13 +47,15 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Number of People in Your Household:"
         android:id="@+id/textView2"
-        android:paddingTop="20dp" />
+        android:paddingTop="20dp"
+        android:layout_marginLeft="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText3"
-        android:background="#eee" />
+        android:background="#eee"
+        android:layout_marginLeft="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,13 +63,15 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Number of people in your household over 18:"
         android:id="@+id/textView3"
-        android:paddingTop="20dp" />
+        android:paddingTop="20dp"
+        android:layout_marginLeft="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:background="#eee" />
+        android:background="#eee"
+        android:layout_marginLeft="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,7 +79,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Where do you live?"
         android:id="@+id/textView5"
-        android:paddingTop="20dp" />
+        android:paddingTop="20dp"
+        android:layout_marginLeft="10dp"/>
 
     <LinearLayout
         android:orientation="horizontal"

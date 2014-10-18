@@ -10,6 +10,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+// household
+// over18
+// create new variable annual_income by muliplying income_per_month by 12.
+
 // display the main menu button.
 	// display the name of the page.
 	// display textview1 and textview3

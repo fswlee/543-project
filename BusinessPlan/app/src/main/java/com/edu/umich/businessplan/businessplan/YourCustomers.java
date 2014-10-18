@@ -23,18 +23,31 @@ public class YourCustomers extends Activity {
     
     // If a user selects a button in the first table, change 
     // the state of that button from unselected to selected.
+    // User should be able to select as many as they want.
+
+        //Each button is it's own variable. e.g. location_home, location_neighborhood, location_store
+        //location_cart
+
+        //If selected, that variable =1, if not, variable=0
     
     // If a user selects a button in the second table, change 
     // the state of that button from unselected to selected.
+    // User should be able to select as many as they want.
+
+        //each button is it's own variable, e.g. customer_family, customer_friends, customer_neighbors
+        //customer_public
+
+        //if selected, that variable =1, if not, variable=0
  
     // When the user selects "button1" (next), an onClick event
-    // is triggered. 
+    // is triggered.
+
     
-    	// Update the "where do you sell" variable in the algorithm
+    	// Update the location variables in the algorithm
     	// that generates the recommendations to include the selected
     	// options.
     
-        // Update the "who do you sell to" variable in the algorithm
+        // Update the customer variables in the algorithm
         // that generates the recommendations to include the selected
         // options.
     
@@ -43,11 +56,11 @@ public class YourCustomers extends Activity {
     // When the user selects "button2" (previous), an onClick event
     // is triggered. 
     
-    	// Update the "where do you sell" variable in the algorithm
+    	// Update the location variables in the algorithm
     	// that generates the recommendations to include the selected
     	// options.
     
-        // Update the "who do you sell to" variable in the algorithm
+        // Update the customer variables in the algorithm
         // that generates the recommendations to include the selected
         // options.
     
