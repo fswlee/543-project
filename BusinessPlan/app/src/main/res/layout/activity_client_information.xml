@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText2"
-        android:background="#999"
+        android:background="#ddd"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
 
@@ -37,9 +37,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText4"
-        android:background="#eee"
-        android:clickable="false"
-        android:layout_marginLeft="10dp"/>
+        android:background="#ddd"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -48,14 +48,16 @@
         android:text="Number of People in Your Household:"
         android:id="@+id/textView2"
         android:paddingTop="20dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText3"
-        android:background="#eee"
-        android:layout_marginLeft="10dp"/>
+        android:background="#ddd"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,14 +66,16 @@
         android:text="Number of people in your household over 18:"
         android:id="@+id/textView3"
         android:paddingTop="20dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:background="#eee"
-        android:layout_marginLeft="10dp"/>
+        android:background="#ddd"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
