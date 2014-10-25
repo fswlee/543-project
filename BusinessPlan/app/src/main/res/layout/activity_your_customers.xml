@@ -119,21 +119,27 @@
         </TableRow>
     </TableLayout>
 
-    <Button
+    <ImageButton
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
         android:layout_alignBaseline="@+id/button1"
         android:layout_alignBottom="@+id/button1"
         android:layout_toLeftOf="@+id/button1"
-        android:onClick="openPreviousActivity"/>
-    <Button
+        android:onClick="openPreviousActivity"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentLeft="false" />
+>
+    <ImageButton
+        android:src="@android:drawable/ic_input_add"
         android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/textView3"
-        android:onClick="openNextActivity"/>
+        android:onClick="openNextActivity"
+        android:layout_alignParentLeft="false"
+        android:layout_alignWithParentIfMissing="false"/>
 
 
 
