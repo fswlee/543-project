@@ -51,23 +51,14 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText3"
-        android:background="#ddd"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
-
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/people_in_household_arrays"
         android:prompt="@string/people_in_household"
         android:id="@+id/spinner" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Number of people in your household over 18:"
@@ -76,13 +67,11 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
 
-    <EditText
-        android:layout_width="match_parent"
+    <Spinner
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:background="#ddd"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+        android:prompt="@string/people_in_household_over_18"
+        android:id="@+id/spinner18" />
 
     <TextView
         android:layout_width="wrap_content"

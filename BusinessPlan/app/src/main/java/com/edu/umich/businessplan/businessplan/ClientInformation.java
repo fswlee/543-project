@@ -1,5 +1,7 @@
 //This is Activity2
 
+// TODO For the dropdowns, number of people in household over 18 must be less than or equal to total number of people in household
+
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
@@ -17,8 +19,13 @@ import android.widget.Toast;
 
 public class ClientInformation extends Activity {
 
+    // create spinners
     Spinner spinner;
+    Spinner spinner18;
+
+    // array of available options
     String[] num_people = {
+            " ",
             "1",
             "2",
             "3",
@@ -27,6 +34,8 @@ public class ClientInformation extends Activity {
             "6",
             "more than 6"
     };
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +52,6 @@ public class ClientInformation extends Activity {
                     public void onItemSelected(AdapterView<?> arg0, View arg1,
                                                int arg2, long arg3) {
                         int position = spinner.getSelectedItemPosition();
-                        Toast.makeText(getApplicationContext(),"You have selected "+num_people[+position],Toast.LENGTH_LONG).show();
 
                     }
                     @Override
@@ -52,6 +60,28 @@ public class ClientInformation extends Activity {
                     }
                 }
         );
+
+        spinner18 = (Spinner)findViewById(R.id.spinner18);
+        ArrayAdapter<String> adapter_18 = new ArrayAdapter<String>(
+                this, android.R.layout.simple_spinner_item, num_people);
+        spinner18.setAdapter(adapter_18);
+        spinner18.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                               int arg2, long arg3) {
+                        int position = spinner18.getSelectedItemPosition();
+
+                    }
+                    @Override
+                    public void onNothingSelected(AdapterView<?> arg0) {
+
+                    }
+                }
+        );
+
+    // spinner code from http://www.learn2crack.com/2013/12/android-spinner-dropdown-example.html
+
 
 
 
