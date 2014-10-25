@@ -8,16 +8,56 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
+
 
 
 public class ClientInformation extends Activity {
+
+    Spinner spinner;
+    String[] num_people = {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "more than 6"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_information);
 
+        spinner = (Spinner)findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_spinner_item, num_people);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                               int arg2, long arg3) {
+                        int position = spinner.getSelectedItemPosition();
+                        Toast.makeText(getApplicationContext(),"You have selected "+num_people[+position],Toast.LENGTH_LONG).show();
+
+                    }
+                    @Override
+                    public void onNothingSelected(AdapterView<?> arg0) {
+
+                    }
+                }
+        );
+
+
+
     }
+
+
 
     //onCLick of next button
     public void openNextActivity(View view) {
