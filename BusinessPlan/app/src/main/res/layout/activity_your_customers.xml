@@ -119,8 +119,9 @@
         </TableRow>
     </TableLayout>
 
-    <ImageButton
+    <Button
         android:id="@+id/button2"
+        android:text="<"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_alignBaseline="@+id/button1"
@@ -130,8 +131,8 @@
         android:layout_alignParentBottom="false"
         android:layout_alignParentLeft="false" />
 >
-    <ImageButton
-        android:src="@android:drawable/ic_input_add"
+    <Button
+        android:text=">"
         android:id="@+id/button1"
         android:layout_width="50dp"
         android:layout_height="40dp"
