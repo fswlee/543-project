@@ -21,7 +21,54 @@ import android.view.View;
     //the algorithm that generates suggestions for improvement is updated to include the number
     //of buttons selected
         //determine how many weekend shifts
-        //determine how many morning, afternoon, evening shifts
+        //determine how many morning, afternoon, evening
+    /*This is really complicated pseudo code to write
+        //list_Morning{0,0,0,0,0,0,0}
+        //list_Afternoon{0,0,0,0,0,0,0}
+        //list_Evening{0,0,0,0,0,0,0}
+        //if MonMorn=1
+            //list_Morning(0)=1
+        //if MonAfter=1
+            list_Morning(0)=1
+        if MonEvening=1
+            list_Morning(0)=1
+        if TuesMorn=1
+            list_Morning(0)=1
+        if TuesAfter=1
+            list_Morning(0)=1
+        if TuesEvening=1
+            list_Morning(0)=1
+        if WedMorn=1
+            list_Morning(0)=1
+        if WedAfter=1
+            list_Morning(0)=1
+        if WedEvening=1
+            list_Morning(0)=1
+        if ThurMorn=1
+            list_Morning(0)=1
+        if ThurAfter=1
+            list_Morning(0)=1
+        if ThurEvening=1
+            list_Morning(0)=1
+        if FriMorn=1
+            list_Morning(0)=1
+        if FriAfter=1
+            list_Morning(0)=1
+        if FriEvening=1
+            list_Morning(0)=1
+        if SatMorn=1
+            list_Morning(0)=1
+        if SatAfter=1
+            list_Morning(0)=1
+        if SatEvening=1
+            list_Morning(0)=1
+        if SunMorn=1
+            list_Morning(0)=1
+        if SunAfter=1
+            list_Morning(0)=1
+        if SunEvening=1
+            list_Morning(0)=1*/
+
 
 //if the user selects the forward button an onClick event occurs
 

@@ -12,6 +12,11 @@ import android.view.View;
 
 //upon instantiation, display textView
     //from the suggestions algorithm, display suggestions as checkBox
+    //from Customer Recommendations
+        //if array rec_customer > 0
+            //print "You should sell to" array rec customer" pseudo code pseudo code pseudo code
+        //if rec_customer =0
+            //exit
 
     //allow the user to select no more than five checkBox
 
