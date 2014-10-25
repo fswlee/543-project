@@ -38,7 +38,12 @@ public class YourCustomers extends Activity {
         //customer_public
 
         //if selected, that variable =1, if not, variable=0
- 
+        //Suggestions for Improvement for Business plan Business plan
+            //if customer_family =0, append  "family" to array rec_customer
+            //if customer_friends=0, append  "friends" to array rec_customer
+            //if customer_neighbors=0, append "neighbors" to array rec_customer
+            //if customer_public=0, append "public" to array rec_customer
+
     // When the user selects "button1" (next), an onClick event
     // is triggered.
 
