@@ -27,4 +27,15 @@
         <item>8 or more</item>
     </string-array>
 
+    <string name="nav_items">Menu</string>
+    <string-array name="nav_items_array">
+        <item>Client Information</item>
+        <item>Business Information</item>
+        <item>Your Customers</item>
+        <item>Your Hours</item>
+        <item>How is Business</item>
+        <item>You and Your Community</item>
+        <item>Suggestions for Improvement</item>
+        <item>Action Plan</item>
+    </string-array>
 </resources>
