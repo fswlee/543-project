@@ -42,6 +42,36 @@ public class BaseActivity extends Activity {
         startActivity(intent);
     }
 
+    public void openYourCustomers() {
+        Intent intent = new Intent(getApplication(), YourCustomers.class);
+        startActivity(intent);
+    }
+
+    public void openYourHours() {
+        Intent intent = new Intent(getApplication(), YourHours.class);
+        startActivity(intent);
+    }
+
+    public void openHowIsBusiness() {
+        Intent intent = new Intent(getApplication(), HowIsBusiness.class);
+        startActivity(intent);
+    }
+
+    public void openYouAndYourCommunity() {
+        Intent intent = new Intent(getApplication(), YouAndYourCommunity.class);
+        startActivity(intent);
+    }
+
+    public void openSuggestionsForImprovement() {
+        Intent intent = new Intent(getApplication(), SuggestionsForImprovement.class);
+        startActivity(intent);
+    }
+
+    public void openActionPlan() {
+        Intent intent = new Intent(getApplication(), ActionPlan.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -63,7 +93,35 @@ public class BaseActivity extends Activity {
                 openBusinessInformation();
                 return true;
 
+            case R.id.your_customers:
+                Log.i(TAG, "your_customers Item Clicked");
+                openYourCustomers();
+                return true;
 
+            case R.id.your_hours:
+                Log.i(TAG, "your_hours Item Clicked");
+                openYourHours();
+                return true;
+
+            case R.id.how_is_business:
+                Log.i(TAG, "how_is_business Item Clicked");
+                openHowIsBusiness();
+                return true;
+
+            case R.id.you_and_your_community:
+                Log.i(TAG, "you_and_your_community Item Clicked");
+                openYouAndYourCommunity();
+                return true;
+
+            case R.id.suggestions_for_improvement:
+                Log.i(TAG, "suggestions_for_improvement Item Clicked");
+                openSuggestionsForImprovement();
+                return true;
+
+            case R.id.action_plan:
+                Log.i(TAG, "action_plan Item Clicked");
+                openActionPlan();
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
