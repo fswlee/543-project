@@ -14,11 +14,10 @@
     <string name="title_activity_action_plan">ActionPlan</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_menu_new_plan">MenuNewPlan</string>
-
     <string name="people_in_household">Number of People in Your Household</string>
     <string name="people_in_household_over_18">Number of People in Your Household Over 18</string>
-
     <string name="nav_items">Menu</string>
+
     <string-array name="nav_items_array">
         <item>Client Information</item>
         <item>Business Information</item>
@@ -29,4 +28,7 @@
         <item>Suggestions for Improvement</item>
         <item>Action Plan</item>
     </string-array>
+
+    <string name="title_activity_base">BaseActivity</string>
+
 </resources>
