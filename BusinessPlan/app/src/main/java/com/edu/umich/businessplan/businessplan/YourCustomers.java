@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 
-public class YourCustomers extends Activity {
+public class YourCustomers extends BaseActivity {
 
     // display the main menu button.
     // display the name of the page.

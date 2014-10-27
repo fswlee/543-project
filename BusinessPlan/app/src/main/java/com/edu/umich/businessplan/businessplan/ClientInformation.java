@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 
 
-public class ClientInformation extends Activity {
+public class ClientInformation extends BaseActivity {
 
     // create spinners
     Spinner spinner;

@@ -38,7 +38,7 @@ import android.view.View;
 	// When the user selects "button2" (previous), an onClick event
 	// is triggered. Load the next activity (SuggestionsForImprovement).
 
-public class YouAndYourCommunity extends Activity {
+public class YouAndYourCommunity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

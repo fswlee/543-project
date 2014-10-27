@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 
-public class HowIsBusiness extends Activity {
+public class HowIsBusiness extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

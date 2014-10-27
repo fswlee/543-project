@@ -75,7 +75,7 @@ import android.view.View;
 
     //Activity9 (YourActionPlan) loads
 
-public class SuggestionsForImprovement extends Activity {
+public class SuggestionsForImprovement extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

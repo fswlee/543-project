@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 
-public class BusinessInformation extends Activity {
+public class BusinessInformation extends BaseActivity {
 
 
     // Focus is initially on describe your business textbox

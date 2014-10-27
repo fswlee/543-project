@@ -79,7 +79,7 @@ import android.view.View;
         //determine how many weekend shifts
         //determine how many morning, afternoon, evening shifts
 
-public class YourHours extends Activity {
+public class YourHours extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
