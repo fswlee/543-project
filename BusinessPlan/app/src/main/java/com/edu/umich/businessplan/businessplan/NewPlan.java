@@ -5,12 +5,14 @@ package com.edu.umich.businessplan.businessplan;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class NewPlan extends Activity {
-	
+public class NewPlan extends BaseActivity {
+
+    private final String TAG = "Base Activity";
 	
 
     //display textView1//
@@ -34,6 +36,5 @@ public class NewPlan extends Activity {
         getMenuInflater().inflate(R.menu.new_plan, menu);
         return true;
     }
-
 
 }
