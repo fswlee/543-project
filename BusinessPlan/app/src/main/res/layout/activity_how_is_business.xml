@@ -1,16 +1,38 @@
-<!--Jackie Wolf -->
-<!-- This is Actvity6 -->
+<!--Activity 6 (How is Business) -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="1">
+    android:layout_marginRight="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="30dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="How Is Business?\n" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Please rate your satisfaction with your business.\n\nSelect the face that you most identify with."/>
+
 
     <LinearLayout
         android:orientation="horizontal"
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
 
 
         <!-- //if the user selects any of the buttons in the first grid,
@@ -20,56 +42,65 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton3" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton4" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton5" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton6" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton7" />
-        <!-- //if the user selects any of the buttons in the first grid,
-    update the "how is business" variable in the algorithm    -->
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="86dp"
-        android:layout_height="54dp"
-        android:layout_gravity="right">
-
-
-
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton"
-            android:onClick="openPreviousActivity"/>
-        <!--when the user selects "button1" (the back button),
-        an onClick event is triggered for the instantiation of the previous
-        activity -->
+            android:id="@+id/imageButton1"
+            android:src="@android:drawable/btn_star_big_on"/>
+        <!-- place holder image -->
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageButton2"
-            android:onClick="openNextActivity"/>
-        <!--when the user selects "button2" (the forward button), an onClick
-        event is triggered for the instantiation of the next activity which is Done-->
+            android:src="@android:drawable/btn_star_big_on"/>
+        <!-- place holder image -->
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton3"
+            android:src="@android:drawable/btn_star_big_on"/>
+        <!-- place holder image -->
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton4"
+            android:src="@android:drawable/btn_star_big_on"/>
+        <!-- place holder image -->
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton5"
+            android:src="@android:drawable/btn_star_big_on"/>
+        <!-- place holder image -->
+
+        <!-- //if the user selects any of the buttons in the first grid,
+    update the "how is business" variable in the algorithm    -->
     </LinearLayout>
 
 </LinearLayout>
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:id="@+id/previous"
+        android:text="&lt;"
+        android:layout_marginRight="94dp"
+        android:layout_alignParentRight="true"
+        android:layout_toLeftOf="@+id/next"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:onClick="openPreviousActivity"/>
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/next"
+        android:text="&gt;"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="34dp"
+        android:layout_alignParentRight="true"
+        android:onClick="openNextActivity" />
+
+</RelativeLayout>
