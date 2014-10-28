@@ -1,90 +1,95 @@
 <!--Jackie Wolf -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:weightSum="1">
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Describe your business"
-        android:id="@+id/textView" />
-
+        android:text="Describe your business:"
+        android:id="@+id/textView1"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"/>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:autoText="false"
-        android:background="#eee" />
+        android:lines="4"
+        android:id="@+id/editText1"
+        android:background="#eee"
+        android:layout_below="@id/textView1"
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Income per month"
-        android:id="@+id/textView2" />
-
+        android:text="Income per month:"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="10dp"/>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:ems="10"
         android:id="@+id/editText2"
-        android:background="#eee" />
+        android:background="#eee"
+        android:layout_below="@id/textView2"
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Is there anyone selling similar items as you? What do you know about their business?"
-        android:id="@+id/textView3" />
-    <!--When user taps on this box focus switches to this box
-    When user types in text for their compeditors send data to database
-     we have yet to build
-    -->
+        android:text="Is there anyone else selling the same goods or services as you?
+What do you know about their business?"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/editText2"
+        android:layout_marginTop="10dp"/>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
+        android:lines="4"
         android:id="@+id/editText3"
-        android:background="#eee" />
+        android:background="#eee"
+        android:layout_below="@id/textView3"
+        android:layout_marginTop="10dp"/>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="86dp"
-        android:layout_height="54dp"
-        android:layout_gravity="right">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton"
-            android:layout_gravity="right"
-            android:onClick="openPreviousActivity"/>
-
-
-        <!--when the user selects "button1" (the back button),
-        an onClick event is triggered for the instantiation of the previous
-        activity -->
-
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton2"
-            android:onClick="openNextActivity"/>
-
-        <!--when the user selects "button2" (the forward button), an onClick
-        event is triggered for the instantiation of the next activity -->
-
-    </LinearLayout>
 </LinearLayout>
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:id="@+id/previous"
+        android:text=""
+        android:layout_marginRight="94dp"
+        android:layout_alignParentRight="true"
+        android:onClick="openPreviousActivity"
+        android:layout_toLeftOf="@+id/next"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/next"
+        android:text=""
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="34dp"
+        android:layout_alignParentRight="true"
+        android:onClick="openNewPlan" />
+
+</RelativeLayout>
