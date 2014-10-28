@@ -1,10 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".NewPlan" >
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="always" />
     <item android:id="@+id/create_new_plan"
         android:title="Create a New Plan"
         android:orderInCategory="1"
@@ -37,7 +33,7 @@
         android:title="Suggestions for Improvement"
         android:orderInCategory="8"
         android:showAsAction="never"/>
-    <item android:id="@+id/your_action_plan"
+    <item android:id="@+id/action_plan"
         android:title="Your Action Plan"
         android:orderInCategory="9"
         android:showAsAction="never"/>
