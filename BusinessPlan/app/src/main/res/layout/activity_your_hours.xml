@@ -1,21 +1,26 @@
-<!--Hannah-->
-<!-- This is Activity5 -->
+<!-- Activity 5 (Your Hours) -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_margin="20dp"
+        android:id="@+id/textView1"
+        android:text="Select the days and times that your business is open."/>
 
     <TableLayout
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="295dp"
-        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="40dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="0dp">
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
         <TableRow
             android:layout_width="wrap_content"
@@ -187,7 +192,7 @@
             android:layout_gravity="center_horizontal">
 
             <TextView
-                android:layout_width="60dp"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="Afternoon"
@@ -346,27 +351,27 @@
 
     </TableLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="86dp"
-        android:layout_height="54dp"
-        android:gravity="center|bottom"
-        android:layout_gravity="right"
-        android:layout_marginTop="100dp">
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:id="@+id/previous"
+        android:text="&lt;"
+        android:layout_marginRight="94dp"
+        android:layout_alignParentRight="true"
+        android:layout_toLeftOf="@+id/next"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:onClick="openPreviousActivity"/>
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton3"
-            android:layout_gravity="center_horizontal"
-            android:onClick="openPreviousActivity"/>
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/next"
+        android:text="&gt;"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="34dp"
+        android:layout_alignParentRight="true"
+        android:onClick="openNextActivity" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton2"
-            android:layout_gravity="center_horizontal"
-            android:onClick="openNextActivity"/>
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>
