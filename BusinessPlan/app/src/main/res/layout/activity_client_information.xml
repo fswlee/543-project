@@ -1,74 +1,72 @@
-<!-- This is Activity2-->
+<!-- Activity 2 (Client Information) -->
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="1">
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Name:"
-        android:id="@+id/textView"
-        android:paddingTop="20dp"
-        android:layout_marginLeft="10dp"
+        android:id="@+id/textView1"
+        android:layout_marginTop="10dp"
         />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:background="#ddd"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+        android:id="@+id/editText1"
+        android:inputType="text"
+        android:background="#eee"
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="City:"
-        android:id="@+id/textView4"
-        android:paddingTop="20dp"
-        android:layout_marginLeft="10dp"/>
+        android:id="@+id/textView2"
+        android:paddingTop="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText4"
-        android:background="#ddd"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+        android:id="@+id/editText2"
+        android:background="#eee"
+        android:inputType="text"
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Number of People in Your Household:"
-        android:id="@+id/textView2"
-        android:paddingTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+        android:id="@+id/textView3"
+        android:paddingTop="10dp"/>
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:prompt="@string/people_in_household"
-        android:id="@+id/spinner" />
+        android:id="@+id/spinner"/>
 
     <TextView
-        android:layout_width="350dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Number of people in your household over 18:"
-        android:id="@+id/textView3"
-        android:paddingTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+        android:id="@+id/textView4"
+        android:paddingTop="20dp"/>
 
     <Spinner
-        android:layout_width="350dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:prompt="@string/people_in_household_over_18"
         android:id="@+id/spinner18" />
@@ -76,11 +74,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Where do you live?"
         android:id="@+id/textView5"
-        android:paddingTop="20dp"
-        android:layout_marginLeft="10dp"/>
+        android:paddingTop="10dp"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -91,36 +88,38 @@
         <ImageButton
             android:layout_width="110dp"
             android:layout_height="50dp"
-            android:id="@+id/imageButton"/>
+            android:id="@+id/imageButton1"
+            android:src="@android:drawable/ic_dialog_dialer"/>
+        <!-- place holder image -->
 
         <ImageButton
             android:layout_width="110dp"
             android:layout_height="50dp"
-            android:id="@+id/imageButton4"
-            android:layout_gravity="center_horizontal" />
+            android:id="@+id/imageButton2"
+            android:layout_gravity="center_horizontal"
+            android:src="@android:drawable/ic_dialog_dialer"/>
+        <!-- place holder image -->
 
         <ImageButton
             android:layout_width="110dp"
             android:layout_height="50dp"
-            android:id="@+id/imageButton5" />
+            android:id="@+id/imageButton3"
+            android:src="@android:drawable/ic_dialog_dialer"/>
+        <!-- place holder image -->
+
     </LinearLayout>
 
-    <LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="86dp"
-    android:layout_height="54dp"
-    android:gravity="center|bottom"
-    android:layout_gravity="right"
-    android:layout_marginTop="20dp">
-
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton2"
-        android:layout_gravity="center_horizontal"
-        android:onClick="openNextActivity"/>
 </LinearLayout>
 
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/next"
+        android:text="&gt;"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="34dp"
+        android:layout_alignParentRight="true"
+        android:onClick="openNextActivity" />
 
-</LinearLayout>
+</RelativeLayout>

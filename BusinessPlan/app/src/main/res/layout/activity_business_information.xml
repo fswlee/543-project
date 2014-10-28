@@ -1,4 +1,4 @@
-<!--Jackie Wolf -->
+<!-- Activity 3 (Business Information -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -73,23 +73,23 @@ What do you know about their business?"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:id="@+id/previous"
-        android:text=""
+        android:text="&lt;"
         android:layout_marginRight="94dp"
         android:layout_alignParentRight="true"
-        android:onClick="openPreviousActivity"
         android:layout_toLeftOf="@+id/next"
         android:layout_marginBottom="20dp"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:onClick="openPreviousActivity"/>
 
     <Button
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:id="@+id/next"
-        android:text=""
+        android:text="&gt;"
         android:layout_marginBottom="20dp"
         android:layout_marginRight="34dp"
         android:layout_alignParentRight="true"
-        android:onClick="openNewPlan" />
+        android:onClick="openNextActivity" />
 
 </RelativeLayout>
