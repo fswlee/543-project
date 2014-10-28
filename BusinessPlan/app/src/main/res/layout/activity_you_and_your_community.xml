@@ -1,59 +1,66 @@
-<!-- Florence Lee -->
-<!-- This is Activity7 -->
+<!-- Activity 7 (You and Your Community) -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.edu.umich.businessplan.businessplan.YouAndYourCommunity" >
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/button1"
-        android:onClick="openPreviousActivity"/>
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
-        android:text="This graph shows where you are in relation to your community"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="This graph shows your income in relation to the average income of your community."/>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/textView1"
+        android:layout_above="@+id/button2"
+        android:src="@android:drawable/alert_light_frame"/>
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
-        android:layout_alignRight="@+id/button1"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="-20dp"
+        android:layout_below="@+id/imageView1"
         android:text="Go to the next screen for ways to improve your business."
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_alignRight="@+id/button1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="25dp"
-        android:src="@android:drawable/alert_light_frame" />
 
     <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:id="@+id/previous"
+        android:text="&lt;"
+        android:layout_marginRight="94dp"
+        android:layout_alignParentRight="true"
+        android:layout_toLeftOf="@+id/next"
+        android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/textView1"
-        android:onClick="openNextActivity"/>
+        android:onClick="openPreviousActivity"/>
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/next"
+        android:text="&gt;"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="34dp"
+        android:layout_alignParentRight="true"
+        android:onClick="openNextActivity" />
 
 </RelativeLayout>
