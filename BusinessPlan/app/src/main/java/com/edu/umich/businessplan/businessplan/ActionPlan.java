@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 
-public class ActionPlan extends Activity {
+public class ActionPlan extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
