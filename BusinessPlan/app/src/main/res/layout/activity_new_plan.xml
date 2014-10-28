@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
@@ -10,21 +10,23 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Business Plan"
         android:id="@+id/textView1"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="200px"
-        android:textSize="75px" />
+        android:textSize="75px"
+        android:layout_above="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="135dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:text="Create New Plan"
         android:id="@+id/button1"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="300px"
         android:background="#ccc"
-        android:padding="20dp"
-        android:onClick="createPlan"/>
+        android:onClick="createPlan"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="151dp" />
 
 
-</LinearLayout>
+</RelativeLayout>
 
