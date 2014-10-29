@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.edu.umich.businessplan.businessplan.YouAndYourCommunity" >
 
-
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -16,16 +15,21 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="This graph shows your income in relation to the average income of your community."/>
+        android:text="This graph shows your income in relation to the poverty threshold in your community."/>
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/PovertyLineGraph"
         android:layout_below="@+id/textView1"
-        android:src="@android:drawable/alert_light_frame"/>
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
+        <!-- this is a mock-up of what our graph might look like after
+        user input is processed in our algorithm -->
+
+       <!-- place holder image
+       android:src="@android:drawable/alert_light_frame"-->
 
     <TextView
         android:id="@+id/textView3"
@@ -33,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="-20dp"
+        android:layout_marginTop="0dp"
         android:layout_below="@+id/imageView1"
         android:text="Go to the next screen for ways to improve your business."
         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -69,6 +73,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="34dp"
-        android:text="6/8"/>
+        android:text="6/8"
+        android:id="@+id/textView" />
 
 </RelativeLayout>
