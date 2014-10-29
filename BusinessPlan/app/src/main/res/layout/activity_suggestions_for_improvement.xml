@@ -88,4 +88,14 @@
         android:layout_marginRight="34dp"
         android:layout_alignParentRight="true"
         android:onClick="openNextActivity" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="34dp"
+        android:text="7/8"/>
+
 </RelativeLayout>

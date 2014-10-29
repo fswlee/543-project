@@ -1,4 +1,4 @@
-<!-- Activity 3 (Business Information -->
+<!-- Activity 3 (Business Information) -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -91,5 +91,14 @@ What do you know about their business?"
         android:layout_marginRight="34dp"
         android:layout_alignParentRight="true"
         android:onClick="openNextActivity" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="34dp"
+        android:text="2/8"/>
 
 </RelativeLayout>
