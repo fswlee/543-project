@@ -6,12 +6,17 @@ package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -87,7 +92,34 @@ public class ClientInformation extends BaseActivity {
 
     }
 
+    //method for changing the background color of selected buttons
+    public void selectButton(View view) {
 
+        ImageButton city = (ImageButton) findViewById(R.id.imageButton1);
+        ImageButton suburb = (ImageButton) findViewById(R.id.imageButton2);
+        ImageButton rural = (ImageButton) findViewById(R.id.imageButton3);
+
+        //if a button is selected
+        //  that button's background color changes
+        //  the other buttons' background color change to their original color
+
+        if(view.getId() == R.id.imageButton1){
+            city.setBackgroundColor(Color.LTGRAY);
+            suburb.setBackgroundColor(Color.rgb(238,238,238));
+            rural.setBackgroundColor(Color.rgb(238,238,238));
+        }
+        else if (view.getId() == R.id.imageButton2) {
+            suburb.setBackgroundColor(Color.LTGRAY);
+            city.setBackgroundColor(Color.rgb(238,238,238));
+            rural.setBackgroundColor(Color.rgb(238,238,238));
+        }
+        else if (view.getId() == R.id.imageButton3) {
+            rural.setBackgroundColor(Color.LTGRAY);
+            suburb.setBackgroundColor(Color.rgb(238,238,238));
+            city.setBackgroundColor(Color.rgb(238,238,238));
+        }
+
+    }
 
     //onCLick of next button
     public void openNextActivity(View view) {
