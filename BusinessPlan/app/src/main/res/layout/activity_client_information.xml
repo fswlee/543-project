@@ -92,7 +92,8 @@
             style="@style/imagebutton"
             android:id="@+id/imageButton1"
             android:src="@android:drawable/btn_star_big_on"
-            android:onClick="selectButton"/>
+            android:onClick="selectButton"
+            />
         <!-- place holder image -->
 
         <ImageButton

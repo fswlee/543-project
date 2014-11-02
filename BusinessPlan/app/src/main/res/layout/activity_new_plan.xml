@@ -2,7 +2,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    style="@style/titlePage">
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,11 +22,12 @@
         android:padding="10dp"
         android:text="Create New Plan"
         android:id="@+id/button1"
-        android:background="#ccc"
         android:onClick="createPlan"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="151dp" />
+        android:layout_marginBottom="151dp"
+        android:background="#363839"
+        android:textColor="#ffffff"/>
 
 
 </RelativeLayout>
