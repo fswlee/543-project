@@ -2,7 +2,8 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    style="@style/background">
 
 <LinearLayout
     android:layout_width="wrap_content"
@@ -13,92 +14,88 @@
     >
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Describe your business:"
-        android:id="@+id/textView1"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"/>
-
-    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lines="4"
-        android:id="@+id/editText1"
-        android:background="#eee"
-        android:layout_below="@id/textView1"
-        android:layout_marginTop="10dp"/>
+        android:text="Tell us about your business."
+        style="@style/instructions"/>
 
     <TextView
+        style="@style/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Income per month:"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="10dp"/>
+        android:text="Describe your business:"
+        android:id="@+id/textView1"
+        android:layout_alignParentTop="true"/>
 
     <EditText
+        style="@style/response"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="5"
+        android:gravity="top"
+        android:id="@+id/editText1"
+        android:layout_below="@id/textView1"/>
+
+    <TextView
+        style="@style/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Income per month:"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/editText1"/>
+
+    <TextView
+        style="@style/helptext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please enter only numbers."
+        android:id="@+id/textView2"
+        android:layout_below="@+id/editText1"/>
+
+    <EditText
+        style="@style/response"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:id="@+id/editText2"
-        android:background="#eee"
-        android:layout_below="@id/textView2"
-        android:layout_marginTop="10dp"/>
+        android:layout_below="@id/textView2"/>
 
     <TextView
+        style="@style/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Is there anyone else selling the same goods or services as you?
-What do you know about their business?"
+        android:text="Is there anyone else selling the same goods or services as you? What do you know about their business?"
         android:id="@+id/textView3"
-        android:layout_below="@+id/editText2"
-        android:layout_marginTop="10dp"/>
+        android:layout_below="@+id/editText2"/>
 
     <EditText
+        style="@style/response"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lines="4"
+        android:lines="5"
+        android:gravity="top"
         android:id="@+id/editText3"
-        android:background="#eee"
-        android:layout_below="@id/textView3"
-        android:layout_marginTop="10dp"/>
+        android:layout_below="@id/textView3"/>
 
 </LinearLayout>
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="40dp"
+        style="@style/navbuttonprev"
         android:id="@+id/previous"
         android:text="&lt;"
-        android:layout_marginRight="94dp"
-        android:layout_alignParentRight="true"
         android:layout_toLeftOf="@+id/next"
-        android:layout_marginBottom="20dp"
-        android:layout_alignParentBottom="true"
         android:onClick="openPreviousActivity"/>
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
+        style="@style/navbutton"
         android:id="@+id/next"
         android:text="&gt;"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="34dp"
-        android:layout_alignParentRight="true"
         android:onClick="openNextActivity" />
 
     <TextView
+        style="@style/pagination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="34dp"
         android:text="2/8"/>
 
 </RelativeLayout>
