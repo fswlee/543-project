@@ -11,8 +11,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:text="Tell us about your customers."
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:text="Where do you sell? Choose all that apply."
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/textView1"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -20,7 +31,7 @@
         android:id="@+id/tableLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" >
 
@@ -30,13 +41,13 @@
             android:layout_height="wrap_content" >
 
             <ImageButton
-                android:id="@+id/ImageButton02"
+                android:id="@+id/ImageButton2"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
                 android:src="@android:drawable/btn_default" />
 
             <ImageButton
-                android:id="@+id/ImageButton01"
+                android:id="@+id/ImageButton1"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
                 android:src="@android:drawable/btn_default" />
@@ -48,13 +59,13 @@
             android:layout_height="wrap_content" >
 
             <ImageButton
-                android:id="@+id/imageButton03"
+                android:id="@+id/imageButton3"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
                 android:src="@android:drawable/btn_default" />
 
             <ImageButton
-                android:id="@+id/imageButton04"
+                android:id="@+id/imageButton4"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
                 android:src="@android:drawable/btn_default" />
@@ -62,7 +73,7 @@
     </TableLayout>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tableLayout1"
@@ -75,7 +86,7 @@
         android:id="@+id/tableLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" >
 
