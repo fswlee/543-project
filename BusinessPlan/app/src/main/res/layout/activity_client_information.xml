@@ -2,7 +2,8 @@
 
 <RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    style="@style/background">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -12,12 +13,18 @@
     android:layout_marginRight="20dp">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tell us about yourself."
+        style="@style/instructions"/>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Name:"
         android:id="@+id/textView1"
-        android:layout_marginTop="10dp"
+        style="@style/question"
         />
 
     <EditText
@@ -25,16 +32,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText1"
         android:inputType="text"
-        android:background="#eee"
-        android:layout_marginTop="10dp"/>
+        style="@style/response"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="City:"
         android:id="@+id/textView2"
-        android:paddingTop="10dp"/>
+        style="@style/question"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -42,32 +47,30 @@
         android:id="@+id/editText2"
         android:background="#eee"
         android:inputType="text"
-        android:layout_marginTop="10dp"/>
+        style="@style/response"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Number of People in Your Household:"
+        android:text="How many people live in your home?"
         android:id="@+id/textView3"
-        android:paddingTop="10dp"/>
+        style="@style/question"/>
 
     <Spinner
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:prompt="@string/people_in_household"
         android:id="@+id/spinner"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Number of people in your household over 18:"
+        android:text="How many people living in your home are over the age of 18?"
         android:id="@+id/textView4"
-        android:paddingTop="20dp"/>
+        style="@style/question"/>
 
     <Spinner
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:prompt="@string/people_in_household_over_18"
         android:id="@+id/spinner18" />
@@ -75,10 +78,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Where do you live?"
         android:id="@+id/textView5"
-        android:paddingTop="10dp"/>
+        style="@style/question"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -87,40 +89,25 @@
         android:layout_gravity="center_horizontal">
 
         <ImageButton
-            android:layout_width="110dp"
-            android:layout_height="50dp"
+            style="@style/imagebutton"
             android:id="@+id/imageButton1"
             android:src="@android:drawable/btn_star_big_on"
-            android:onClick="selectButton"
-            android:background="#eee"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"/>
+            android:onClick="selectButton"/>
         <!-- place holder image -->
 
         <ImageButton
-            android:layout_width="110dp"
-            android:layout_height="50dp"
+            style="@style/imagebutton"
             android:id="@+id/imageButton2"
             android:layout_gravity="center_horizontal"
             android:src="@android:drawable/btn_star_big_on"
-            android:onClick="selectButton"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:background="#eee"/>
+            android:onClick="selectButton"/>
         <!-- place holder image -->
 
         <ImageButton
-            android:layout_width="110dp"
-            android:layout_height="50dp"
+            style="@style/imagebutton"
             android:id="@+id/imageButton3"
             android:src="@android:drawable/btn_star_big_on"
-            android:onClick="selectButton"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:background="#eee"/>
+            android:onClick="selectButton"/>
         <!-- place holder image -->
 
     </LinearLayout>
@@ -128,23 +115,15 @@
 </LinearLayout>
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
+        style="@style/navbutton"
         android:id="@+id/next"
         android:text="&gt;"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="34dp"
-        android:layout_alignParentRight="true"
         android:onClick="openNextActivity" />
 
     <TextView
+        style="@style/pagination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="34dp"
         android:text="1/8"/>
 
 </RelativeLayout>

@@ -104,19 +104,19 @@ public class ClientInformation extends BaseActivity {
         //  the other buttons' background color change to their original color
 
         if(view.getId() == R.id.imageButton1){
-            city.setBackgroundColor(Color.LTGRAY);
-            suburb.setBackgroundColor(Color.rgb(238,238,238));
-            rural.setBackgroundColor(Color.rgb(238,238,238));
+            city.setBackgroundColor(Color.BLACK);
+            suburb.setBackgroundColor(Color.rgb(45,196,137));
+            rural.setBackgroundColor(Color.rgb(45,196,137));
         }
         else if (view.getId() == R.id.imageButton2) {
-            suburb.setBackgroundColor(Color.LTGRAY);
-            city.setBackgroundColor(Color.rgb(238,238,238));
-            rural.setBackgroundColor(Color.rgb(238,238,238));
+            suburb.setBackgroundColor(Color.BLACK);
+            city.setBackgroundColor(Color.rgb(45,196,137));
+            rural.setBackgroundColor(Color.rgb(45,196,137));
         }
         else if (view.getId() == R.id.imageButton3) {
-            rural.setBackgroundColor(Color.LTGRAY);
-            suburb.setBackgroundColor(Color.rgb(238,238,238));
-            city.setBackgroundColor(Color.rgb(238,238,238));
+            rural.setBackgroundColor(Color.BLACK);
+            suburb.setBackgroundColor(Color.rgb(45,196,137));
+            city.setBackgroundColor(Color.rgb(45,196,137));
         }
 
     }
