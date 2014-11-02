@@ -45,7 +45,8 @@
     <style name="imagebutton">
         <item name="android:background">#2DC489</item>
         <item name="android:layout_width">110dp</item>
-        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginRight">5dp</item>
         <item name="android:layout_marginLeft">5dp</item>
         <item name="android:layout_weight">1</item>
