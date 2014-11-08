@@ -6,9 +6,21 @@ package com.edu.umich.businessplan.businessplan;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 //upon instantiation, display textView
     //from the suggestions algorithm, display suggestions as checkBox
@@ -77,13 +89,38 @@ import android.view.View;
 
 public class SuggestionsForImprovement extends BaseActivity {
 
+    // a list class type must be used when using a list view
+// list items are added to a list view programatically and not through xml
+    List<Map<String, String>> suggestionsMap = new ArrayList<Map<String,String>>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggestions_for_improvement);
+
+// we call this initiList function to fill in our list class variable with our team names
+        initList();
+
+        // adapters are what we use to associate the list variable and its contents with the list view
+        ListView teamListView = (ListView) findViewById(R.id.listView);
+        SimpleAdapter simpleAdpt = new SimpleAdapter(this, suggestionsMap, android.R.layout.simple_list_item_checked, new String[]{"suggestion"}, new int[]{android.R.id.text1});
+        teamListView.setAdapter(simpleAdpt);
+
     }
 
 
+    private void initList() {
+        suggestionsMap.add(createSuggestion("suggestion", "Suggestion 1"));
+        suggestionsMap.add(createSuggestion("suggestion", "Suggestion 2"));
+        suggestionsMap.add(createSuggestion("suggestion", "Suggestion 3"));
+    }
+    // this method helps us minimize the amount of repeat calls we need to make in initList to place
+    // a team name into out list
+    private HashMap<String, String> createSuggestion(String key, String name) {
+        HashMap<String, String> Suggestion = new HashMap<String, String>();
+        Suggestion.put(key, name);
+        return Suggestion;
+    }
 
     //onClick of back button
     public void openPreviousActivity(View view) {

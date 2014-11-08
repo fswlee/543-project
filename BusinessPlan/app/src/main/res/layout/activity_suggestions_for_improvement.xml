@@ -20,56 +20,16 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_marginTop="20dp"/>
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView">
 
-    <LinearLayout
+    <ListView
+        android:id="@+id/listView"
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp">
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Suggestion 1"
-            android:id="@+id/checkBox1" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Suggestion 2"
-            android:id="@+id/checkBox2" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Suggestion 3"
-            android:id="@+id/checkBox3" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Suggestion 4"
-            android:id="@+id/checkBox4" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Suggestion 5"
-            android:id="@+id/checkBox5" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Suggestion 6"
-            android:id="@+id/checkBox6" />
-
-    </LinearLayout>
-    </ScrollView>
+    </ListView>
 
 </LinearLayout>
 
