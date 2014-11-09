@@ -43,11 +43,11 @@ public class ActionPlan extends BaseActivity {
                 context);
 
         // set title
-        alertDialogBuilder.setTitle("GO TEAM BUSINESS PLAN");
+        alertDialogBuilder.setTitle("Are you sure you are done with the action plan?");
 
         // set dialog message
         alertDialogBuilder
-                .setMessage("Click yes to exit!")
+                .setMessage("Click yes to submit your plan.")
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
