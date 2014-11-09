@@ -102,9 +102,9 @@ public class SuggestionsForImprovement extends BaseActivity {
         initList();
 
         // adapters are what we use to associate the list variable and its contents with the list view
-        ListView teamListView = (ListView) findViewById(R.id.listView);
-        SimpleAdapter simpleAdpt = new SimpleAdapter(this, suggestionsMap, android.R.layout.simple_list_item_checked, new String[]{"suggestion"}, new int[]{android.R.id.text1});
-        teamListView.setAdapter(simpleAdpt);
+        ListView suggestionsListView = (ListView) findViewById(R.id.listView);
+        SimpleAdapter simpleAdpt = new SimpleAdapter(this, suggestionsMap, android.R.layout.simple_list_item_1, new String[]{"suggestion"}, new int[]{android.R.id.text1});
+        suggestionsListView.setAdapter(simpleAdpt);
 
     }
 
