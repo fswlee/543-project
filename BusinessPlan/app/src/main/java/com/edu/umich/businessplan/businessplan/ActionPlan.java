@@ -72,14 +72,7 @@ public class ActionPlan extends BaseActivity {
     }
 
 
-//        FragmentManager fm = getFragmentManager();
-//        TestDialog testDialog = new TestDialog();
-//        testDialog.setRetainInstance(true);
-//        testDialog.show(fm, "fragment_name");
-////        Intent intent = new Intent(getApplicationContext(), NewPlan.class);
-////        startActivity(intent);
-//    }
-
+// based on http://www.mkyong.com/android/android-alert-dialog-example/ tutorial
 
 
 
