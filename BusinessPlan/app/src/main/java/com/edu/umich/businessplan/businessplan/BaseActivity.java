@@ -1,17 +1,22 @@
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.content.DialogInterface;
+import android.view.View.OnClickListener;
+import android.content.Context;
 
 
 
 public class BaseActivity extends Activity {
 
     private final String TAG = "Base Activity";
+    final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,43 @@ public class BaseActivity extends Activity {
         return true;
     }
 
+    //builds alerts dialog box when the "create new plan" button on the action bar menu is selected
+    //doing so calls this method
+    public void openAlertDialog() {
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+
+        // set title
+        alertDialogBuilder.setTitle("Are you sure you want to create a new plan?");
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage("Click yes to start over and create a new plan.")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // if this button is clicked, close
+                        // current activity
+                        BaseActivity.this.openCreateNewPlan();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // if this button is clicked, just close
+                        // the dialog box and do nothing
+                        dialog.cancel();
+                    }
+                });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+    }
+
+    //this method is called from the openAlertDialog method if the user selects "yes"
     public void openCreateNewPlan() {
         Intent intent = new Intent(getApplicationContext(), NewPlan.class);
         startActivity(intent);
@@ -80,7 +122,7 @@ public class BaseActivity extends Activity {
         switch(item.getItemId()) {
             case R.id.create_new_plan:
                 Log.i(TAG, "create_new_plan Item clicked");
-                openCreateNewPlan();
+                openAlertDialog();
                 return true;
 
             case R.id.client_information:
