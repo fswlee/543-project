@@ -1,26 +1,22 @@
-//Hannah
-//This is Activity8
+//This is Activity 8
+
 
 package com.edu.umich.businessplan.businessplan;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextMenu;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import android.content.Context;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.AdapterView.OnItemClickListener;
 
 //upon instantiation, display textView
     //from the suggestions algorithm, display suggestions as checkBox
@@ -89,38 +85,104 @@ import java.util.Map;
 
 public class SuggestionsForImprovement extends BaseActivity {
 
-    // a list class type must be used when using a list view
-// list items are added to a list view programatically and not through xml
-    List<Map<String, String>> suggestionsMap = new ArrayList<Map<String,String>>();
+    MyCustomAdapter dataAdapter = null;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggestions_for_improvement);
 
-// we call this initiList function to fill in our list class variable with our team names
-        initList();
-
-        // adapters are what we use to associate the list variable and its contents with the list view
-        ListView suggestionsListView = (ListView) findViewById(R.id.listView);
-        SimpleAdapter simpleAdpt = new SimpleAdapter(this, suggestionsMap, android.R.layout.simple_list_item_1, new String[]{"suggestion"}, new int[]{android.R.id.text1});
-        suggestionsListView.setAdapter(simpleAdpt);
+        //Generate list View from ArrayList
+        displayListView();
 
     }
 
+    private void displayListView() {
 
-    private void initList() {
-        suggestionsMap.add(createSuggestion("suggestion", "Suggestion 1"));
-        suggestionsMap.add(createSuggestion("suggestion", "Suggestion 2"));
-        suggestionsMap.add(createSuggestion("suggestion", "Suggestion 3"));
+        //create an array list with class Suggestion (String, boolean) called suggestionList
+        ArrayList<Suggestion> suggestionList = new ArrayList<Suggestion>();
+
+        //create an instance of the class Suggestion (String, boolean)
+        Suggestion suggestion = new Suggestion("Suggestion 1",false);
+
+        //add the instance to the array list, suggestionList
+        suggestionList.add(suggestion);
+
+        //create new instances of the class and add them to the array
+        suggestion = new Suggestion("Suggestion 2",false);
+        suggestionList.add(suggestion);
+        suggestion = new Suggestion("Suggestion 3",false);
+        suggestionList.add(suggestion);
+        suggestion = new Suggestion("Suggestion 4",false);
+        suggestionList.add(suggestion);
+        suggestion = new Suggestion("Suggestion 5",false);
+        suggestionList.add(suggestion);
+        suggestion = new Suggestion("Suggestion 6",false);
+        suggestionList.add(suggestion);
+        suggestion = new Suggestion("Suggestion 7",false);
+        suggestionList.add(suggestion);
+        suggestion = new Suggestion("Suggestion 8",false);
+        suggestionList.add(suggestion);
+        suggestion = new Suggestion("Suggestion 9",false);
+        suggestionList.add(suggestion);
+        suggestion = new Suggestion("Suggestion 10",false);
+        suggestionList.add(suggestion);
+
+        //create an ArrayAdaptar from the Array
+        dataAdapter = new MyCustomAdapter(this,
+                R.layout.suggestion_info, suggestionList);
+        ListView listView = (ListView) findViewById(R.id.listView1);
+        // Assign adapter to ListView
+        listView.setAdapter(dataAdapter);
+
     }
-    // this method helps us minimize the amount of repeat calls we need to make in initList to place
-    // a team name into out list
-    private HashMap<String, String> createSuggestion(String key, String name) {
-        HashMap<String, String> Suggestion = new HashMap<String, String>();
-        Suggestion.put(key, name);
-        return Suggestion;
+
+    private class MyCustomAdapter extends ArrayAdapter<Suggestion> {
+
+        private ArrayList<Suggestion> suggestionList;
+
+        public MyCustomAdapter(Context context, int textViewResourceId,
+                               ArrayList<Suggestion> suggestionList) {
+            super(context, textViewResourceId, suggestionList);
+            this.suggestionList = new ArrayList<Suggestion>();
+            this.suggestionList.addAll(suggestionList);
+        }
+
+        private class ViewHolder {
+            CheckBox name;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            ViewHolder holder = null;
+            Log.v("ConvertView", String.valueOf(position));
+
+            if (convertView == null) {
+                LayoutInflater vi = (LayoutInflater)getSystemService(
+                        Context.LAYOUT_INFLATER_SERVICE);
+                convertView = vi.inflate(R.layout.suggestion_info, null);
+
+                holder = new ViewHolder();
+                holder.name = (CheckBox) convertView.findViewById(R.id.checkBox1);
+                convertView.setTag(holder);
+            }
+            else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+
+            Suggestion suggestion = suggestionList.get(position);
+            holder.name.setText(suggestion.getName());
+            holder.name.setChecked(suggestion.isSelected());
+            holder.name.setTag(suggestion);
+
+            return convertView;
+
+        }
+
     }
+
+    //Button Navigation
 
     //onClick of back button
     public void openPreviousActivity(View view) {
@@ -134,6 +196,8 @@ public class SuggestionsForImprovement extends BaseActivity {
         startActivity(intent);
     }
 
+
+    //Action Bar Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -153,3 +217,7 @@ public class SuggestionsForImprovement extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+
+
+//The dataAdapter and Checkbox ListView was adapted from
+//http://www.mysamplecode.com/2012/07/android-listview-checkbox-example.html

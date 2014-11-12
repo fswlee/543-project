@@ -10,28 +10,30 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp">
+    android:layout_marginRight="20dp"
+    android:layout_marginBottom="60dp">
+
+
+    <TextView android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:padding="10dp"
+        android:text="Choose three of the suggestions below to help improve your business." android:textSize="20sp" />
+
+
+    <ListView android:id="@+id/listView1" android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+
+</LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choose three of the suggestions below to help improve your business:"
-        android:id="@+id/textView"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_marginTop="20dp"/>
-
-
-    <ListView
-        android:id="@+id/listView"
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp">
-
-    </ListView>
-
-</LinearLayout>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="34dp"
+        android:text="7/8"
+        style="@style/pagination"/>
 
     <Button
         android:layout_width="50dp"
@@ -56,13 +58,5 @@
         android:layout_alignParentRight="true"
         android:onClick="openNextActivity" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="34dp"
-        android:text="7/8"/>
 
 </RelativeLayout>

@@ -43,18 +43,14 @@
         <activity
             android:name=".SuggestionsForImprovement"
             android:label="@string/title_activity_suggestions_for_improvement" >
+            <itent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </itent-filter>
         </activity>
         <activity
             android:name=".ActionPlan"
             android:label="@string/title_activity_action_plan" >
-        </activity>
-        <activity
-            android:name=".MenuActivity"
-            android:label="@string/title_activity_menu" >
-        </activity>
-        <activity
-            android:name=".MenuNewPlan"
-            android:label="@string/title_activity_menu_new_plan" >
         </activity>
         <activity
             android:name=".BaseActivity"
