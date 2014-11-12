@@ -109,24 +109,10 @@ public class SuggestionsForImprovement extends BaseActivity {
         suggestionList.add(suggestion);
 
         //create new instances of the class and add them to the array
-        suggestion = new Suggestion("Suggestion 2",false);
-        suggestionList.add(suggestion);
-        suggestion = new Suggestion("Suggestion 3",false);
-        suggestionList.add(suggestion);
-        suggestion = new Suggestion("Suggestion 4",false);
-        suggestionList.add(suggestion);
-        suggestion = new Suggestion("Suggestion 5",false);
-        suggestionList.add(suggestion);
-        suggestion = new Suggestion("Suggestion 6",false);
-        suggestionList.add(suggestion);
-        suggestion = new Suggestion("Suggestion 7",false);
-        suggestionList.add(suggestion);
-        suggestion = new Suggestion("Suggestion 8",false);
-        suggestionList.add(suggestion);
-        suggestion = new Suggestion("Suggestion 9",false);
-        suggestionList.add(suggestion);
-        suggestion = new Suggestion("Suggestion 10",false);
-        suggestionList.add(suggestion);
+        for (int i = 2; i < 10; i++) {
+            suggestion = new Suggestion("Suggestion " + i, false);
+            suggestionList.add(suggestion);
+        }
 
         //create an ArrayAdaptar from the Array
         dataAdapter = new MyCustomAdapter(this,
