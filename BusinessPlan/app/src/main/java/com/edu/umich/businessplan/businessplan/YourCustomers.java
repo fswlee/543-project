@@ -78,6 +78,32 @@ public class YourCustomers extends BaseActivity {
 
     }
 
+    //create buttonSelected method
+        //create 2 variables for each of the 8 buttons (one for color, one for selected (0 or 1)
+        //create 2 variables for total selected whereSellTotal, whomSellTotal
+        //for each button:
+            //change color from green to black
+            //change the selected variable to 1
+            //if buttonID is in WhereSell and selected variable is 1:
+                //add 1 to the WhereSellTotal
+            //else if butonID is in WhomSell and selected variable is 1:
+                //add 1 to the WhomSellTotal
+
+    //if total for WhereDoYouSell buttons is < 2;
+        //if sell_home is 0:
+            //recommendationList.add("Try selling at home.");
+        //else if sell_neighborhood is 0;
+            //recommendationList.add("Try selling in your neighborhood")
+    //SharedPreferencesUtility.putStringList(this, "recommendations", recommendationList);
+
+    //if total for WhomDoYouSellTo buttons is < 2;
+        //if sell_family is 0:
+            //recommendationList.add("Try selling to your family.");
+        //else if sell_neighbors is 0;
+            //recommendationList.add("Try selling in your neighbors")
+    //SharedPreferencesUtility.putStringList(this, "recommendations", recommendationList);
+
+
     //onClick of back button
     public void openPreviousActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), BusinessInformation.class);
