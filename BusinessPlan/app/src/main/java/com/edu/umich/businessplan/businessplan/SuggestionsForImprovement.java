@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -97,22 +99,38 @@ public class SuggestionsForImprovement extends BaseActivity {
 
     }
 
-    private void displayListView() {
 
+
+    private void displayListView() {
         //create an array list with class Suggestion (String, boolean) called suggestionList
         ArrayList<Suggestion> suggestionList = new ArrayList<Suggestion>();
+        //create an instance of the class Suggestion (String, boolean)
+
+        List<String> sharedList = new ArrayList<String>();
+        sharedList = SharedPreferencesUtility.getStringList(this, "recommendation");
+
+        for (String t: sharedList) {
+            //create an instance of the class Suggestion (String, boolean)
+            Suggestion suggestion = new Suggestion(t,false);
+
+            //add the instance to the array list, suggestionList
+            suggestionList.add(suggestion);
+
+        }
+
+
 
         //create an instance of the class Suggestion (String, boolean)
-        Suggestion suggestion = new Suggestion("Suggestion 1",false);
+        //Suggestion suggestion = new Suggestion("Suggestion 1",false);
 
         //add the instance to the array list, suggestionList
-        suggestionList.add(suggestion);
+        //suggestionList.add(suggestion);
 
         //create new instances of the class and add them to the array
-        for (int i = 2; i < 10; i++) {
-            suggestion = new Suggestion("Suggestion " + i, false);
-            suggestionList.add(suggestion);
-        }
+//        for (int i = 2; i < 10; i++) {
+//            suggestion = new Suggestion("Suggestion " + i, false);
+//            suggestionList.add(suggestion);
+//        }
 
         //create an ArrayAdaptar from the Array
         dataAdapter = new MyCustomAdapter(this,
