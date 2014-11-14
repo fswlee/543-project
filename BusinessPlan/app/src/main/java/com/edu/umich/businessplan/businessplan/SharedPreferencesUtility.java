@@ -55,4 +55,11 @@ public class SharedPreferencesUtility {
         editor.putString(key, listString);
         editor.apply();
     }
+
+    public static void clearSuggestionList(Activity activity, String key) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.remove(key);
+        editor.apply();
+    }
 }
