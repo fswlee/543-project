@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Tell us about your customers."
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        style="@style/instructions"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="Where do you sell? Choose all that apply."
-        android:textAppearance="?android:attr/textAppearanceSmall"
+        style="@style/question"
         android:layout_below="@+id/textView1"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -41,16 +41,20 @@
             android:layout_height="wrap_content" >
 
             <ImageButton
-                android:id="@+id/ImageButton2"
+                android:id="@+id/buttonHome"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
-                android:src="@android:drawable/btn_default" />
+                style="@style/imagebutton"
+                android:src="@android:drawable/ic_dialog_info"
+                android:onClick="selectCustomers"/>
 
             <ImageButton
-                android:id="@+id/ImageButton1"
+                android:id="@+id/buttonNeighborhood"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
-                android:src="@android:drawable/btn_default" />
+                style="@style/imagebutton"
+                android:src="@android:drawable/ic_dialog_info"
+                android:onClick="selectCustomers" />
         </TableRow>
 
         <TableRow
@@ -59,16 +63,20 @@
             android:layout_height="wrap_content" >
 
             <ImageButton
-                android:id="@+id/imageButton3"
+                android:id="@+id/buttonCart"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
-                android:src="@android:drawable/btn_default" />
+                style="@style/imagebutton"
+                android:src="@android:drawable/ic_dialog_info"
+                android:onClick="selectCustomers"  />
 
             <ImageButton
-                android:id="@+id/imageButton4"
+                android:id="@+id/buttonStore"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
-                android:src="@android:drawable/btn_default" />
+                style="@style/imagebutton"
+                android:src="@android:drawable/ic_dialog_info"
+                android:onClick="selectCustomers"  />
         </TableRow>
     </TableLayout>
 
@@ -79,7 +87,7 @@
         android:layout_below="@+id/tableLayout1"
         android:layout_marginTop="20dp"
         android:text="Who do you sell to? Choose all that apply."
-        android:textAppearance="?android:attr/textAppearanceSmall"
+        style="@style/question"
         android:layout_centerHorizontal="true"/>
 
     <TableLayout
@@ -96,16 +104,20 @@
             android:layout_height="wrap_content" >
 
             <ImageButton
-                android:id="@+id/ImageButton04"
+                android:id="@+id/buttonFamily"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
-                android:src="@android:drawable/btn_default" />
+                style="@style/imagebutton"
+                android:src="@android:drawable/ic_dialog_info"
+                android:onClick="selectCustomers" />
 
             <ImageButton
-                android:id="@+id/ImageButton03"
+                android:id="@+id/buttonFriends"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
-                android:src="@android:drawable/btn_default" />
+                style="@style/imagebutton"
+                android:src="@android:drawable/ic_dialog_info"
+                android:onClick="selectCustomers" />
         </TableRow>
 
         <TableRow
@@ -114,22 +126,25 @@
             android:layout_height="wrap_content" >
 
             <ImageButton
-                android:id="@+id/ImageButton06"
+                android:id="@+id/buttonNeighbors"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
-                android:src="@android:drawable/btn_default" />
+                style="@style/imagebutton"
+                android:src="@android:drawable/ic_dialog_info"
+                android:onClick="selectCustomers" />
 
             <ImageButton
-                android:id="@+id/ImageButton05"
+                android:id="@+id/buttonPublic"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
-                android:src="@android:drawable/btn_default" />
+                style="@style/imagebutton"
+                android:src="@android:drawable/ic_dialog_info"
+                android:onClick="selectCustomers" />
         </TableRow>
     </TableLayout>
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="40dp"
+        style="@style/navbuttonprev"
         android:id="@+id/previous"
         android:text="&lt;"
         android:layout_marginRight="94dp"
@@ -140,8 +155,7 @@
         android:onClick="openPreviousActivity"/>
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="40dp"
+        style="@style/navbutton"
         android:layout_alignParentBottom="true"
         android:id="@+id/next"
         android:text="&gt;"
@@ -157,6 +171,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="34dp"
-        android:text="3/8"/>
+        android:text="3/8"
+        style="@style/pagination"/>
 
 </RelativeLayout>
