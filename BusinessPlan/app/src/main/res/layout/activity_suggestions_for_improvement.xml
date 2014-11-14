@@ -15,8 +15,10 @@
 
 
     <TextView android:layout_width="fill_parent"
-        android:layout_height="wrap_content" android:padding="10dp"
-        android:text="Choose three of the suggestions below to help improve your business." android:textSize="20sp" />
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Choose three of the suggestions below to help improve your business."
+        style="@style/instructions" />
 
 
     <ListView android:id="@+id/listView1" android:layout_width="fill_parent"
@@ -36,8 +38,7 @@
         style="@style/pagination"/>
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="40dp"
+        style="@style/navbuttonprev"
         android:id="@+id/previous"
         android:text="&lt;"
         android:layout_marginRight="94dp"
@@ -48,8 +49,7 @@
         android:onClick="openPreviousActivity"/>
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="40dp"
+        style="@style/navbutton"
         android:layout_alignParentBottom="true"
         android:id="@+id/next"
         android:text="&gt;"
