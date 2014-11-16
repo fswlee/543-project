@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,7 @@ import android.view.LayoutInflater;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toast;
 
 //upon instantiation, display textView
     //from the suggestions algorithm, display suggestions as checkBox
@@ -97,9 +99,10 @@ public class SuggestionsForImprovement extends BaseActivity {
         //Generate list View from ArrayList
         displayListView();
 
+
+        //calculateActions();
     }
-
-
+    int selectedCount = 0;
 
     private void displayListView() {
         //create an array list with class Suggestion (String, boolean) called suggestionList
@@ -139,6 +142,20 @@ public class SuggestionsForImprovement extends BaseActivity {
         // Assign adapter to ListView
         listView.setAdapter(dataAdapter);
 
+        listView.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                // When clicked, show a toast with the TextView text
+                Suggestion suggestion = (Suggestion) parent.getItemAtPosition(position);
+
+                //toast can stay for now, just to show what's happening
+                Toast.makeText(getApplicationContext(),
+                        "Clicked on Row: " + suggestion.getName(),
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
+
     }
 
     private class MyCustomAdapter extends ArrayAdapter<Suggestion> {
@@ -156,6 +173,8 @@ public class SuggestionsForImprovement extends BaseActivity {
             CheckBox name;
         }
 
+
+
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -170,6 +189,32 @@ public class SuggestionsForImprovement extends BaseActivity {
                 holder = new ViewHolder();
                 holder.name = (CheckBox) convertView.findViewById(R.id.checkBox1);
                 convertView.setTag(holder);
+
+                holder.name.setOnClickListener( new View.OnClickListener() {
+                    public void onClick(View v) {
+                        CheckBox cb = (CheckBox) v ;
+                        CharSequence actionCharSequence = cb.getText();
+                        String action = actionCharSequence.toString();
+                        Suggestion suggestion= (Suggestion) cb.getTag();
+                        if (cb.isChecked()== true) {
+                            selectedCount += 1;
+                            addAction(action);
+
+                        }
+                        else {
+                            selectedCount -= 1;
+                            removeAction(action);
+                        }
+
+                        Log.i("MyActivity", "sharedPreferences " + action);
+
+                        Toast.makeText(getApplicationContext(),
+                                "Clicked on Checkbox: " + cb.getText() +
+                                        " is " + cb.isChecked(),
+                                Toast.LENGTH_LONG).show();
+                        suggestion.setSelected(cb.isChecked());
+                    }
+                });
             }
             else {
                 holder = (ViewHolder) convertView.getTag();
@@ -185,6 +230,49 @@ public class SuggestionsForImprovement extends BaseActivity {
         }
 
     }
+
+
+    List<String> actionList = new ArrayList<String>(); //empty list
+    public void addAction(String action) {
+
+        actionList.add(action);
+        Log.i("MyActivity", "Action List: " + actionList);
+        if (selectedCount > 2) {
+            calculateActions(actionList);
+        }
+
+        //use the lines below to test whether the correct suggestions were added
+        //actionList = SharedPreferencesUtility.getStringList(this, "action");
+        //Log.i("MyActivity", "sharedPreferences " + actionList);
+    }
+
+    //removes an action from the list when it is unchecked
+    public void removeAction(String action) {
+        actionList.remove(action);
+        Log.i("MyActivity", "Action List: " + actionList);
+        if (selectedCount > 2) {
+            calculateActions(actionList);
+        }
+        //if there are fewer than two selected, clear the actionList in sharedPreferences
+//TODO implement another dialog alert box to appear if the actionList includes fewer than 3 actions
+        else {
+            SharedPreferencesUtility.clearSuggestionList(this, "action");
+        }
+    }
+
+    //adds the list of actions to sharedPreferences for display on ActionPlan activity
+    public void calculateActions(List actionList) {
+        SharedPreferencesUtility.putStringList(this, "action", actionList);
+    }
+
+
+        //create actionList
+//for suggestions in suggestionList,
+        //if Suggestion.isSelected() == TRUE
+        //action = Suggestion.getName()
+        //actionList.add(action)
+//SharedPreferencesUtility.putStringList(this, "action", actionList);
+
 
     //Button Navigation
 
