@@ -1,6 +1,4 @@
-// Florence Lee
-
-//This is Activity 4
+//Activity 4 (Your Customers)
 
 package com.edu.umich.businessplan.businessplan;
 
@@ -86,6 +84,11 @@ public class YourCustomers extends BaseActivity {
         //clear the suggestion list from shared preferences
         SharedPreferencesUtility.clearSuggestionList(this, "recommendation");
 
+        //call method to add suggestions to sharedPreferences
+        //if the user gets to this page, but selects nothing, all eight suggestions
+        //should be added to the sharedPreferences
+        calculateRecommendations();
+
     }
 
     //initialize variables for first table (Where Do You Sell?)
@@ -103,6 +106,7 @@ public class YourCustomers extends BaseActivity {
     int whoTotal = 0;
 
     public void selectCustomers(View view) {
+        //create variables for each button
         ImageButton sell_home = (ImageButton) findViewById(R.id.buttonHome);
         ImageButton sell_neighborhood = (ImageButton) findViewById(R.id.buttonNeighborhood);
         ImageButton sell_cart = (ImageButton) findViewById(R.id.buttonCart);
@@ -112,6 +116,14 @@ public class YourCustomers extends BaseActivity {
         ImageButton sellto_friends = (ImageButton) findViewById(R.id.buttonFriends);
         ImageButton sellto_neighbors = (ImageButton) findViewById(R.id.buttonNeighbors);
         ImageButton sellto_public = (ImageButton) findViewById(R.id.buttonPublic);
+
+        //for each button
+            //if it has already been selected
+                //change the background color to black
+                //change the selected variable to TRUE
+            //if not, revert the color to original and change the selected variable to FALSE
+            //depending on whether the variable is selected, add 1 or subtract 1 from the total
+            //  number of buttons in each group (where or who)
 
         if (view.getId() == R.id.buttonHome) {
             if (selectedHome == false) {
@@ -169,7 +181,7 @@ public class YourCustomers extends BaseActivity {
             Log.i("MyActivity", "Store Selected? " + selectedStore);
         }
 
-        if (view.getId() == R.id.buttonFamily) {
+        else if (view.getId() == R.id.buttonFamily) {
             if (selectedFamily == false) {
                 sellto_family.setBackgroundColor(Color.BLACK);
                 selectedFamily = true;
@@ -218,17 +230,22 @@ public class YourCustomers extends BaseActivity {
                 selectedPublic = false;
                 whoTotal -= 1;
             }
-            Log.i("MyActivity", "Where Total " + whoTotal);
+            Log.i("MyActivity", "Who Total " + whoTotal);
             Log.i("MyActivity", "Public? " + selectedPublic);
         }
         Log.i("MyActivity", "Who Total: " + whoTotal);
         Log.i("MyActivity", "Where Total: " + whereTotal);
+
+        //call the calculateRecommendations method to update the sharedPreferences
         calculateRecommendations();
     }
 
 
     public void calculateRecommendations() {
-        List<String> suggestionList = new ArrayList<String>();
+        List<String> suggestionList = new ArrayList<String>(); //empty list
+
+        //if fewer than two buttons from the group are selected
+            //add suggestions only if the button has not been selected
         if (whereTotal <= 2) {
             if (selectedHome == false) {
                 String suggestion = "Try selling at home";
@@ -245,7 +262,7 @@ public class YourCustomers extends BaseActivity {
             if (selectedStore == false) {
                 String suggestion = "Try selling in a store";
                 suggestionList.add(suggestion);
-            }
+            }}
         if (whoTotal <= 2) {
             if (selectedFamily == false) {
                 String suggestion = "Try selling to your family";
@@ -264,47 +281,19 @@ public class YourCustomers extends BaseActivity {
                 suggestionList.add(suggestion);
             }
         }
-        }
-        Log.i("MyActivity", "suggestionList " + suggestionList);
 
-        SharedPreferencesUtility.putStringList(this, "recommendation", suggestionList );
-        suggestionList = SharedPreferencesUtility.getStringList(this, "recommendation");
-        Log.i("MyActivity", "sharedPreferences " + suggestionList);
+            Log.i("MyActivity", "suggestionList " + suggestionList);
+
+            //add the suggestionList to the sharedPreferences using
+            //  the method in the SharedPreferences Utility class
+            SharedPreferencesUtility.putStringList(this, "recommendation", suggestionList);
+            //use the lines below to test whether the correct suggestions were added
+            suggestionList = SharedPreferencesUtility.getStringList(this, "recommendation");
+            Log.i("MyActivity", "sharedPreferences " + suggestionList);
 
     }
 
-
-
-
-
-
-
-    //create buttonSelected method
-        //create 2 variables for each of the 8 buttons (one for color, one for selected (0 or 1)
-        //create 2 variables for total selected whereSellTotal, whomSellTotal
-        //for each button:
-            //change color from green to black
-            //change the selected variable to 1
-            //if buttonID is in WhereSell and selected variable is 1:
-                //add 1 to the WhereSellTotal
-            //else if butonID is in WhomSell and selected variable is 1:
-                //add 1 to the WhomSellTotal
-
-    //if total for WhereDoYouSell buttons is < 2;
-        //if sell_home is 0:
-            //recommendationList.add("Try selling at home.");
-        //else if sell_neighborhood is 0;
-            //recommendationList.add("Try selling in your neighborhood")
-    //SharedPreferencesUtility.putStringList(this, "recommendations", recommendationList);
-
-    //if total for WhomDoYouSellTo buttons is < 2;
-        //if sell_family is 0:
-            //recommendationList.add("Try selling to your family.");
-        //else if sell_neighbors is 0;
-            //recommendationList.add("Try selling in your neighbors")
-    //SharedPreferencesUtility.putStringList(this, "recommendations", recommendationList);
-
-
+//Navigation
     //onClick of back button
     public void openPreviousActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), BusinessInformation.class);
@@ -317,6 +306,7 @@ public class YourCustomers extends BaseActivity {
         startActivity(intent);
     }
 
+//Actionbar menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
