@@ -54,6 +54,7 @@ public class SharedPreferencesUtility {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(key, listString);
         editor.apply();
+        Log.i("MyActivity", "SharedPrefs: " + listString);
     }
 
     public static void clearSuggestionList(Activity activity, String key) {
@@ -61,5 +62,10 @@ public class SharedPreferencesUtility {
         SharedPreferences.Editor editor = preferences.edit();
         editor.remove(key);
         editor.apply();
+
+
+        //for printing in console to see updated list (should be empty)
+        List showList = SharedPreferencesUtility.getStringList(activity, key);
+        Log.i("MyActivity", "SharedPrefs: " + showList);
     }
 }
