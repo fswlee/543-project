@@ -13,7 +13,6 @@
         android:layout_marginTop="20dp"
         android:text="Tell us about your customers."
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         style="@style/instructions"/>
 
     <TextView

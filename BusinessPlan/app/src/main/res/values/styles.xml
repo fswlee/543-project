@@ -67,6 +67,13 @@
         <item name="android:layout_weight">1</item>
     </style>
 
+    <style name="hoursbutton">
+        <item name="android:background">#2DC489</item>
+        <item name="android:layout_width">28dp</item>
+        <item name="android:layout_height">28dp</item>
+        <item name="android:layout_margin">1dp</item>
+    </style>
+
     <style name="smiles">
         <item name="android:background">#2DC489</item>
         <item name="android:layout_width">40dp</item>

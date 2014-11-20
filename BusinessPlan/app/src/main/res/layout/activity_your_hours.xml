@@ -5,12 +5,15 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_margin="20dp"
         android:id="@+id/textView1"
-        android:text="Select the days and times that your business is open."/>
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Select the days and times that your business is open."
+        style="@style/instructions"/>
 
     <TableLayout
         android:layout_width="wrap_content"
@@ -120,64 +123,51 @@
                 android:layout_row="3"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button2_3"
                 android:layout_column="2"
-                android:layout_row="3"/>
+                android:layout_row="3"
+                />
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button3_3"
                 android:layout_column="3"
                 android:layout_row="3"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button4_3"
                 android:layout_column="4"
                 android:layout_row="3"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button5_3"
                 android:layout_column="5"
                 android:layout_row="3"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button6_3"
                 android:layout_column="6"
                 android:layout_row="3"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button7_3"
                 android:layout_column="7"
                 android:layout_row="3"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button8_3"
                 android:layout_column="8"
                 android:layout_row="3"/>
@@ -201,64 +191,50 @@
                 android:layout_row="5"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button2_5"
                 android:layout_column="2"
                 android:layout_row="5"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button3_5"
                 android:layout_column="3"
                 android:layout_row="5"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button4_5"
                 android:layout_column="4"
                 android:layout_row="5"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button5_5"
                 android:layout_column="5"
                 android:layout_row="5"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button6_5"
                 android:layout_column="6"
                 android:layout_row="5"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button7_5"
                 android:layout_column="7"
                 android:layout_row="5"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button8_5"
                 android:layout_column="8"
                 android:layout_row="5"/>
@@ -285,64 +261,50 @@
                 android:layout_row="7"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button2_7"
                 android:layout_column="2"
                 android:layout_row="7"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button3_7"
                 android:layout_column="3"
                 android:layout_row="7"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button4_7"
                 android:layout_column="4"
                 android:layout_row="7"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button5_7"
                 android:layout_column="5"
                 android:layout_row="7"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button6_7"
                 android:layout_column="6"
                 android:layout_row="7"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button7_7"
                 android:layout_column="7"
                 android:layout_row="7"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:text="New Button"
+                style="@style/hoursbutton"
+                android:text=" "
                 android:id="@+id/button8_7"
                 android:layout_column="8"
                 android:layout_row="7"/>
@@ -352,8 +314,7 @@
     </TableLayout>
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="40dp"
+        style="@style/navbuttonprev"
         android:id="@+id/previous"
         android:text="&lt;"
         android:layout_marginRight="94dp"
@@ -364,8 +325,7 @@
         android:onClick="openPreviousActivity"/>
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="40dp"
+        style="@style/navbutton"
         android:layout_alignParentBottom="true"
         android:id="@+id/next"
         android:text="&gt;"
@@ -373,6 +333,7 @@
         android:layout_marginRight="34dp"
         android:layout_alignParentRight="true"
         android:onClick="openNextActivity" />
+
 
     <TextView
         android:layout_width="wrap_content"

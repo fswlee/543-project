@@ -15,11 +15,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/instructions"
         android:id="@+id/textView1"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="How Is Business?\n" />
 
     <TextView
+        style="@style/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
@@ -76,8 +78,7 @@
 </LinearLayout>
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="40dp"
+        style="@style/navbuttonprev"
         android:id="@+id/previous"
         android:text="&lt;"
         android:layout_marginRight="94dp"
@@ -88,8 +89,7 @@
         android:onClick="openPreviousActivity"/>
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="40dp"
+        style="@style/navbutton"
         android:layout_alignParentBottom="true"
         android:id="@+id/next"
         android:text="&gt;"
@@ -97,6 +97,7 @@
         android:layout_marginRight="34dp"
         android:layout_alignParentRight="true"
         android:onClick="openNextActivity" />
+
 
     <TextView
         android:layout_width="wrap_content"
