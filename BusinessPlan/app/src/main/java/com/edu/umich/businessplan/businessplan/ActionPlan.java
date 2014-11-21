@@ -5,6 +5,7 @@ package com.edu.umich.businessplan.businessplan;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +21,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import android.widget.Toast;
+import android.os.*;
 
 public class ActionPlan extends BaseActivity {
 
@@ -87,7 +89,21 @@ public class ActionPlan extends BaseActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         // if this button is clicked, close
                         // current activity
-                        ActionPlan.this.openCreateNewPlan();
+                        Toast.makeText(getApplicationContext(), "Thank you! Your plan has been submitted. Returning to the main screen.", Toast.LENGTH_SHORT).show();
+
+
+
+                        // delay the onClick event so that the Toast displays for a bit before the user
+                        // gets brought back to the home page
+                        // from http://stackoverflow.com/questions/17960922/delay-onclick-event-in-android
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                ActionPlan.this.openCreateNewPlan();
+                            }
+                        }, 2000);
+
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
