@@ -114,10 +114,10 @@
             android:layout_gravity="center_horizontal">
 
             <TextView
-                android:layout_width="60dp"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Morning"
+                android:text="AM"
                 android:id="@+id/textView1_3"
                 android:layout_column="1"
                 android:layout_row="3"/>
@@ -182,10 +182,10 @@
             android:layout_gravity="center_horizontal">
 
             <TextView
-                android:layout_width="70dp"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Afternoon"
+                android:text="PM"
                 android:id="@+id/textView1_5"
                 android:layout_column="1"
                 android:layout_row="5"/>
@@ -252,10 +252,10 @@
             android:layout_gravity="center_horizontal">
 
             <TextView
-                android:layout_width="60dp"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Evening"
+                android:text="Naps"
                 android:id="@+id/textView1_7"
                 android:layout_column="1"
                 android:layout_row="7"/>
