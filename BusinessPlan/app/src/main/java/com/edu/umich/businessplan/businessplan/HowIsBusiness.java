@@ -4,10 +4,13 @@ package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
 
 public class HowIsBusiness extends BaseActivity {
@@ -16,6 +19,57 @@ public class HowIsBusiness extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_how_is_business);
+    }
+
+    public void selectButton (View view) {
+        ImageButton superhappy = (ImageButton) findViewById(R.id.superhappy);
+        ImageButton happy = (ImageButton) findViewById(R.id.happy);
+        ImageButton meh = (ImageButton) findViewById(R.id.meh);
+        ImageButton sad = (ImageButton) findViewById(R.id.sad);
+        ImageButton supersad = (ImageButton) findViewById(R.id.supersad);
+
+
+        //if a button is selected
+        //  that button's background color changes
+        //  the other buttons' background color change to their original color
+
+        if(view.getId() == R.id.superhappy){
+            superhappy.setBackgroundColor(Color.BLACK);
+            happy.setBackgroundColor(Color.rgb(45,196,137));
+            meh.setBackgroundColor(Color.rgb(45, 196, 137));
+            sad.setBackgroundColor(Color.rgb(45,196,137));
+            supersad.setBackgroundColor(Color.rgb(45, 196, 137));
+        }
+
+        else if (view.getId() == R.id.happy){
+            happy.setBackgroundColor(Color.BLACK);
+            superhappy.setBackgroundColor(Color.rgb(45,196,137));
+            meh.setBackgroundColor(Color.rgb(45,196,137));
+            sad.setBackgroundColor(Color.rgb(45,196,137));
+            supersad.setBackgroundColor(Color.rgb(45,196,137));
+        }
+        else if (view.getId() == R.id.meh){
+            meh.setBackgroundColor(Color.BLACK);
+            happy.setBackgroundColor(Color.rgb(45,196,137));
+            superhappy.setBackgroundColor(Color.rgb(45, 196, 137));
+            sad.setBackgroundColor(Color.rgb(45,196,137));
+            supersad.setBackgroundColor(Color.rgb(45,196,137));
+        }
+        else if (view.getId() == R.id.sad) {
+            sad.setBackgroundColor(Color.BLACK);
+            happy.setBackgroundColor(Color.rgb(45, 196, 137));
+            meh.setBackgroundColor(Color.rgb(45, 196, 137));
+            superhappy.setBackgroundColor(Color.rgb(45, 196, 137));
+            supersad.setBackgroundColor(Color.rgb(45, 196, 137));
+        }
+        else if (view.getId() == R.id.supersad) {
+            supersad.setBackgroundColor(Color.BLACK);
+            happy.setBackgroundColor(Color.rgb(45, 196, 137));
+            meh.setBackgroundColor(Color.rgb(45, 196, 137));
+            sad.setBackgroundColor(Color.rgb(45, 196, 137));
+            superhappy.setBackgroundColor(Color.rgb(45, 196, 137));
+        }
+
     }
 
     //onClick of back button

@@ -43,33 +43,38 @@
         data based on poverty levels based on where people live-->
 
         <ImageButton
-            android:id="@+id/imageButton1"
+            android:id="@+id/superhappy"
             android:src="@drawable/superhappy"
-            style="@style/smiles"/>
+            style="@style/smiles"
+            android:onClick="selectButton"/>
         <!-- place holder image -->
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/happy"
             android:src="@drawable/happy"
-            style="@style/smiles"/>
+            style="@style/smiles"
+            android:onClick="selectButton"/>
         <!-- place holder image -->
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/meh"
             android:src="@drawable/meh"
-            style="@style/smiles"/>
+            style="@style/smiles"
+            android:onClick="selectButton"/>
         <!-- place holder image -->
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/sad"
             android:src="@drawable/sad"
-            style="@style/smiles"/>
+            style="@style/smiles"
+            android:onClick="selectButton"/>
         <!-- place holder image -->
 
         <ImageButton
-            android:id="@+id/imageButton5"
+            android:id="@+id/supersad"
             android:src="@drawable/supersad"
-            style="@style/smiles"/>
+            style="@style/smiles"
+            android:onClick="selectButton"/>
         <!-- place holder image -->
 
         <!-- //if the user selects any of the buttons in the first grid,
