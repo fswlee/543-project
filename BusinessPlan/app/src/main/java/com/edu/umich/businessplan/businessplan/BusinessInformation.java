@@ -16,10 +16,6 @@ import android.os.*;
 public class BusinessInformation extends BaseActivity {
 
 
-    //create a variable of type SharedPreferences:
-    SharedPreferences sharedpreferences;
-    String prename="mypref";
-
     // Focus is initially on describe your business textbox
 
     // income per month should be set up as a number input. field should only accept numbers
@@ -38,14 +34,6 @@ public class BusinessInformation extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_information);
 
-
-        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
-//    SharedPreferences.Editor editor = mySharedPreferences.edit();
-
-        int num_people = mySharedPreferences.getInt("num_people",0);
-
-
-        Toast.makeText(this, "Output : " + num_people, Toast.LENGTH_LONG).show();
 
 
 

@@ -6,6 +6,7 @@ package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Handler;
+import android.widget.Toast;
 
 
 import com.jjoe64.graphview.BarGraphView;
@@ -81,6 +83,16 @@ public class YouAndYourCommunity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_you_and_your_community);
+
+
+        //create a variable of type SharedPreferences:
+        SharedPreferences sharedpreferences;
+        String prename="mypref";
+
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+        int num_people = mySharedPreferences.getInt("num_people",0);
+
+        Toast.makeText(this, "# people in Household : " + num_people, Toast.LENGTH_LONG).show();
 
 
         GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
