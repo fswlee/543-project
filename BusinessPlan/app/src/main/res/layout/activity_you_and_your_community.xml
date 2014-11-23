@@ -17,19 +17,24 @@
         style="@style/instructions"
         android:text="This graph shows your income in relation to the poverty threshold in your community."/>
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:src="@drawable/poverty_graph"
-        android:layout_below="@+id/textView1"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
-        <!-- this is a mock-up of what our graph might look like after
-        user input is processed in our algorithm -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/graph1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/textView1">
 
-       <!-- place holder image
-       android:src="@android:drawable/alert_light_frame"-->
+        <LinearLayout
+            android:id="@+id/graph2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+        </LinearLayout>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView3"
@@ -38,7 +43,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="0dp"
-        android:layout_below="@+id/imageView1"
+        android:layout_below="@+id/graph1"
         style="@style/question"
         android:text="Go to the next screen for ways to improve your business."
         />
@@ -61,21 +66,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/graph1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal" >
 
-        <LinearLayout
-            android:id="@+id/graph2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal" >
-        </LinearLayout>
-
-    </LinearLayout>
 
 
     <Button

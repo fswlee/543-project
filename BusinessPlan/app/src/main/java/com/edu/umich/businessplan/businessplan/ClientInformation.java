@@ -87,7 +87,7 @@ public class ClientInformation extends BaseActivity {
 
     // spinner code from http://www.learn2crack.com/2013/12/android-spinner-dropdown-example.html
 
-
+    
 
 
     }

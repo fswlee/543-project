@@ -13,16 +13,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.app.Activity;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.os.Handler;
-import android.widget.LinearLayout;
 
 
 import com.jjoe64.graphview.BarGraphView;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GraphView.GraphViewData;
 import com.jjoe64.graphview.GraphViewSeries;
-import com.jjoe64.graphview.LineGraphView;
 
 
 // household
@@ -73,94 +70,41 @@ public class YouAndYourCommunity extends BaseActivity {
         return Math.random() * (high - low) + low;
     }
 
+    // grab # of people from sharedpreferences
+    // threshold list
+    1,11888;2,15142
+
+    // grab income from sharedpreferences
+    // multiply by 12 and plot
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_you_and_your_community);
 
-        //example series data
-        exampleSeries1 = new GraphViewSeries(new GraphViewData[] {
+
+        GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
                 new GraphViewData(1, 2.0d)
-                , new GraphViewData(2, 1.5d)
-                , new GraphViewData(2.5, 3.0d)
-                , new GraphViewData(3, 2.5d)
-                , new GraphViewData(4, 1.0d)
-                , new GraphViewData(5, 3.0d)
-        });
-        exampleSeries3 = new GraphViewSeries(new GraphViewData[] {});
-        exampleSeries3.getStyle().color = Color.CYAN;
-
-
-        if (graphType.equalsIgnoreCase("bar")) {
-            graphView = new BarGraphView(
-                    this
-                    , "GraphViewDemo"
-            );
-        } else {
-            graphView = new LineGraphView(
-                    this // context
-                    , "GraphViewDemo"
-            );
-        }
-        graphView.addSeries(exampleSeries1);
-        graphView.addSeries(exampleSeries3);
-
-        LinearLayout layout = (LinearLayout) findViewById(R.id.graph1);
-        layout.addView(graphView);
-
-        // ----------
-        exampleSeries2 = new GraphViewSeries(new GraphViewData[] {
-                new GraphViewData(1, 2.0d)
-                , new GraphViewData(2, 1.5d)
-                , new GraphViewData(2.5, 3.0d)
-                , new GraphViewData(3, 2.5d)
-                , new GraphViewData(4, 1.0d)
-                , new GraphViewData(5, 3.0d)
+//                , new GraphViewData(2, 1.5d)
+                , new GraphViewData(3, 4d)
         });
 
+        GraphView graphView = new BarGraphView(
+                this // context
+                , "GraphViewDemo" // heading
+        );
+        graphView.addSeries(exampleSeries); // data
 
-        if (graphType.equalsIgnoreCase("bar")) {
-            graphView = new BarGraphView(
-                    this
-                    , "GraphViewDemo"
-            );
-        } else {
-            graphView = new LineGraphView(
-                    this
-                    , "GraphViewDemo"
-            );
-            ((LineGraphView) graphView).setDrawBackground(true);
-        }
-
-        graphView.addSeries(exampleSeries2);
-        graphView.setViewPort(1, 8);
-        graphView.setScalable(true);
-        graphView.getGraphViewStyle().setGridColor(Color.BLACK);
-        graphView.getGraphViewStyle().setHorizontalLabelsColor(Color.BLACK);
-        graphView.getGraphViewStyle().setVerticalLabelsColor(Color.BLACK);
-
-        layout = (LinearLayout) findViewById(R.id.graph2);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.graph2);
         layout.addView(graphView);
+
+        // Set bar labels
+        graphView.setHorizontalLabels(new String[] {"you", "your community"});
+        graphView.setManualYAxisBounds(40,0);
+
+
     }
 
-
-    // init example series data
-//    GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
-//            new GraphViewData(1, 2.0d)
-//            , new GraphViewData(2, 1.5d)
-//            , new GraphViewData(3, 2.5d)
-//            , new GraphViewData(4, 1.0d)
-//    });
-//
-//    GraphView graphView = new LineGraphView(
-//            this // context
-//            , "GraphViewDemo" // heading
-//    );
-//    graphView.addSeries(exampleSeries); // data
-//
-//    LinearLayout layout = (LinearLayout) findViewById(R.id.layout);
-//    layout.addView(graphView);
 
 
     //onClick of back button
