@@ -6,9 +6,11 @@ package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +21,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 
 
@@ -44,8 +48,14 @@ public class ClientInformation extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_information);
+
 
         spinner = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
@@ -58,12 +68,30 @@ public class ClientInformation extends BaseActivity {
                                                int arg2, long arg3) {
                         int position = spinner.getSelectedItemPosition();
 
+                        //create a variable of type SharedPreferences:
+                        SharedPreferences sharedpreferences;
+                        String prename="mypref";
+
+                        int folks = spinner.getSelectedItemPosition();
+
+                        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+                        editor.putInt("num_people",folks);
+
+                        editor.apply();
+
                     }
                     @Override
                     public void onNothingSelected(AdapterView<?> arg0) {
 
                     }
+
+
+
                 }
+
+
         );
 
         spinner18 = (Spinner)findViewById(R.id.spinner18);
@@ -87,7 +115,11 @@ public class ClientInformation extends BaseActivity {
 
     // spinner code from http://www.learn2crack.com/2013/12/android-spinner-dropdown-example.html
 
-    
+
+
+
+
+
 
 
     }

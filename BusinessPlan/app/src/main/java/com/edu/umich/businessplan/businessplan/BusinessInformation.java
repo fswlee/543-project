@@ -4,14 +4,21 @@ package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+import android.os.*;
 
 
 public class BusinessInformation extends BaseActivity {
 
+
+    //create a variable of type SharedPreferences:
+    SharedPreferences sharedpreferences;
+    String prename="mypref";
 
     // Focus is initially on describe your business textbox
 
@@ -30,7 +37,29 @@ public class BusinessInformation extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_information);
+
+
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+//    SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+        int num_people = mySharedPreferences.getInt("num_people",0);
+
+
+        Toast.makeText(this, "Output : " + num_people, Toast.LENGTH_LONG).show();
+
+
+
     }
+
+
+
+
+//    editor.putInt("num_people",spinner.getSelectedItemPosition());
+//
+//    editor.apply();
+
+
+
 
     //onClick of back button
     public void openPreviousActivity(View view) {

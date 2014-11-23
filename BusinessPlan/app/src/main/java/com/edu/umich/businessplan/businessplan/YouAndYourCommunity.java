@@ -72,7 +72,7 @@ public class YouAndYourCommunity extends BaseActivity {
 
     // grab # of people from sharedpreferences
     // threshold list
-    1,11888;2,15142
+//    1,11888;2,15142
 
     // grab income from sharedpreferences
     // multiply by 12 and plot
