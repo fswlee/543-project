@@ -44,45 +44,66 @@ public class BusinessInformation extends BaseActivity {
 
 
 
+
     //onClick of back button
     public void openPreviousActivity(View view) {
 
-        // log the income value
+        // grab the value in the text field and convert to string
         EditText editText2 = (EditText) findViewById(R.id.editText2);
         String textentry = editText2.getText().toString();
-        int income = Integer.parseInt(textentry);
 
+        if (textentry.matches("")) {
+            Intent intent = new Intent(getApplicationContext(), ClientInformation.class);
+            startActivity(intent);
+        }
+        else {
+            // grab the text value and convert to a number
+            int income = Integer.parseInt(textentry);
 
-        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
-        SharedPreferences.Editor editor = mySharedPreferences.edit();
+            // save value into sharedpreferences
+            SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+            SharedPreferences.Editor editor = mySharedPreferences.edit();
 
+            editor.putInt("income", income);
+            editor.apply();
 
-        editor.putInt("income",income);
-        editor.apply();
-
-        Intent intent = new Intent(getApplicationContext(), ClientInformation.class);
-        startActivity(intent);
+            // go to the previous activity
+            Intent intent = new Intent(getApplicationContext(), ClientInformation.class);
+            startActivity(intent);
+        }
     }
+
+
 
     //onClick of forward button
     public void openNextActivity(View view) {
 
-        // log the income value
-
+        // grab the value in the text field and convert to string
         EditText editText2 = (EditText) findViewById(R.id.editText2);
         String textentry = editText2.getText().toString();
-        int income = Integer.parseInt(textentry);
+
+        // if the user did not input a monthly income value, just go to the next screen
+        if (textentry.matches("")) {
+            Intent intent = new Intent(getApplicationContext(), YourCustomers.class);
+            startActivity(intent);
+        }
+        else {
+            // grab the text value and convert to a number
+            int income = Integer.parseInt(textentry);
+
+            // save value into sharedpreferences
+            SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+            SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+            editor.putInt("income", income);
+            editor.apply();
+
+            // go to the next activity
+            Intent intent = new Intent(getApplicationContext(), YourCustomers.class);
+            startActivity(intent);
+        }
 
 
-        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
-        SharedPreferences.Editor editor = mySharedPreferences.edit();
-
-
-        editor.putInt("income",income);
-        editor.apply();
-
-        Intent intent = new Intent(getApplicationContext(), YourCustomers.class);
-        startActivity(intent);
     }
 
     @Override
