@@ -93,13 +93,15 @@ public class YouAndYourCommunity extends BaseActivity {
 
         SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
         int num_people = mySharedPreferences.getInt("num_people",0);
-        int income = mySharedPreferences.getInt("income",0);
+        int income = mySharedPreferences.getInt("income",97);
 
-        Toast.makeText(this, "number of people " + num_people + "," + "income " + income, Toast.LENGTH_LONG).show();
+        int annual_income = income * 12;
 
+        Toast.makeText(this, "number of people " + num_people + "," + "income " + annual_income, Toast.LENGTH_LONG).show();
 
         GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
-                new GraphViewData(1, 2.0d)
+//                new GraphViewData(1, 2.0d)
+                new GraphViewData(1, annual_income)
 //                , new GraphViewData(2, 1.5d)
                 , new GraphViewData(3, 4d)
         });

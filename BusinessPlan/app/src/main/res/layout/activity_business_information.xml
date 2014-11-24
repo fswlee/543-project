@@ -40,7 +40,7 @@
         style="@style/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Income per month:"
+        android:text="Monthly household income:"
         android:id="@+id/textView2"
         android:layout_below="@+id/editText1"/>
 

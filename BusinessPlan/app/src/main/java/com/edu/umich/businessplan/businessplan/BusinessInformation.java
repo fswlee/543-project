@@ -42,31 +42,45 @@ public class BusinessInformation extends BaseActivity {
 
     }
 
-    private void savePreferences(String key, int value) {
+
+
+    //onClick of back button
+    public void openPreviousActivity(View view) {
+
+        // log the income value
         EditText editText2 = (EditText) findViewById(R.id.editText2);
         String textentry = editText2.getText().toString();
         int income = Integer.parseInt(textentry);
 
 
-
         SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = mySharedPreferences.edit();
 
+
         editor.putInt("income",income);
-        editor.commit();
-    }
+        editor.apply();
 
-
-
-
-    //onClick of back button
-    public void openPreviousActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), ClientInformation.class);
         startActivity(intent);
     }
 
     //onClick of forward button
     public void openNextActivity(View view) {
+
+        // log the income value
+
+        EditText editText2 = (EditText) findViewById(R.id.editText2);
+        String textentry = editText2.getText().toString();
+        int income = Integer.parseInt(textentry);
+
+
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+
+        editor.putInt("income",income);
+        editor.apply();
+
         Intent intent = new Intent(getApplicationContext(), YourCustomers.class);
         startActivity(intent);
     }
@@ -89,4 +103,6 @@ public class BusinessInformation extends BaseActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }
