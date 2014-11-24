@@ -9,12 +9,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 import android.os.*;
 
 
 public class BusinessInformation extends BaseActivity {
 
+
+    SharedPreferences sharedpreferences;
+    String prename = "mypref";
 
     // Focus is initially on describe your business textbox
 
@@ -29,22 +33,28 @@ public class BusinessInformation extends BaseActivity {
     // if the user clicks on next, load activity 4, YourCustomers
     // if the user clicks on previous, load activity 2, Client Information
 
+//    private EditText editText2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_information);
 
-
-
-
     }
 
+    private void savePreferences(String key, int value) {
+        EditText editText2 = (EditText) findViewById(R.id.editText2);
+        String textentry = editText2.getText().toString();
+        int income = Integer.parseInt(textentry);
 
 
 
-//    editor.putInt("num_people",spinner.getSelectedItemPosition());
-//
-//    editor.apply();
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+        editor.putInt("income",income);
+        editor.commit();
+    }
 
 
 

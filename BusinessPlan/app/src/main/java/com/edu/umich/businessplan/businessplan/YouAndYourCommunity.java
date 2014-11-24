@@ -84,6 +84,8 @@ public class YouAndYourCommunity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_you_and_your_community);
 
+        // graph based on http://karanbalkar.com/2014/05/display-graphs-using-graphview-in-android/
+        // and http://android-graphview.org/#doc_howto
 
         //create a variable of type SharedPreferences:
         SharedPreferences sharedpreferences;
@@ -91,8 +93,9 @@ public class YouAndYourCommunity extends BaseActivity {
 
         SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
         int num_people = mySharedPreferences.getInt("num_people",0);
+        int income = mySharedPreferences.getInt("income",0);
 
-        Toast.makeText(this, "# people in Household : " + num_people, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "number of people " + num_people + "," + "income " + income, Toast.LENGTH_LONG).show();
 
 
         GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {

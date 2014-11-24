@@ -4,6 +4,7 @@ package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 
 public class HowIsBusiness extends BaseActivity {
@@ -19,6 +21,7 @@ public class HowIsBusiness extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_how_is_business);
+
     }
 
     public void selectButton (View view) {
