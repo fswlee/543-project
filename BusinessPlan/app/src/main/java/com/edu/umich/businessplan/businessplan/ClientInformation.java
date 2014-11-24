@@ -41,7 +41,9 @@ public class ClientInformation extends BaseActivity {
             "4",
             "5",
             "6",
-            "more than 6"
+            "7",
+            "8",
+            "more than 8"
     };
 
 

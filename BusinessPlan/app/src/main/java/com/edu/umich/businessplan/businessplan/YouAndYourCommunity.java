@@ -16,6 +16,7 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.os.Handler;
 import android.widget.Toast;
+import java.util.*;
 
 
 import com.jjoe64.graphview.BarGraphView;
@@ -52,32 +53,19 @@ import com.jjoe64.graphview.GraphViewSeries;
 	// When the user selects "button2" (previous), an onClick event
 	// is triggered. Load the next activity (SuggestionsForImprovement).
 
+
+
 public class YouAndYourCommunity extends BaseActivity {
 
-    private final Handler mHandler = new Handler();
-    private Runnable mTimer1;
-    private Runnable mTimer2;
-    private GraphView graphView;
-    private GraphViewSeries exampleSeries1;
-    private GraphViewSeries exampleSeries2;
-    private double graph2LastXValue = 5d;
-    private GraphViewSeries exampleSeries3;
-
-    //change graphType to line if bar chart not required
-    private String graphType = "bar";
-
-    private double getRandom() {
-        double high = 3;
-        double low = 0.5;
-        return Math.random() * (high - low) + low;
-    }
-
-    // grab # of people from sharedpreferences
-    // threshold list
-//    1,11888;2,15142
-
-    // grab income from sharedpreferences
-    // multiply by 12 and plot
+//    public class PovertyThresholds {
+//        public void main(String[] args) {
+//            Map<Integer, Integer> m1 = new HashMap<Integer, Integer>();
+//            m1.put(1,11888);
+//            m1.put(2,15142);
+//
+//            int butts = (Integer)m1.get(2);
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,20 +83,54 @@ public class YouAndYourCommunity extends BaseActivity {
         int num_people = mySharedPreferences.getInt("num_people",0);
         int income = mySharedPreferences.getInt("income",97);
 
+        // calculate annual income for the graph
         int annual_income = income * 12;
 
-        Toast.makeText(this, "number of people " + num_people + "," + "income " + annual_income, Toast.LENGTH_LONG).show();
+        // initialize poverty threshold variable
+        int poverty_threshold = 0;
+
+        // set value of poverty_threshold depending on the number of people
+        if (num_people == 1) {
+            poverty_threshold = 11888;
+        }
+        else if (num_people == 2) {
+            poverty_threshold = 15142;
+        }
+        else if (num_people == 3) {
+            poverty_threshold = 18552;
+        }
+        else if (num_people == 4) {
+            poverty_threshold = 23824;
+        }
+        else if (num_people == 5) {
+            poverty_threshold = 28265;
+        }
+        else if (num_people == 6) {
+            poverty_threshold = 31925;
+        }
+        else if (num_people == 7) {
+            poverty_threshold = 36384;
+        }
+        else if (num_people == 8) {
+            poverty_threshold = 40484;
+        }
+        else if (num_people == 9) {
+            poverty_threshold = 48065;
+        }
+
+
+
+
+        Toast.makeText(this, "number of people " + num_people + "," + "income " + annual_income + ", threshold " + poverty_threshold, Toast.LENGTH_LONG).show();
 
         GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
-//                new GraphViewData(1, 2.0d)
                 new GraphViewData(1, annual_income)
-//                , new GraphViewData(2, 1.5d)
-                , new GraphViewData(3, 4d)
+                , new GraphViewData(3, poverty_threshold)
         });
 
         GraphView graphView = new BarGraphView(
                 this // context
-                , "GraphViewDemo" // heading
+                , "Annual Income" // heading
         );
         graphView.addSeries(exampleSeries); // data
 
@@ -116,8 +138,8 @@ public class YouAndYourCommunity extends BaseActivity {
         layout.addView(graphView);
 
         // Set bar labels
-        graphView.setHorizontalLabels(new String[] {"you", "your community"});
-        graphView.setManualYAxisBounds(40,0);
+        graphView.setHorizontalLabels(new String[] {"You", "Your Community"});
+        graphView.setManualYAxisBounds(60000,0);
 
 
     }
