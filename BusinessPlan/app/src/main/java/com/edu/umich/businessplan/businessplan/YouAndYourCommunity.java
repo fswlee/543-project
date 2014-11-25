@@ -57,23 +57,17 @@ import com.jjoe64.graphview.GraphViewSeries;
 
 public class YouAndYourCommunity extends BaseActivity {
 
-//    public class PovertyThresholds {
-//        public void main(String[] args) {
-//            Map<Integer, Integer> m1 = new HashMap<Integer, Integer>();
-//            m1.put(1,11888);
-//            m1.put(2,15142);
-//
-//            int butts = (Integer)m1.get(2);
-//        }
-//    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_you_and_your_community);
 
-        // graph based on http://karanbalkar.com/2014/05/display-graphs-using-graphview-in-android/
-        // and http://android-graphview.org/#doc_howto
+        // graph created using the GraphView library
+        // http://android-graphview.org/#doc_howto
+        // based on http://karanbalkar.com/2014/05/display-graphs-using-graphview-in-android/
+
 
         //create a variable of type SharedPreferences:
         SharedPreferences sharedpreferences;
@@ -118,12 +112,11 @@ public class YouAndYourCommunity extends BaseActivity {
             poverty_threshold = 48065;
         }
 
+//        // for debugging
+//        Toast.makeText(this, "number of people " + num_people + "," + "income " + annual_income + ", threshold " + poverty_threshold, Toast.LENGTH_LONG).show();
 
-
-
-        Toast.makeText(this, "number of people " + num_people + "," + "income " + annual_income + ", threshold " + poverty_threshold, Toast.LENGTH_LONG).show();
-
-        GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
+        // values for the graph
+        GraphViewSeries graphValues = new GraphViewSeries(new GraphViewData[] {
                 new GraphViewData(1, annual_income)
                 , new GraphViewData(3, poverty_threshold)
         });
@@ -132,14 +125,15 @@ public class YouAndYourCommunity extends BaseActivity {
                 this // context
                 , "Annual Income" // heading
         );
-        graphView.addSeries(exampleSeries); // data
+        graphView.addSeries(graphValues); // data
 
         LinearLayout layout = (LinearLayout) findViewById(R.id.graph2);
         layout.addView(graphView);
 
         // Set bar labels
         graphView.setHorizontalLabels(new String[] {"You", "Your Community"});
-        graphView.setManualYAxisBounds(60000,0);
+        graphView.setManualYAxisBounds(60000,0); // Y axis bound
+
 
 
     }
