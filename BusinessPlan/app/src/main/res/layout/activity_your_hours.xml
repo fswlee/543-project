@@ -128,6 +128,7 @@
                 android:id="@+id/mondayMorning"
                 android:layout_column="2"
                 android:layout_row="3"
+                android:onClick="selectHours"
                 />
 
             <Button
@@ -135,42 +136,48 @@
                 android:text=" "
                 android:id="@+id/tuesdayMorning"
                 android:layout_column="3"
-                android:layout_row="3"/>
+                android:layout_row="3"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
                 android:id="@+id/wednesdayMorning"
                 android:layout_column="4"
-                android:layout_row="3"/>
+                android:layout_row="3"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
                 android:id="@+id/thursdayMorning"
                 android:layout_column="5"
-                android:layout_row="3"/>
+                android:layout_row="3"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
                 android:id="@+id/fridayMorning"
                 android:layout_column="6"
-                android:layout_row="3"/>
+                android:layout_row="3"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
                 android:id="@+id/saturdayMorning"
                 android:layout_column="7"
-                android:layout_row="3"/>
+                android:layout_row="3"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
                 android:id="@+id/sundayMorning"
                 android:layout_column="8"
-                android:layout_row="3"/>
+                android:layout_row="3"
+                android:onClick="selectHours"/>
 
 
 
@@ -195,14 +202,16 @@
                 android:text=" "
                 android:id="@+id/mondayAfternoon"
                 android:layout_column="2"
-                android:layout_row="5"/>
+                android:layout_row="5"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
                 android:id="@+id/tuesdayAfternoon"
                 android:layout_column="3"
-                android:layout_row="5"/>
+                android:layout_row="5"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
@@ -216,28 +225,32 @@
                 android:text=" "
                 android:id="@+id/thursdayAfternoon"
                 android:layout_column="5"
-                android:layout_row="5"/>
+                android:layout_row="5"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
                 android:id="@+id/fridayAfternoon"
                 android:layout_column="6"
-                android:layout_row="5"/>
+                android:layout_row="5"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
                 android:id="@+id/saturdayAfternoon"
                 android:layout_column="7"
-                android:layout_row="5"/>
+                android:layout_row="5"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
                 android:id="@+id/sundayAfternoon"
                 android:layout_column="8"
-                android:layout_row="5"/>
+                android:layout_row="5"
+                android:onClick="selectHours"/>
 
         </TableRow>
         <TableRow
@@ -265,49 +278,56 @@
                 android:text=" "
                 android:id="@+id/mondayEvening"
                 android:layout_column="2"
-                android:layout_row="7"/>
+                android:layout_row="7"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
                 android:id="@+id/tuesdayEvening"
                 android:layout_column="3"
-                android:layout_row="7"/>
+                android:layout_row="7"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
                 android:id="@+id/wednesdayEvening"
                 android:layout_column="4"
-                android:layout_row="7"/>
+                android:layout_row="7"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
                 android:id="@+id/thursdayEvening"
                 android:layout_column="5"
-                android:layout_row="7"/>
+                android:layout_row="7"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
                 android:id="@+id/fridayEvening"
                 android:layout_column="6"
-                android:layout_row="7"/>
+                android:layout_row="7"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
                 android:id="@+id/saturdayEvening"
                 android:layout_column="7"
-                android:layout_row="7"/>
+                android:layout_row="7"
+                android:onClick="selectHours"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
                 android:id="@+id/sundayEvening"
                 android:layout_column="8"
-                android:layout_row="7"/>
+                android:layout_row="7"
+                android:onClick="selectHours"/>
 
         </TableRow>
 
