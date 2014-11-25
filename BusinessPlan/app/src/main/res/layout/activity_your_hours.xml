@@ -125,7 +125,7 @@
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button2_3"
+                android:id="@+id/mondayMorning"
                 android:layout_column="2"
                 android:layout_row="3"
                 />
@@ -133,42 +133,42 @@
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button3_3"
+                android:id="@+id/tuesdayMorning"
                 android:layout_column="3"
                 android:layout_row="3"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button4_3"
+                android:id="@+id/wednesdayMorning"
                 android:layout_column="4"
                 android:layout_row="3"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button5_3"
+                android:id="@+id/thursdayMorning"
                 android:layout_column="5"
                 android:layout_row="3"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button6_3"
+                android:id="@+id/fridayMorning"
                 android:layout_column="6"
                 android:layout_row="3"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button7_3"
+                android:id="@+id/saturdayMorning"
                 android:layout_column="7"
                 android:layout_row="3"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button8_3"
+                android:id="@+id/sundayMorning"
                 android:layout_column="8"
                 android:layout_row="3"/>
 
@@ -193,49 +193,49 @@
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button2_5"
+                android:id="@+id/mondayAfternoon"
                 android:layout_column="2"
                 android:layout_row="5"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button3_5"
+                android:id="@+id/tuesdayAfternoon"
                 android:layout_column="3"
                 android:layout_row="5"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button4_5"
+                android:id="@+id/wednesdayAfternoon"
                 android:layout_column="4"
                 android:layout_row="5"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button5_5"
+                android:id="@+id/thursdayAfternoon"
                 android:layout_column="5"
                 android:layout_row="5"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button6_5"
+                android:id="@+id/fridayAfternoon"
                 android:layout_column="6"
                 android:layout_row="5"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button7_5"
+                android:id="@+id/saturdayAfternoon"
                 android:layout_column="7"
                 android:layout_row="5"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button8_5"
+                android:id="@+id/sundayAfternoon"
                 android:layout_column="8"
                 android:layout_row="5"/>
 
@@ -263,49 +263,49 @@
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button2_7"
+                android:id="@+id/mondayEvening"
                 android:layout_column="2"
                 android:layout_row="7"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button3_7"
+                android:id="@+id/tuesdayEvening"
                 android:layout_column="3"
                 android:layout_row="7"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button4_7"
+                android:id="@+id/wednesdayEvening"
                 android:layout_column="4"
                 android:layout_row="7"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button5_7"
+                android:id="@+id/thursdayEvening"
                 android:layout_column="5"
                 android:layout_row="7"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button6_7"
+                android:id="@+id/fridayEvening"
                 android:layout_column="6"
                 android:layout_row="7"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button7_7"
+                android:id="@+id/saturdayEvening"
                 android:layout_column="7"
                 android:layout_row="7"/>
 
             <Button
                 style="@style/hoursbutton"
                 android:text=" "
-                android:id="@+id/button8_7"
+                android:id="@+id/sundayEvening"
                 android:layout_column="8"
                 android:layout_row="7"/>
 

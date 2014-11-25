@@ -4,10 +4,14 @@ package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 //display textViews and Buttons upon activity instantiation
 
@@ -86,6 +90,49 @@ public class YourHours extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_hours);
     }
+
+    //initialize selected status variables (bool)
+    boolean selectedMondayMorning = false;
+
+
+
+    //initialize total variables (int)
+    int weekdayTotal = 0;
+    int weekendTotal = 9;
+    int morningTotal = 0;
+    int afternoonTotal = 0;
+    int eveningTotal = 0;
+
+
+    public void selectCustomers(View view) {
+        //create variables for each button
+        Button mondayMorning = (Button) findViewById(R.id.mondayMorning);
+
+
+        //for each button
+        //if it has already been selected
+        //change the background color to black
+        //change the selected variable to TRUE
+        //if not, revert the color to original and change the selected variable to FALSE
+        //depending on whether the variable is selected, add 1 or subtract 1 from the total
+        //  number of buttons in each group (where or who)
+
+        if (view.getId() == R.id.mondayMorning) {
+            if (selectedMondayMorning == false) {
+                mondayMorning.setBackgroundColor(Color.BLACK);
+                selectedMondayMorning = true;
+                weekdayTotal += 1;
+                morningTotal += 1;
+            } else {
+                mondayMorning.setBackgroundColor(Color.rgb(45, 196, 137));
+                selectedMondayMorning = false;
+                weekdayTotal -= 1;
+                morningTotal -= 1;
+            }
+        }
+
+    }
+
 
     //onClick of back button
     public void openPreviousActivity(View view) {
