@@ -6,6 +6,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,71 +42,50 @@ public class BusinessInformation extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_information);
 
+
+        // grab the value in the text field and convert to string
+        final EditText editText2 = (EditText) findViewById(R.id.editText2);
+
+        // add listener to capture the income value the user inputs after the user inputs it
+        editText2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+                String textentry = editText2.getText().toString();
+                int income = Integer.parseInt(textentry);
+
+                // save value into sharedpreferences
+                SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+                SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+                editor.putInt("income", income);
+                editor.apply();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
     }
-
-
 
 
     //onClick of back button
     public void openPreviousActivity(View view) {
-
-        // grab the value in the text field and convert to string
-        EditText editText2 = (EditText) findViewById(R.id.editText2);
-        String textentry = editText2.getText().toString();
-
-        if (textentry.matches("")) {
             Intent intent = new Intent(getApplicationContext(), ClientInformation.class);
             startActivity(intent);
         }
-        else {
-            // grab the text value and convert to a number
-            int income = Integer.parseInt(textentry);
-
-            // save value into sharedpreferences
-            SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
-            SharedPreferences.Editor editor = mySharedPreferences.edit();
-
-            editor.putInt("income", income);
-            editor.apply();
-
-            // go to the previous activity
-            Intent intent = new Intent(getApplicationContext(), ClientInformation.class);
-            startActivity(intent);
-        }
-    }
-
 
 
     //onClick of forward button
     public void openNextActivity(View view) {
-
-        // grab the value in the text field and convert to string
-        EditText editText2 = (EditText) findViewById(R.id.editText2);
-        String textentry = editText2.getText().toString();
-
-        // if the user did not input a monthly income value, just go to the next screen
-        if (textentry.matches("")) {
-            Intent intent = new Intent(getApplicationContext(), YourCustomers.class);
-            startActivity(intent);
-        }
-        else {
-            // grab the text value and convert to a number
-            int income = Integer.parseInt(textentry);
-
-            // save value into sharedpreferences
-            SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
-            SharedPreferences.Editor editor = mySharedPreferences.edit();
-
-            editor.putInt("income", income);
-            editor.apply();
-
-            // go to the next activity
             Intent intent = new Intent(getApplicationContext(), YourCustomers.class);
             startActivity(intent);
         }
 
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
