@@ -1,5 +1,6 @@
-//Hannah
 //This is Activity 5
+// Apologies that the code is so repetitive and long -
+//  I have been unable to implement a gridAdapter
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
@@ -16,75 +17,6 @@ import android.widget.ImageButton;
 import java.util.ArrayList;
 import java.util.List;
 
-//display textViews and Buttons upon activity instantiation
-
-//if the user selects any, button change its state from unselected to selected. the user can select
-//as many buttons as he or she wants
-
-//if the user selects the back button an onClick event occurs
-
-    //Activity4 (YourCustomers) loads
-
-    //the algorithm that generates suggestions for improvement is updated to include the number
-    //of buttons selected
-        //determine how many weekend shifts
-        //determine how many morning, afternoon, evening
-    /*This is really complicated pseudo code to write
-        //list_Morning{0,0,0,0,0,0,0}
-        //list_Afternoon{0,0,0,0,0,0,0}
-        //list_Evening{0,0,0,0,0,0,0}
-        //if MonMorn=1
-            //list_Morning(0)=1
-        //if MonAfter=1
-            list_Morning(0)=1
-        if MonEvening=1
-            list_Morning(0)=1
-        if TuesMorn=1
-            list_Morning(0)=1
-        if TuesAfter=1
-            list_Morning(0)=1
-        if TuesEvening=1
-            list_Morning(0)=1
-        if WedMorn=1
-            list_Morning(0)=1
-        if WedAfter=1
-            list_Morning(0)=1
-        if WedEvening=1
-            list_Morning(0)=1
-        if ThurMorn=1
-            list_Morning(0)=1
-        if ThurAfter=1
-            list_Morning(0)=1
-        if ThurEvening=1
-            list_Morning(0)=1
-        if FriMorn=1
-            list_Morning(0)=1
-        if FriAfter=1
-            list_Morning(0)=1
-        if FriEvening=1
-            list_Morning(0)=1
-        if SatMorn=1
-            list_Morning(0)=1
-        if SatAfter=1
-            list_Morning(0)=1
-        if SatEvening=1
-            list_Morning(0)=1
-        if SunMorn=1
-            list_Morning(0)=1
-        if SunAfter=1
-            list_Morning(0)=1
-        if SunEvening=1
-            list_Morning(0)=1*/
-
-
-//if the user selects the forward button an onClick event occurs
-
-    //Activity6 (HowIsBusiness) loads
-
-    //the algorithm that generates suggestions for improvement is updated to include the number
-    //of buttons selected
-        //determine how many weekend shifts
-        //determine how many morning, afternoon, evening shifts
 
 public class YourHours extends BaseActivity {
 
@@ -97,6 +29,7 @@ public class YourHours extends BaseActivity {
     }
 
     //initialize selected status variables (bool)
+    //morning
     boolean selectedMondayMorning = false;
     boolean selectedTuesdayMorning = false;
     boolean selectedWednesdayMorning = false;
@@ -105,6 +38,23 @@ public class YourHours extends BaseActivity {
     boolean selectedSaturdayMorning = false;
     boolean selectedSundayMorning = false;
 
+    //afternoon
+    boolean selectedMondayAfternoon = false;
+    boolean selectedTuesdayAfternoon = false;
+    boolean selectedWednesdayAfternoon = false;
+    boolean selectedThursdayAfternoon = false;
+    boolean selectedFridayAfternoon = false;
+    boolean selectedSaturdayAfternoon = false;
+    boolean selectedSundayAfternoon = false;
+
+    //evening
+    boolean selectedMondayEvening = false;
+    boolean selectedTuesdayEvening = false;
+    boolean selectedWednesdayEvening = false;
+    boolean selectedThursdayEvening= false;
+    boolean selectedFridayEvening = false;
+    boolean selectedSaturdayEvening = false;
+    boolean selectedSundayEvening = false;
 
 
     //initialize total variables (int)
@@ -114,16 +64,11 @@ public class YourHours extends BaseActivity {
     int afternoonTotal = 0;
     int eveningTotal = 0;
 
-
-    public void selectHours(View view) {
-        //create variables for each button
-        Button mondayMorning = (Button) findViewById(R.id.mondayMorning);
-        Button tuesdayMorning = (Button) findViewById(R.id.mondayMorning);
-        Button wednesdayMorning = (Button) findViewById(R.id.mondayMorning);
-        Button thursdayMorning = (Button) findViewById(R.id.mondayMorning);
-        Button fridayMorning = (Button) findViewById(R.id.mondayMorning);
-        Button saturdayMorning = (Button) findViewById(R.id.mondayMorning);
-        Button sundayMorning = (Button) findViewById(R.id.mondayMorning);
+    //receives the buttonID, the current selection status of the button, a string representing
+    //  the weekday or weekend, and a string representing morning, afternoon, or evening
+    //returns a the new selection status (boolean)
+    private Boolean select(View buttonID, boolean inSelectedDayTime, String day, String time ) {
+        boolean outSelectedDayTime;
 
         //for each button
         //if it has already been selected
@@ -131,105 +76,190 @@ public class YourHours extends BaseActivity {
         //change the selected variable to TRUE
         //if not, revert the color to original and change the selected variable to FALSE
         //depending on whether the variable is selected, add 1 or subtract 1 from the total
-        //  number of buttons in each group (where or who)
+        //  number of buttons in each group (weekday/weekend and morning/afternoon/evening)
+        if (inSelectedDayTime == false) {
+            outSelectedDayTime = true;
+            if (day == "weekday") {
+                weekdayTotal += 1;
+            }
+            else {
+                weekendTotal += 1;
+            }
+            if (time == "morning") {
+                morningTotal += 1;
+            }
+            else if (time == "afternoon") {
+                afternoonTotal += 1;
+            }
+            else {
+                eveningTotal += 1;
+            }
+            buttonID.setBackgroundColor(Color.BLACK);
+        }
+        else {
+            outSelectedDayTime = false;
+            if (day == "weekday") {
+                weekdayTotal -= 1;
+            }
+            else {
+                weekendTotal -= 1;
+            }
+            if (time == "morning") {
+                morningTotal -= 1;
+            }
+            else if (time == "afternoon") {
+                afternoonTotal -= 1;
+            }
+            else {
+                eveningTotal += 1;
+            }
+            buttonID.setBackgroundColor(Color.rgb(45, 196, 137));
+        }
+        Log.i("YourHours Activity", "return value (selected - true or false) " +
+                outSelectedDayTime );
+        return outSelectedDayTime;
 
+    }
+
+    //receives a button view and is called when that button is clicked on
+    //calls select() to change the background color, and add/subtract to the "total" variables
+    public void selectHours(View view) {
+        //create variables for each button
+        Button mondayMorning = (Button) findViewById(R.id.mondayMorning);
+        Button tuesdayMorning = (Button) findViewById(R.id.tuesdayMorning);
+        Button wednesdayMorning = (Button) findViewById(R.id.wednesdayMorning);
+        Button thursdayMorning = (Button) findViewById(R.id.thursdayMorning);
+        Button fridayMorning = (Button) findViewById(R.id.fridayMorning);
+        Button saturdayMorning = (Button) findViewById(R.id.saturdayMorning);
+        Button sundayMorning = (Button) findViewById(R.id.sundayMorning);
+        Button mondayAfternoon = (Button) findViewById(R.id.mondayAfternoon);
+        Button tuesdayAfternoon = (Button) findViewById(R.id.tuesdayAfternoon);
+        Button wednesdayAfternoon = (Button) findViewById(R.id.wednesdayAfternoon);
+        Button thursdayAfternoon = (Button) findViewById(R.id.thursdayAfternoon);
+        Button fridayAfternoon = (Button) findViewById(R.id.fridayAfternoon);
+        Button saturdayAfternoon = (Button) findViewById(R.id.saturdayAfternoon);
+        Button sundayAfternoon = (Button) findViewById(R.id.sundayAfternoon);
+        Button mondayEvening = (Button) findViewById(R.id.mondayEvening);
+        Button tuesdayEvening = (Button) findViewById(R.id.tuesdayEvening);
+        Button wednesdayEvening = (Button) findViewById(R.id.wednesdayEvening);
+        Button thursdayEvening = (Button) findViewById(R.id.thursdayEvening);
+        Button fridayEvening = (Button) findViewById(R.id.fridayEvening);
+        Button saturdayEvening = (Button) findViewById(R.id.saturdayEvening);
+        Button sundayEvening = (Button) findViewById(R.id.sundayEvening);
+
+        //morning
         if (view.getId() == R.id.mondayMorning) {
-            if (selectedMondayMorning == false) {
-                mondayMorning.setBackgroundColor(Color.BLACK);
-                selectedMondayMorning = true;
-                weekdayTotal += 1;
-                morningTotal += 1;
-            } else {
-                mondayMorning.setBackgroundColor(Color.rgb(45, 196, 137));
-                selectedMondayMorning = false;
-                weekdayTotal -= 1;
-                morningTotal -= 1;
-            }
+            String day = "weekday";
+            String time = "morning";
+            selectedMondayMorning = select(mondayMorning, selectedMondayMorning, day, time);
         }
-
-        if (view.getId() == R.id.tuesdayMorning) {
-            if (selectedTuesdayMorning == false) {
-                tuesdayMorning.setBackgroundColor(Color.BLACK);
-                selectedTuesdayMorning = true;
-                weekdayTotal += 1;
-                morningTotal += 1;
-            } else {
-                tuesdayMorning.setBackgroundColor(Color.rgb(45, 196, 137));
-                selectedTuesdayMorning = false;
-                weekdayTotal -= 1;
-                morningTotal -= 1;
-            }
+        else if (view.getId() == R.id.tuesdayMorning) {
+            String day = "weekday";
+            String time = "morning";
+            selectedTuesdayMorning = select(tuesdayMorning, selectedTuesdayMorning, day, time);
         }
-
-        if (view.getId() == R.id.wednesdayMorning) {
-            if (selectedWednesdayMorning == false) {
-                wednesdayMorning.setBackgroundColor(Color.BLACK);
-                selectedWednesdayMorning = true;
-                weekdayTotal += 1;
-                morningTotal += 1;
-            } else {
-                wednesdayMorning.setBackgroundColor(Color.rgb(45, 196, 137));
-                selectedWednesdayMorning = false;
-                weekdayTotal -= 1;
-                morningTotal -= 1;
-            }
+        else if (view.getId() == R.id.wednesdayMorning) {
+            String day = "weekday";
+            String time = "morning";
+            selectedWednesdayMorning = select(wednesdayMorning, selectedWednesdayMorning, day, time);
         }
-
-        if (view.getId() == R.id.thursdayMorning) {
-            if (selectedThursdayMorning == false) {
-                thursdayMorning.setBackgroundColor(Color.BLACK);
-                selectedThursdayMorning = true;
-                weekdayTotal += 1;
-                morningTotal += 1;
-            } else {
-                thursdayMorning.setBackgroundColor(Color.rgb(45, 196, 137));
-                selectedThursdayMorning = false;
-                weekdayTotal -= 1;
-                morningTotal -= 1;
-            }
+        else if (view.getId() == R.id.thursdayMorning) {
+            String day = "weekday";
+            String time = "morning";
+            selectedThursdayMorning = select(thursdayMorning, selectedThursdayMorning, day, time);
         }
-        if (view.getId() == R.id.fridayMorning) {
-            if (selectedFridayMorning == false) {
-                fridayMorning.setBackgroundColor(Color.BLACK);
-                selectedFridayMorning = true;
-                weekdayTotal += 1;
-                morningTotal += 1;
-            } else {
-                fridayMorning.setBackgroundColor(Color.rgb(45, 196, 137));
-                selectedFridayMorning = false;
-                weekdayTotal -= 1;
-                morningTotal -= 1;
-            }
+        else if (view.getId() == R.id.fridayMorning) {
+            String day = "weekday";
+            String time = "morning";
+            selectedFridayMorning = select(fridayMorning, selectedFridayMorning, day, time);
         }
-
-        if (view.getId() == R.id.saturdayMorning) {
-            if (selectedSaturdayMorning == false) {
-                saturdayMorning.setBackgroundColor(Color.BLACK);
-                selectedSaturdayMorning = true;
-                weekendTotal += 1;
-                morningTotal += 1;
-            } else {
-                saturdayMorning.setBackgroundColor(Color.rgb(45, 196, 137));
-                selectedSaturdayMorning = false;
-                weekendTotal -= 1;
-                morningTotal -= 1;
-            }
+        else if (view.getId() == R.id.saturdayMorning) {
+            String day = "weekend";
+            String time = "morning";
+            selectedSaturdayMorning = select(saturdayMorning, selectedSaturdayMorning, day, time);
         }
-
-        if (view.getId() == R.id.sundayMorning) {
-            if (selectedSundayMorning == false) {
-                sundayMorning.setBackgroundColor(Color.BLACK);
-                selectedSundayMorning = true;
-                weekendTotal += 1;
-                morningTotal += 1;
-            } else {
-                sundayMorning.setBackgroundColor(Color.rgb(45, 196, 137));
-                selectedSundayMorning = false;
-                weekendTotal -= 1;
-                morningTotal -= 1;
-            }
+        else if (view.getId() == R.id.sundayMorning) {
+            String day = "weekend";
+            String time = "morning";
+            selectedSundayMorning = select(sundayMorning, selectedSundayMorning, day, time);
+        }
+        //afternoon
+        else if (view.getId() == R.id.mondayAfternoon) {
+            String day = "weekday";
+            String time = "afternoon";
+            selectedMondayAfternoon = select(mondayAfternoon, selectedMondayAfternoon, day, time);
+        }
+        else if (view.getId() == R.id.tuesdayAfternoon) {
+            String day = "weekday";
+            String time = "afternoon";
+            selectedTuesdayAfternoon = select(tuesdayAfternoon, selectedTuesdayAfternoon, day, time);
+        }
+        else if (view.getId() == R.id.wednesdayAfternoon) {
+            String day = "weekday";
+            String time = "afternoon";
+            selectedWednesdayAfternoon = select(wednesdayAfternoon, selectedWednesdayAfternoon, day, time);
+        }
+        else if (view.getId() == R.id.thursdayAfternoon) {
+            String day = "weekday";
+            String time = "afternoon";
+            selectedThursdayAfternoon = select(thursdayAfternoon, selectedThursdayAfternoon, day, time);
+        }
+        else if (view.getId() == R.id.fridayAfternoon) {
+            String day = "weekday";
+            String time = "afternoon";
+            selectedFridayAfternoon = select(fridayAfternoon, selectedFridayAfternoon, day, time);
+        }
+        else if (view.getId() == R.id.saturdayAfternoon) {
+            String day = "weekend";
+            String time = "afternoon";
+            selectedSaturdayAfternoon = select(saturdayAfternoon, selectedSaturdayAfternoon, day, time);
+        }
+        else if (view.getId() == R.id.sundayAfternoon) {
+            String day = "weekend";
+            String time = "afternoon";
+            selectedSundayAfternoon = select(sundayAfternoon, selectedSundayAfternoon, day, time);
+        }
+        //evening
+        else if (view.getId() == R.id.mondayEvening) {
+            String day = "weekday";
+            String time = "evening";
+            selectedMondayEvening = select(mondayEvening, selectedMondayEvening, day, time);
+        }
+        else if (view.getId() == R.id.tuesdayEvening) {
+            String day = "weekday";
+            String time = "evening";
+            selectedTuesdayEvening = select(tuesdayEvening, selectedTuesdayEvening, day, time);
+        }
+        else if (view.getId() == R.id.wednesdayEvening) {
+            String day = "weekday";
+            String time = "evening";
+            selectedWednesdayEvening = select(wednesdayEvening, selectedWednesdayEvening, day, time);
+        }
+        else if (view.getId() == R.id.thursdayEvening) {
+            String day = "weekday";
+            String time = "evening";
+            selectedThursdayEvening = select(thursdayEvening, selectedThursdayEvening, day, time);
+        }
+        else if (view.getId() == R.id.fridayEvening) {
+            String day = "weekday";
+            String time = "evening";
+            selectedFridayEvening = select(fridayEvening, selectedFridayEvening, day, time);
+        }
+        else if (view.getId() == R.id.saturdayEvening) {
+            String day = "weekend";
+            String time = "evening";
+            selectedSaturdayEvening = select(saturdayEvening, selectedSaturdayEvening, day, time);
+        }
+        else if (view.getId() == R.id.sundayEvening) {
+            String day = "weekend";
+            String time = "evening";
+            selectedSundayEvening = select(sundayEvening, selectedSundayEvening, day, time);
         }
     }
+
+
+
+
 
     public void calculateRecommendations() {
         List<String> suggestionList = new ArrayList<String>(); //empty list
