@@ -41,39 +41,38 @@
         data based on poverty levels based on where people live-->
 
         <ImageButton
-            android:id="@+id/superhappy"
-            android:src="@drawable/superhappy"
+            android:id="@+id/supersad"
+            android:src="@drawable/supersad"
             style="@style/smiles"
             android:onClick="selectButton"/>
-        <!-- place holder image -->
 
-        <ImageButton
-            android:id="@+id/happy"
-            android:src="@drawable/happy"
-            style="@style/smiles"
-            android:onClick="selectButton"/>
-        <!-- place holder image -->
-
-        <ImageButton
-            android:id="@+id/meh"
-            android:src="@drawable/meh"
-            style="@style/smiles"
-            android:onClick="selectButton"/>
-        <!-- place holder image -->
 
         <ImageButton
             android:id="@+id/sad"
             android:src="@drawable/sad"
             style="@style/smiles"
             android:onClick="selectButton"/>
-        <!-- place holder image -->
+
 
         <ImageButton
-            android:id="@+id/supersad"
-            android:src="@drawable/supersad"
+            android:id="@+id/meh"
+            android:src="@drawable/meh"
             style="@style/smiles"
             android:onClick="selectButton"/>
-        <!-- place holder image -->
+
+        <ImageButton
+            android:id="@+id/happy"
+            android:src="@drawable/happy"
+            style="@style/smiles"
+            android:onClick="selectButton"/>
+        
+        <ImageButton
+            android:id="@+id/superhappy"
+            android:src="@drawable/superhappy"
+            style="@style/smiles"
+            android:onClick="selectButton"/>
+
+
 
         <!-- //if the user selects any of the buttons in the first grid,
     update the "how is business" variable in the algorithm    -->
