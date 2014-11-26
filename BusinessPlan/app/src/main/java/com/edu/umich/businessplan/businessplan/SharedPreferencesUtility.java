@@ -68,4 +68,11 @@ public class SharedPreferencesUtility {
         List showList = SharedPreferencesUtility.getStringList(activity, key);
         Log.i("MyActivity", "SharedPrefs: " + showList);
     }
+
+    public static void clearAll(Activity activity) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear();
+        editor.apply();
+    }
 }

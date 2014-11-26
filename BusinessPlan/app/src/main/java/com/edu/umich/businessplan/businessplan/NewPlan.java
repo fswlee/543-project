@@ -21,12 +21,16 @@ public class NewPlan extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_plan);
+
+        //deletes shared preferences from previous plan
+        SharedPreferencesUtility.clearAll(this);
     }
 
     //when user selects button1, load activity 2 (ClientInformation)//
     public void createPlan(View view) {
         Intent intent = new Intent(getApplicationContext(), ClientInformation.class);
         startActivity(intent);
+
     }
 
 
