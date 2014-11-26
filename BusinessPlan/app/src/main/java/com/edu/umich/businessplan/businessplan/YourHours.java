@@ -257,20 +257,17 @@ public class YourHours extends BaseActivity {
         }
     }
 
-
-
-
-
     public void calculateRecommendations() {
+        //get the current list of recommendations from shared preferences
         List<String> suggestionList = new ArrayList<String>(); //empty list
+        suggestionList = SharedPreferencesUtility.getStringList(this, "recommendation");
 
-        //if fewer than two buttons from the group are selected
-        //add suggestions only if the button has not been selected
-        if (weekdayTotal<= 3) {
+        //if the condition is met, add the suggestion to the suggestionList
+        if (weekdayTotal<= 7) {
             String suggestion = "Try selling more during the week";
             suggestionList.add(suggestion);
         }
-        if (weekendTotal == 0) {
+        if (weekendTotal <= 3) {
             String suggestion = "Try selling on the weekend";
             suggestionList.add(suggestion);
         }
@@ -287,22 +284,16 @@ public class YourHours extends BaseActivity {
             suggestionList.add(suggestion);
         }
 
-
-
-
-        Log.i("MyActivity", "suggestionList " + suggestionList);
-
-        //add the suggestionList to the sharedPreferences using
-        //  the method in the SharedPreferences Utility class
-        //TODO grab shared prefs from previous screens in order to add these recommendations
+        //save the new list of suggestions to shared preferences
         SharedPreferencesUtility.putStringList(this, "recommendation", suggestionList);
-        //use the lines below to test whether the correct suggestions were added
+
+        //DEBUGGING: use the lines below to test whether the correct suggestions were added
         suggestionList = SharedPreferencesUtility.getStringList(this, "recommendation");
         Log.i("MyActivity", "sharedPreferences " + suggestionList);
 
     }
 
-
+//Navigation
     //onClick of back button
     public void openPreviousActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), YourCustomers.class);
@@ -315,6 +306,7 @@ public class YourHours extends BaseActivity {
         startActivity(intent);
     }
 
+//Action bar menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
