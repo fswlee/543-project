@@ -5,6 +5,7 @@ package com.edu.umich.businessplan.businessplan;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,18 +37,21 @@ public class ActionPlan extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_action_plan);
 
-        initList();
+        //initList();
 
         // adapters are what we use to associate the list variable and its contents with the list view
         ListView actionListView = (ListView) findViewById(R.id.listView);
         SimpleAdapter simpleAdpt = new SimpleAdapter(this, actionList, android.R.layout.simple_list_item_1, new String[] {"action"}, new int[] {android.R.id.text1});
         actionListView.setAdapter(simpleAdpt);
+
+        Log.i("ActionPlan", "Action List: " + actionList);
+
+        initList();
     }
 
-    private void initList() {
+    public void initList() {
         List<String> displayActionsList = SharedPreferencesUtility.getStringList(this, "action");
         for(String t: displayActionsList) {
-
             actionList.add(createAction("action", t));
         }
     }
