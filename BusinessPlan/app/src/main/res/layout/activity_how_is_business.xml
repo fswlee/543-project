@@ -11,13 +11,13 @@
     android:layout_marginRight="20dp"
     android:layout_marginLeft="20dp">
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/instructions"
         android:id="@+id/textView1"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="How Is Business?\n" />
+        android:text="How Is Business?\n" />-->
 
     <TextView
         style="@style/question"
