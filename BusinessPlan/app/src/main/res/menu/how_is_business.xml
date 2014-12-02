@@ -37,4 +37,8 @@
         android:title="Your Action Plan"
         android:orderInCategory="9"
         android:showAsAction="never"/>
+    <item android:id="@+id/plan_summary"
+        android:title="Business Plan Summary"
+        android:orderInCategory="10"
+        android:showAsAction="never"/>
 </menu>
