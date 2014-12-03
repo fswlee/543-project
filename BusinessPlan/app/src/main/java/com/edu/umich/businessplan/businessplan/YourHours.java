@@ -59,7 +59,7 @@ public class YourHours extends BaseActivity {
 
     //initialize total variables (int)
     int weekdayTotal = 0;
-    int weekendTotal = 9;
+    int weekendTotal = 0;
     int morningTotal = 0;
     int afternoonTotal = 0;
     int eveningTotal = 0;
