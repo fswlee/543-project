@@ -4,6 +4,7 @@ package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -22,6 +23,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import android.widget.TextView;
 import android.widget.Toast;
 import android.os.*;
 
@@ -31,11 +34,25 @@ public class ActionPlan extends BaseActivity {
 // list items are added to a list view programatically and not through xml
     List<Map<String, String>> actionList = new ArrayList<Map<String,String>>();
     final Context context = this;
+//    List<Map<String, String>> summaryList=new ArrayList<Map<String, String>>();
+//   SimpleAdapter simpleAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_action_plan);
+        TextView name= (TextView)findViewById(R.id.name);
+        TextView city= (TextView)findViewById(R.id.city);
+
+        SharedPreferences sharedpreferences;
+        String prename = "mypref";
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+        String name1 = mySharedPreferences.getString("name", " ");
+        String city1 = mySharedPreferences.getString("city", " ");
+
+        name.setText(name1);
+        city.setText(city1);
+
 
         //initList();
 
@@ -47,13 +64,20 @@ public class ActionPlan extends BaseActivity {
         Log.i("ActionPlan", "Action List: " + actionList);
 
         initList();
-    }
 
+    }
+//    private void displayContent(String name){
+//        String input = name;
+//        SimpleAdapter <String> simpleAdapter = new SimpleAdapter(this, input, R.id.name);
+//    }
     public void initList() {
         List<String> displayActionsList = SharedPreferencesUtility.getStringList(this, "action");
         for(String t: displayActionsList) {
             actionList.add(createAction("action", t));
         }
+
+//        List<String> summaryList = mySharedPreferences.getString("name", " ");
+
     }
 
 
