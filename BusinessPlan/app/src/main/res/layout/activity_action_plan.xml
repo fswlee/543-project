@@ -1,15 +1,19 @@
 <!-- Activity 9 (Action Plan) -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="1">
 
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="6dip" >
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    style="@style/background">
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="60dp">
@@ -18,19 +22,44 @@
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="These are your next steps for improving business:"
-        android:id="@+id/textView"
+        android:text="This is your business plan overview:"
+        android:id="@+id/textView1"
         style="@style/instructions" />
-
-
+    <TextView android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Name:"
+        android:id="@+id/field1"
+        style="@style/instructions"
+        android:layout_below="@+id/textView1"/>
+    <TextView android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/name"
+        android:layout_below="@+id/field1"/>
+        />
+    <TextView android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="City:"
+        android:id="@+id/field2"
+        style="@style/instructions"
+        android:layout_below="@+id/name"/>/>
+    <TextView android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/city"
+        android:layout_below="@+id/field2"/>
+        />
     <ListView
-        android:layout_below="@+id/textView"
-        android:id="@+id/listView" android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        style="@style/question"/>
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        style="@style/question"
+        android:layout_below="@+id/city"/>
 
-</LinearLayout>
-
+    </LinearLayout>
+    </ScrollView>
 
 
     <Button
@@ -63,7 +92,7 @@
         android:layout_marginLeft="34dp"
         android:text="8/8"
         style="@style/pagination"/>
-
+    </RelativeLayout>
 
     <!--when the user selects "button1" (the back button),
     an onClick event is triggered for the instantiation of the previous
@@ -77,4 +106,4 @@
         be able to exit the app -->
 
 
-</RelativeLayout>
+<!--</RelativeLayout>-->
