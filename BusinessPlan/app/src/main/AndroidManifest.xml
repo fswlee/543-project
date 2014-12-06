@@ -45,7 +45,8 @@
             android:label="@string/title_activity_suggestions_for_improvement" >
             <itent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER"/>
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </itent-filter>
         </activity>
         <activity
@@ -55,6 +56,10 @@
         <activity
             android:name=".BaseActivity"
             android:label="@string/title_activity_base" >
+        </activity>
+        <activity
+            android:name=".PlansOverview"
+            android:label="@string/title_activity_plans_overview" >
         </activity>
     </application>
 
