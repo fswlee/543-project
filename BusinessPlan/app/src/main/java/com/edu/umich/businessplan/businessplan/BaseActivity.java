@@ -74,6 +74,11 @@ public class BaseActivity extends Activity {
         startActivity(intent);
     }
 
+    public void openPlansOverview() {
+        Intent intent = new Intent(getApplicationContext(), PlansOverview.class);
+        startActivity(intent);
+    }
+
     public void openClientInformation() {
         Intent intent = new Intent(getApplicationContext(), ClientInformation.class);
         startActivity(intent);
@@ -123,6 +128,11 @@ public class BaseActivity extends Activity {
             case R.id.create_new_plan:
                 Log.i(TAG, "create_new_plan Item clicked");
                 openAlertDialog();
+                return true;
+
+            case R.id.plans_overview:
+                Log.i(TAG, "plans_overview Item clicked");
+                openPlansOverview();
                 return true;
 
             case R.id.client_information:
