@@ -33,9 +33,9 @@ public class NewPlan extends BaseActivity {
 
     }
 
-    //TODO change button to open plan summary
+
     public void seePlans(View view) {
-        Intent intent = new Intent(getApplicationContext(), ClientInformation.class);
+        Intent intent = new Intent(getApplicationContext(), PlansOverview.class);
         startActivity(intent);
     }
 
