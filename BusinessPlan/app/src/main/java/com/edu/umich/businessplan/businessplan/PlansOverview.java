@@ -1,6 +1,7 @@
 package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +17,11 @@ public class PlansOverview extends BaseActivity {
         setContentView(R.layout.activity_plans_overview);
     }
 
+    //if user selects "close" the NewPlan activity opens
+    public void openPreviousActivity() {
+        Intent intent = new Intent(getApplicationContext(), NewPlan.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

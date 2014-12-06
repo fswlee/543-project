@@ -3,9 +3,46 @@
     android:layout_height="match_parent"
     >
 
-    <TextView
-        android:text="@string/hello_world"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="60dp">
+
+
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Below is a list of clients whose have created plans:"
+            style="@style/instructions" />
+
+
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Select a client name below to see their plan summary."
+            style="@style/question" />
+
+        <ListView
+            android:id="@+id/listView1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            style="@style/question"/>
+    </LinearLayout>
+
+
+    <Button
+        style="@style/navbutton"
+        android:layout_width="60dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/close"
+        android:text="Close"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="34dp"
+        android:layout_alignParentRight="true"
+        android:onClick="openPreviousActivity" />
+
 
 </RelativeLayout>
