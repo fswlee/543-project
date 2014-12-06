@@ -12,12 +12,21 @@
         android:text="Business Plan"
         android:id="@+id/textView1"
         android:textSize="75px"
-        android:layout_above="@+id/button1"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="135dp" />
+        android:layout_marginTop="135dp" />
+
+    <TextView
+        style="@style/question"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Click Create New Plan to start working with a new client on a new business plan or click See Plan Summaries to see the action items for other clients."
+        android:id="@+id/textView2"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="Create New Plan"
@@ -28,6 +37,20 @@
         android:layout_marginBottom="151dp"
         android:background="#363839"
         android:textColor="#ffffff"/>
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="See Plan Summaries"
+        android:id="@+id/see_plans"
+        android:onClick="seePlans"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="90dp"
+        android:background="#363839"
+        android:textColor="#ffffff"/>
+
 
 
 </RelativeLayout>

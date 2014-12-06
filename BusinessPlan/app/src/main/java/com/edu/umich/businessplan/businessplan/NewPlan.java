@@ -33,6 +33,12 @@ public class NewPlan extends BaseActivity {
 
     }
 
+    //TODO change button to open plan summary
+    public void seePlans(View view) {
+        Intent intent = new Intent(getApplicationContext(), ClientInformation.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

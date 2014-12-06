@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" >
+        android:layout_marginTop="0dp" >
 
         <TableRow
             android:id="@+id/tableRow1"
@@ -43,15 +43,16 @@
 
             <ImageButton
                 android:id="@+id/buttonHome"
-                android:layout_width="130dp"
+                android:layout_width="120dp"
                 android:layout_height="60dp"
                 style="@style/imagebutton"
                 android:src="@drawable/buttonhome"
                 android:onClick="selectCustomers"/>
 
+
             <ImageButton
                 android:id="@+id/buttonNeighborhood"
-                android:layout_width="130dp"
+                android:layout_width="120dp"
                 android:layout_height="60dp"
                 style="@style/imagebutton"
                 android:src="@drawable/buttonneighborhood"
@@ -59,13 +60,42 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tableRow2"
+            android:id="@+id/tableRowLabel1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textHome"
+                android:layout_height="20dp"
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textAllCaps="true"
+                android:text="Home"
+                />
+
+            <TextView
+                android:id="@+id/textNeighborhood"
+                android:layout_height="20dp"
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textAllCaps="true"
+                android:text="Neighborhood"/>
+
+
+
+        </TableRow>
+
+
+        <TableRow
+            android:id="@+id/tableRow3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <ImageButton
                 android:id="@+id/buttonCart"
-                android:layout_width="130dp"
+                android:layout_width="120dp"
                 android:layout_height="60dp"
                 style="@style/imagebutton"
                 android:src="@drawable/buttoncart"
@@ -73,11 +103,38 @@
 
             <ImageButton
                 android:id="@+id/buttonStore"
-                android:layout_width="130dp"
+                android:layout_width="120dp"
                 android:layout_height="60dp"
                 style="@style/imagebutton"
                 android:src="@drawable/buttonstore"
                 android:onClick="selectCustomers"  />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRowLabel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textTravelingCart"
+                android:layout_height="20dp"
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textAllCaps="true"
+                android:text="Traveling Cart"/>
+
+            <TextView
+                android:id="@+id/textStore"
+                android:layout_height="20dp"
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textAllCaps="true"
+                android:text="Store"/>
+
+
+
         </TableRow>
     </TableLayout>
 
@@ -97,7 +154,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" >
+        android:layout_marginTop="0dp" >
 
         <TableRow
             android:id="@+id/TableRow02"
@@ -106,7 +163,7 @@
 
             <ImageButton
                 android:id="@+id/buttonFamily"
-                android:layout_width="130dp"
+                android:layout_width="120dp"
                 android:layout_height="60dp"
                 style="@style/imagebutton"
                 android:src="@drawable/buttonfamily"
@@ -114,11 +171,39 @@
 
             <ImageButton
                 android:id="@+id/buttonFriends"
-                android:layout_width="130dp"
+                android:layout_width="120dp"
                 android:layout_height="60dp"
                 style="@style/imagebutton"
                 android:src="@drawable/buttonfriends"
                 android:onClick="selectCustomers" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRowLabel02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textFamily"
+                android:layout_height="20dp"
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textAllCaps="true"
+                android:text="Family"
+                />
+
+            <TextView
+                android:id="@+id/textFriends"
+                android:layout_height="20dp"
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textAllCaps="true"
+                android:text="Friends"/>
+
+
+
         </TableRow>
 
         <TableRow
@@ -128,7 +213,7 @@
 
             <ImageButton
                 android:id="@+id/buttonNeighbors"
-                android:layout_width="130dp"
+                android:layout_width="120dp"
                 android:layout_height="60dp"
                 style="@style/imagebutton"
                 android:src="@drawable/buttonneighbors"
@@ -136,11 +221,39 @@
 
             <ImageButton
                 android:id="@+id/buttonPublic"
-                android:layout_width="130dp"
+                android:layout_width="120dp"
                 android:layout_height="60dp"
                 style="@style/imagebutton"
                 android:src="@drawable/buttonpublic"
                 android:onClick="selectCustomers" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRowLabel01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textNeighbors"
+                android:layout_height="20dp"
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textAllCaps="true"
+                android:text="Neighbors"
+                />
+
+            <TextView
+                android:id="@+id/textPublic"
+                android:layout_height="20dp"
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textAllCaps="true"
+                android:text="Public"/>
+
+
+
         </TableRow>
     </TableLayout>
 
