@@ -57,8 +57,6 @@ import com.jjoe64.graphview.GraphViewSeries;
 
 public class YouAndYourCommunity extends BaseActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,7 +116,7 @@ public class YouAndYourCommunity extends BaseActivity {
         // values for the graph
         GraphViewSeries graphValues = new GraphViewSeries(new GraphViewData[] {
                 new GraphViewData(1, annual_income)
-                , new GraphViewData(3, poverty_threshold)
+              , new GraphViewData(3, poverty_threshold)
         });
 
         GraphView graphView = new BarGraphView(

@@ -27,6 +27,15 @@
         android:id="@+id/textView1"
         android:layout_alignParentTop="true"/>
 
+    <TextView
+        style="@style/helptext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What do you make? What do you sell?"
+        android:id="@+id/textView1"
+        android:layout_alignParentTop="true"/>
+
+
     <EditText
         style="@style/response"
         android:layout_width="match_parent"
