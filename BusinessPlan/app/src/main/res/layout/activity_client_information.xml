@@ -1,16 +1,48 @@
 <!-- Activity 2 (Client Information) -->
 
 <RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     style="@style/background">
 
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="fill_horizontal"
+        android:layout_alignParentBottom="true">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginRight="255dp"
+            android:text="1/8"
+            style="@style/pagination"/>
+
+        <Button
+            style="@style/navbutton"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/next"
+            android:text="&gt;"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="34dp"
+
+            android:onClick="openNextActivity" />
+    </LinearLayout>
 <!-- TODO add scrollview  -->
 
 
 <ScrollView
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="fill_parent"
+    android:layout_above="@id/buttons">>
 
 
 <LinearLayout
@@ -19,6 +51,7 @@
     android:orientation="vertical"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp">
+
 
 
     <TextView
@@ -135,16 +168,6 @@
 
 
 
-<Button
-        style="@style/navbutton"
-        android:id="@+id/next"
-        android:text="&gt;"
-        android:onClick="openNextActivity" />
 
-    <TextView
-        style="@style/pagination"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1/8"/>
 
 </RelativeLayout>
