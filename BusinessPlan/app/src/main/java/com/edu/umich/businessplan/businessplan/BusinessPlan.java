@@ -1,5 +1,12 @@
 package com.edu.umich.businessplan.businessplan;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
+import android.util.Log;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,6 +22,7 @@ public class BusinessPlan {
 //a business plan is generated for each user
     String name;
     String city;
+    Integer household; //number of people in household
     Integer income;
     List suggestions;
     List actions;
@@ -25,6 +33,7 @@ public class BusinessPlan {
         super();
         this.name = name;
         this.city = null;
+        this.household = null;
         this.income = null;
         this.suggestions = null;
         this.actions = null;
@@ -32,6 +41,8 @@ public class BusinessPlan {
 
     //there is no set for name or because this is set using the constructor and should not
     //be changed
+
+
 
     public String getName() {
         //gets the String name
@@ -47,6 +58,17 @@ public class BusinessPlan {
     public String getCity() {
         //gets the String city
         return city;
+    }
+
+    public void setHousehold(int numHousehold) {
+        //sets the number of people in the household (captured in ClientInformation.java and used
+        // in YouAndYourCommunity.java
+        household = numHousehold;
+    }
+
+    public int getHousehold() {
+        //gets the integer - number of people in the household
+        return household;
     }
 
     public void setIncome(int clientIncome) {
@@ -85,4 +107,6 @@ public class BusinessPlan {
         //returns a list of actions(Strings)
         return actions;
     }
+
+
 }
