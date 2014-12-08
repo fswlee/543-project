@@ -27,9 +27,12 @@ import android.widget.Toast;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ClientInformation extends BaseActivity {
+
 
     // create spinners
     Spinner spinner;
@@ -49,27 +52,36 @@ public class ClientInformation extends BaseActivity {
             "more than 8"
     };
 
+    //these variables will be altered based on user input
+    //they will then be used to construct and modify a BusinessPlan object
+    String bpClientName = null;
+    String bpCity = null;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //create a variable of type SharedPreferences:
+
+
+        //create Shared Preferences object
         SharedPreferences sharedpreferences;
-        final String prename="mypref";
+        final String prename = "mypref";
 
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_information);
 
+        //use code below to grab text after focus changes
 
-        //pseudo code for putting client name into sharedpreferences
-        // grab the value in the text field (client name) and convert to string
-      final EditText editText1 = (EditText) findViewById(R.id.editText1);
-      final EditText editText2 = (EditText) findViewById(R.id.editText2);
+        EditText editText = (EditText) findViewById(R.id.editText1);
+
+
+        final EditText editText1 = (EditText) findViewById(R.id.editText1);
+        final EditText editText2 = (EditText) findViewById(R.id.editText2);
+
 
         // add listener to capture the name the user inputs after the user inputs it
-         TextWatcher generalTextWatcher = new TextWatcher() {
-
+        TextWatcher generalTextWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -77,160 +89,197 @@ public class ClientInformation extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
 
-                String textentry = editText1.getText().toString();
-                String name = textentry;
-                String textentry2 = editText2.getText().toString();
-                String city = textentry2;
-                String debug = null;
+                //grab input from editText1 after focus has changed - convert to String
+                //add the client name to shared preferences
+                editText1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
-                // save value into sharedpreferences
-                //creating sharedpreferences object called mysharedpreferences
-                SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
-                SharedPreferences.Editor editor = mySharedPreferences.edit();
-                //created new editor for sharedpreferences object
+                    public void onFocusChange(View v, boolean hasFocus) {
+                        if (!hasFocus) { //SAVE the DATA
+                            final String name = editText1.getText().toString();
+                            bpClientName = name;
+                            addSharedPreferences("client", name);
+                        }
 
-                //using methods of class shared preferences editor to put value key pairs into mysharedpreferences object
-                editor.putString("name", name);
-                editor.putString("city", city);
-                editor.apply();
-                debug = mySharedPreferences.getString("name", debug);
-                Log.i("ClientInformation", "sharedpreferences" + debug );
+                    }
+                });
+
+                //grab input from editText2 after focus has changed - convert to String
+                //add the city to shared preferences
+                editText2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+                    public void onFocusChange(View v, boolean hasFocus) {
+                        if (!hasFocus) { //SAVE the DATA
+                            final String city = editText2.getText().toString();
+                            bpCity = city;
+                            Log.i("Client Information", "City: " + bpCity);
+                            //SAVE THE DATA
+                            //change the city in the BusinessPlan
+                            addSharedPreferences("city", city);
+                        }
+
+                    }
+                });
+
+
             }
+
             @Override
-                public void afterTextChanged(Editable editable){
-                }
-            };
+            public void afterTextChanged(Editable editable) {
+            }
+        };
+
         editText1.addTextChangedListener(generalTextWatcher);
         editText2.addTextChangedListener(generalTextWatcher);
 
+        spinner = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_spinner_item, num_people);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                               int arg2, long arg3) {
+                        int position = spinner.getSelectedItemPosition();
 
 
+                        int folks = spinner.getSelectedItemPosition();
 
-                spinner = (Spinner) findViewById(R.id.spinner);
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                        this, android.R.layout.simple_spinner_item, num_people);
-                spinner.setAdapter(adapter);
-                spinner.setOnItemSelectedListener(
-                        new AdapterView.OnItemSelectedListener() {
-                            @Override
-                            public void onItemSelected(AdapterView<?> arg0, View arg1,
-                                                       int arg2, long arg3) {
-                                int position = spinner.getSelectedItemPosition();
+                        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+                        editor.putInt("num_people", folks);
+
+                        editor.apply();
 
 
-                                int folks = spinner.getSelectedItemPosition();
+                    }
 
-                                SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
-                                SharedPreferences.Editor editor = mySharedPreferences.edit();
+                    @Override
+                    public void onNothingSelected(AdapterView<?> arg0) {
 
-                                editor.putInt("num_people", folks);
-
-                                editor.apply();
+                    }
 
 
-                            }
-
-                            @Override
-                            public void onNothingSelected(AdapterView<?> arg0) {
-
-                            }
-
-
-                        }
-
-
-                );
-
-                spinner18 = (Spinner) findViewById(R.id.spinner18);
-                ArrayAdapter<String> adapter_18 = new ArrayAdapter<String>(
-                        this, android.R.layout.simple_spinner_item, num_people);
-                spinner18.setAdapter(adapter_18);
-                spinner18.setOnItemSelectedListener(
-                        new AdapterView.OnItemSelectedListener() {
-                            @Override
-                            public void onItemSelected(AdapterView<?> arg0, View arg1,
-                                                       int arg2, long arg3) {
-                                int position = spinner18.getSelectedItemPosition();
-
-                            }
-
-                            @Override
-                            public void onNothingSelected(AdapterView<?> arg0) {
-
-                            }
-                        }
-                );
-
-                // spinner code from http://www.learn2crack.com/2013/12/android-spinner-dropdown-example.html
-
-
-            }
-
-            //method for changing the background color of selected buttons
-            public void selectButton(View view) {
-
-                ImageButton city = (ImageButton) findViewById(R.id.imageButton1);
-                ImageButton suburb = (ImageButton) findViewById(R.id.imageButton2);
-                ImageButton rural = (ImageButton) findViewById(R.id.imageButton3);
-
-                //if a button is selected
-                //  that button's background color changes
-                //  the other buttons' background color change to their original color
-
-                if (view.getId() == R.id.imageButton1) {
-                    city.setBackgroundColor(Color.BLACK);
-                    suburb.setBackgroundColor(Color.rgb(45, 196, 137));
-                    rural.setBackgroundColor(Color.rgb(45, 196, 137));
-                } else if (view.getId() == R.id.imageButton2) {
-                    suburb.setBackgroundColor(Color.BLACK);
-                    city.setBackgroundColor(Color.rgb(45, 196, 137));
-                    rural.setBackgroundColor(Color.rgb(45, 196, 137));
-                } else if (view.getId() == R.id.imageButton3) {
-                    rural.setBackgroundColor(Color.BLACK);
-                    suburb.setBackgroundColor(Color.rgb(45, 196, 137));
-                    city.setBackgroundColor(Color.rgb(45, 196, 137));
                 }
 
-            }
 
-            //onCLick of next button
-            public void openNextActivity(View view) {
-                Intent intent = new Intent(getApplicationContext(), BusinessInformation.class);
-                startActivity(intent);
-            }
+        );
 
-//display textView1, textView2, textView3, textView4, editText1, editText2, editText3, editText4,
-//imageButton1, imageButton2, imageButton3, and imageButton4
+        spinner18 = (Spinner) findViewById(R.id.spinner18);
+        ArrayAdapter<String> adapter_18 = new ArrayAdapter<String>(
+                this, android.R.layout.simple_spinner_item, num_people);
+        spinner18.setAdapter(adapter_18);
+        spinner18.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                               int arg2, long arg3) {
+                        int position = spinner18.getSelectedItemPosition();
 
-            //activate keyboard if the user selects any of the editText objects
+                    }
 
-            //For "where do you live" buttons, user can only select one of the three buttons. Keep the value
-            // the user selects in variable, location.
+                    @Override
+                    public void onNothingSelected(AdapterView<?> arg0) {
 
-            //if the user selected the forward button, an onClick event is triggered
-
-            // put all user input into a database
-            // keep # of people in household as variable household
-            // keep # of people in household over 18 as variable over18
-
-            // load activity 3 (BusinessInformation)
-
-            @Override
-            public boolean onCreateOptionsMenu(Menu menu) {
-                // Inflate the menu; this adds items to the action bar if it is present.
-                getMenuInflater().inflate(R.menu.client_information, menu);
-                return true;
-            }
-
-            @Override
-            public boolean onOptionsItemSelected(MenuItem item) {
-                // Handle action bar item clicks here. The action bar will
-                // automatically handle clicks on the Home/Up button, so long
-                // as you specify a parent activity in AndroidManifest.xml.
-                int id = item.getItemId();
-                if (id == R.id.action_settings) {
-                    return true;
+                    }
                 }
-                return super.onOptionsItemSelected(item);
-            }
+        );
+
+        // spinner code from http://www.learn2crack.com/2013/12/android-spinner-dropdown-example.html
+    }
+
+
+    //method for changing the background color of selected buttons
+    public void selectButton(View view) {
+
+        ImageButton city = (ImageButton) findViewById(R.id.imageButton1);
+        ImageButton suburb = (ImageButton) findViewById(R.id.imageButton2);
+        ImageButton rural = (ImageButton) findViewById(R.id.imageButton3);
+
+        //if a button is selected
+        //  that button's background color changes
+        //  the other buttons' background color change to their original color
+
+        if (view.getId() == R.id.imageButton1) {
+            city.setBackgroundColor(Color.BLACK);
+            suburb.setBackgroundColor(Color.rgb(45, 196, 137));
+            rural.setBackgroundColor(Color.rgb(45, 196, 137));
+        } else if (view.getId() == R.id.imageButton2) {
+            suburb.setBackgroundColor(Color.BLACK);
+            city.setBackgroundColor(Color.rgb(45, 196, 137));
+            rural.setBackgroundColor(Color.rgb(45, 196, 137));
+        } else if (view.getId() == R.id.imageButton3) {
+            rural.setBackgroundColor(Color.BLACK);
+            suburb.setBackgroundColor(Color.rgb(45, 196, 137));
+            city.setBackgroundColor(Color.rgb(45, 196, 137));
         }
+
+    }
+
+    //method to add user input (name and city) to SharedPreferences Object
+    public void addSharedPreferences(String key, String value) {
+
+        //create an empty ArrayList, clientList
+        List<String> clientList = new ArrayList<String>();
+
+        //create an empty ArrayList, cityList
+        List<String> cityList = new ArrayList<String>();
+
+        if (key == "client") {
+            //grab the existing StringList of names and put into a list, clientList
+            clientList = SharedPreferencesUtility.getStringList(this, "client");
+            //add the new client's name to the list
+            clientList.add(value);
+            //save the updated list to shared preferences
+            SharedPreferencesUtility.putStringList(this, "client", clientList);
+        }
+        else if (key == "city") {
+            //grab the existing StringList of cities and put it into a list, cityList
+            cityList = SharedPreferencesUtility.getStringList(this, "city");
+            //add the new city to the list
+            cityList.add(value);
+            //save the updated list to shared preferences
+            SharedPreferencesUtility.putStringList(this, "city", cityList);
+        }
+    }
+
+    //called when user clicks next button - creates a BusinessPlan Object
+    public void initBusinessPlan() {
+    //create a business plan object with the name, city, and income
+
+        BusinessPlan businessPlan = new BusinessPlan(bpClientName);
+        businessPlan.setCity(bpCity);
+    }
+
+//NAVIGATION
+    //onCLick of next button
+    public void openNextActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), BusinessInformation.class);
+        initBusinessPlan(); //create new BusinessPlan
+        startActivity(intent); //go to next activity
+
+        Log.i("Client Information", "Name: " + bpClientName);
+        Log.i("Client Information", "City: " + bpCity);
+    }
+
+//ACTION BAR MENU -- see BaseActivity.java
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.client_information, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
