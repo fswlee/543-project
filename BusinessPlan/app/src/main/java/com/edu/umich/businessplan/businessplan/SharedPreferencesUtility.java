@@ -51,6 +51,7 @@ public class SharedPreferencesUtility {
         String name = value.getName();
         String city = value.getCity();
         Integer household = value.getHousehold();
+        Integer income = value.getIncome();
         List suggestions = value.getSuggestions();
         String suggestionsString = TextUtils.join(";", suggestions); //convert this list to a string delimited by ";"
         List actions = value.getActions();
@@ -61,6 +62,7 @@ public class SharedPreferencesUtility {
         bpList.add(name);
         bpList.add(city);
         bpList.add(household.toString()); //convert int to string
+        bpList.add(income.toString());
         bpList.add(suggestionsString);
         bpList.add(actionsString);
 
