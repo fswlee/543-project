@@ -54,8 +54,9 @@ public class ClientInformation extends BaseActivity {
 
     //these variables will be altered based on user input
     //they will then be used to construct and modify a BusinessPlan object
-    String bpClientName = null;
-    String bpCity = null;
+    String bpClientName = null; //name
+    String bpCity = null; //city
+    Integer bpHousehold = null; //number of people in the household
 
 
     @Override
@@ -97,7 +98,7 @@ public class ClientInformation extends BaseActivity {
                         if (!hasFocus) { //SAVE the DATA
                             final String name = editText1.getText().toString();
                             bpClientName = name;
-                            addSharedPreferences("client", name);
+                            Log.i("Client Information", "Getting name " + name);
                         }
 
                     }
@@ -111,10 +112,8 @@ public class ClientInformation extends BaseActivity {
                         if (!hasFocus) { //SAVE the DATA
                             final String city = editText2.getText().toString();
                             bpCity = city;
-                            Log.i("Client Information", "City: " + bpCity);
-                            //SAVE THE DATA
-                            //change the city in the BusinessPlan
-                            addSharedPreferences("city", city);
+
+
                         }
 
                     }
@@ -144,6 +143,7 @@ public class ClientInformation extends BaseActivity {
 
 
                         int folks = spinner.getSelectedItemPosition();
+                        bpHousehold = folks;
 
                         SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
                         SharedPreferences.Editor editor = mySharedPreferences.edit();
@@ -218,30 +218,11 @@ public class ClientInformation extends BaseActivity {
     }
 
     //method to add user input (name and city) to SharedPreferences Object
-    public void addSharedPreferences(String key, String value) {
+    public void addSharedPreferences(String key, BusinessPlan value) {
 
-        //create an empty ArrayList, clientList
-        List<String> clientList = new ArrayList<String>();
+        //SharedPreferencesUtility.putBusinessPlan(this, "Business Plan", value);
+        //"Business Plan": "name;;city;;household;;income;;suggestion;suggestion;suggestion;;action;action;action"
 
-        //create an empty ArrayList, cityList
-        List<String> cityList = new ArrayList<String>();
-
-        if (key == "client") {
-            //grab the existing StringList of names and put into a list, clientList
-            clientList = SharedPreferencesUtility.getStringList(this, "client");
-            //add the new client's name to the list
-            clientList.add(value);
-            //save the updated list to shared preferences
-            SharedPreferencesUtility.putStringList(this, "client", clientList);
-        }
-        else if (key == "city") {
-            //grab the existing StringList of cities and put it into a list, cityList
-            cityList = SharedPreferencesUtility.getStringList(this, "city");
-            //add the new city to the list
-            cityList.add(value);
-            //save the updated list to shared preferences
-            SharedPreferencesUtility.putStringList(this, "city", cityList);
-        }
     }
 
     //called when user clicks next button - creates a BusinessPlan Object
@@ -249,7 +230,17 @@ public class ClientInformation extends BaseActivity {
     //create a business plan object with the name, city, and income
 
         BusinessPlan businessPlan = new BusinessPlan(bpClientName);
+        Log.i("Client Information", "creating BP" + businessPlan.getName());
         businessPlan.setCity(bpCity);
+        businessPlan.setHousehold(bpHousehold);
+
+
+        SharedPreferencesUtility.putBusinessPlan(this, "Business Plan", businessPlan);
+        //"Business Plan": "name;;city;;household;;income;;suggestion;suggestion;suggestion;;action;action;action"
+
+        //add this business plan to shared preferences
+        //addSharedPreferences("Business Plan", businessPlan);
+
     }
 
 //NAVIGATION
