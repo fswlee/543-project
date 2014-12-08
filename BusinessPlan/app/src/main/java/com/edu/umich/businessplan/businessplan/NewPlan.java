@@ -12,7 +12,7 @@ import android.view.View;
 
 public class NewPlan extends BaseActivity {
 
-    private final String TAG = "Base Activity";
+
 	
 
     //display textView1//

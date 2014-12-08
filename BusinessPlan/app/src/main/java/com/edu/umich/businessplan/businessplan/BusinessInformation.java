@@ -19,7 +19,6 @@ import android.os.*;
 public class BusinessInformation extends BaseActivity {
 
 
-    SharedPreferences sharedpreferences;
     String prename = "mypref";
 
     // Focus is initially on describe your business textbox
