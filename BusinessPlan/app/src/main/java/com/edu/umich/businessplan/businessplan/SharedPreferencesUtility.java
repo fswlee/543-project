@@ -14,6 +14,10 @@ import java.util.List;
  */
 public class SharedPreferencesUtility {
 
+//shared preferences consists of  a bunch of business plans
+    //when you save shared prefs, just save the BusinessPlan object
+    //key: "BusinessPlan", value: businessPlan (object)
+
     public static List<String> getStringList(Activity activity, String key) {
         List<String> list = new ArrayList<String>(); //default list
 
@@ -39,7 +43,40 @@ public class SharedPreferencesUtility {
 
     }
 
-    //use this to call activity
+
+//This method saves a BusinessPlan object to SharedPreferences as a string:
+//"Business Plan": "name;;city;;household;;income;;suggestion;suggestion;suggestion;;action;action;action"
+    public static void putBusinessPlan(Activity activity, String key, BusinessPlan value) {
+        //create a list with all values from BP
+        String name = value.getName();
+        String city = value.getCity();
+        Integer household = value.getHousehold();
+        List suggestions = value.getSuggestions();
+        String suggestionsString = TextUtils.join(";", suggestions); //convert this list to a string delimited by ";"
+        List actions = value.getActions();
+        String actionsString = TextUtils.join(";", actions); //convert this list to a string delimited by ";"
+
+        List<String> bpList = new ArrayList<String>(); //empty list to hold all BP attributes
+        //add all BP attributes to the list
+        bpList.add(name);
+        bpList.add(city);
+        bpList.add(household.toString()); //convert int to string
+        bpList.add(suggestionsString);
+        bpList.add(actionsString);
+
+        //convert the BP list to a string delimited by ";;"
+        String bpListString = TextUtils.join(";;", bpList);
+
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(key, name); //Add the BP object to shared prefs
+        //it looks like this:
+        //"Business Plan": "name;;city;;household;;income;;suggestion;suggestion;suggestion;;action;action;action"
+        editor.apply();
+
+        Log.i("SharedPreferencesUtility", "What Does My BP look like? " + bpListString);
+    }
 
     public static void putStringList(Activity activity, String key, List<String> list) {
 // for each string in the list, we want to add it to a new variable and separate the strings
