@@ -5,8 +5,10 @@ package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,10 +22,21 @@ import java.util.List;
 
 public class YourHours extends BaseActivity {
 
+    List bpSuggestions = new ArrayList<Suggestion>(); //initially an empty list
+    String currentSuggestionString = "";
+    String prename = "mypref";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_hours);
+
+
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+        currentSuggestionString = mySharedPreferences.getString("suggestions", "");
 
         calculateRecommendations();
     }
@@ -284,29 +297,64 @@ public class YourHours extends BaseActivity {
             suggestionList.add(suggestion);
         }
 
-        //save the new list of suggestions to shared preferences
-        SharedPreferencesUtility.putStringList(this, "recommendation", suggestionList);
+        bpSuggestions = suggestionList;
 
-        //DEBUGGING: use the lines below to test whether the correct suggestions were added
-        suggestionList = SharedPreferencesUtility.getStringList(this, "recommendation");
-        Log.i("MyActivity", "sharedPreferences " + suggestionList);
+        Log.i("YourHours", "getting suggestionList: " + bpSuggestions);
+
+//        //save the new list of suggestions to shared preferences
+//        SharedPreferencesUtility.putStringList(this, "recommendation", suggestionList);
+//
+//        //DEBUGGING: use the lines below to test whether the correct suggestions were added
+//        suggestionList = SharedPreferencesUtility.getStringList(this, "recommendation");
+//        Log.i("MyActivity", "sharedPreferences " + suggestionList);
 
     }
 
-//Navigation
+    public void addSharedPreferences(List suggestionList) {
+
+        String suggestionStringList = stringListUtility(suggestionList);
+
+        //concatenate the string of suggestions already saved in SP (saved in YourCustomers)
+        //with the string of suggestions generated during this activity
+        String combinedSuggestionStringList = currentSuggestionString + suggestionStringList;
+
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+        editor.putString("suggestions", suggestionStringList);
+        editor.apply();
+
+        String debugSuggestions = mySharedPreferences.getString("suggestions", "");
+        Log.i("YourHours", "SP suggestions: " + debugSuggestions);
+
+        //check complete SharedPreferences
+        Log.i("YourHours", "SP ALL: " + mySharedPreferences.getAll());
+
+    }
+
+    public String stringListUtility(List list) {
+        //takes in a List and returns a string with list items delimited by a ";"
+        String listString = TextUtils.join(";", list);
+
+        return listString;
+    }
+
+//NAVIGATION
     //onClick of back button
     public void openPreviousActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), YourCustomers.class);
+        addSharedPreferences(bpSuggestions);
         startActivity(intent);
     }
 
     //onClick of forward button
     public void openNextActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), HowIsBusiness.class);
+        addSharedPreferences(bpSuggestions);
         startActivity(intent);
     }
 
-//Action bar menu
+//ACTIONBAR MENU
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

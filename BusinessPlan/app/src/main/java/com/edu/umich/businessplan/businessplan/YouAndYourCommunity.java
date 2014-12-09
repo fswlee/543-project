@@ -72,7 +72,7 @@ public class YouAndYourCommunity extends BaseActivity {
         String prename="mypref";
 
         SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
-        int num_people = mySharedPreferences.getInt("num_people",0);
+        int num_people = mySharedPreferences.getInt("household",0);
         int income = mySharedPreferences.getInt("income",0);
 
         // calculate annual income for the graph

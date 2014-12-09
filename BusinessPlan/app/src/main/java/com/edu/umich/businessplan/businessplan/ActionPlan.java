@@ -30,12 +30,23 @@ import android.os.*;
 
 public class ActionPlan extends BaseActivity {
 
+    //they will then be used to construct and modify a BusinessPlan object
+    String bpClientName = ""; //name
+    String bpCity = ""; //city
+    Integer bpHousehold = 0; //number of people in the household
+    Integer bpIncome = 0; //income
+    List bpActions = new ArrayList<String>(); //list of Action Plan items
+
+    //create Shared Preferences object
+    SharedPreferences sharedpreferences;
+    final String prename = "mypref";
+
     // a list class type must be used when using a list view
 // list items are added to a list view programatically and not through xml
     List<Map<String, String>> actionList = new ArrayList<Map<String,String>>();
     final Context context = this;
-//    List<Map<String, String>> summaryList=new ArrayList<Map<String, String>>();
-//   SimpleAdapter simpleAdapter;
+    List<Map<String, String>> summaryList=new ArrayList<Map<String, String>>();
+    SimpleAdapter simpleAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +54,8 @@ public class ActionPlan extends BaseActivity {
         setContentView(R.layout.activity_action_plan);
         TextView name= (TextView)findViewById(R.id.name);
         TextView city= (TextView)findViewById(R.id.city);
+//
 
-        SharedPreferences sharedpreferences;
-        String prename = "mypref";
         SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
         String name1 = mySharedPreferences.getString("name", " ");
         String city1 = mySharedPreferences.getString("city", " ");
@@ -53,33 +63,55 @@ public class ActionPlan extends BaseActivity {
         name.setText(name1);
         city.setText(city1);
 
+        bpActions = getSharedPreferences();
 
-        //initList();
+        String actionsListString = mySharedPreferences.getString("actions", "");
+        Log.i("ActionPlan", "SP Actions: " + actionsListString);
+
 
         // adapters are what we use to associate the list variable and its contents with the list view
         ListView actionListView = (ListView) findViewById(R.id.listView);
-        SimpleAdapter simpleAdpt = new SimpleAdapter(this, actionList, android.R.layout.simple_list_item_1, new String[] {"action"}, new int[] {android.R.id.text1});
+        SimpleAdapter simpleAdpt = new SimpleAdapter(this, bpActions, android.R.layout.simple_list_item_1, new String[] {"action"}, new int[] {android.R.id.text1});
         actionListView.setAdapter(simpleAdpt);
 
         Log.i("ActionPlan", "Action List: " + actionList);
 
-        initList();
 
     }
-//    private void displayContent(String name){
-//        String input = name;
-//        SimpleAdapter <String> simpleAdapter = new SimpleAdapter(this, input, R.id.name);
-//    }
-    public void initList() {
-        List<String> displayActionsList = SharedPreferencesUtility.getStringList(this, "action");
-        for(String t: displayActionsList) {
-            actionList.add(createAction("action", t));
+
+    public List getSharedPreferences() {
+        //gets the suggestions from SP, key: "suggestions"
+
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+        //get the string of suggestions, delimited by ";"
+        String actionsStringList = mySharedPreferences.getString("actions", "");
+
+        List returnList = constructActionsList(actionsStringList);
+
+
+        return returnList;
+    }
+
+    public List constructActionsList(String stringList) {
+        //takes a string of suggestions delimited by ";" and returns a List of suggestions
+        List<String> list = new ArrayList<String>(); //default list
+
+        if(stringList.length() != 0) {
+            // string.split will create an array returning everything in between the provided "delimiter"
+            // parameter
+            // example: if the string is hello;world;!, calling split(";") on it would return an array
+            // with 3 items: "hello", "world", and "!"
+            String[] items = stringList.split(";");
+// loop through the array and add it to a list so we can give it back to the method caller
+            for (String i : items) {
+               bpActions.add(createAction("action", i));
+            }
         }
 
-//        List<String> summaryList = mySharedPreferences.getString("name", " ");
-
+        return bpActions;
     }
-
 
     // this method helps us minimize the amount of repeat calls we need to make in initList to place
 // a team name into out list
@@ -89,10 +121,62 @@ public class ActionPlan extends BaseActivity {
         return action;
     }
 
+//    private void displayContent(String name){
+//        String input = name;
+//        SimpleAdapter <String> simpleAdapter = new SimpleAdapter(this, input, R.id.name);
+//    }
+
+//    public void initList(String listString) {
+//
+////        //gets the actions from SP, key: "actions"
+////        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+////        SharedPreferences.Editor editor = mySharedPreferences.edit();
+////
+////        //get the string of actions, delimited by ";"
+////        String actionsStringList = mySharedPreferences.getString("actions", "");
+//
+//        List returnList = constructSuggestions(listString);
+//
+////        return returnList;
+//
+//        List<String> displayActionsList = SharedPreferencesUtility.getStringList(this, "action");
+//        for (String t : displayActionsList) {
+//            actionList.add(createAction("action", t));
+//        }
+//    }
+//
+//    public List constructSuggestions(String stringList) {
+//        //takes a string of suggestions delimited by ";" and returns a List of suggestions
+//        List<String> list = new ArrayList<String>(); //default list
+//
+//        if(stringList.length() != 0) {
+//        // string.split will create an array returning everything in between the provided "delimiter"
+//        // parameter
+//        // example: if the string is hello;world;!, calling split(";") on it would return an array
+//        // with 3 items: "hello", "world", and "!"
+//            String[] items = stringList.split(";");
+//
+//// loop through the array and add it to a list so we can give it back to the method caller
+//            for (String i : items) {
+//                list.add(i);
+//            }
+//        }
+//
+//        return list;
+//    }
+//
+////        }
+//
+////        List<String> summaryList = mySharedPreferences.getString("name", " ");
+//
 
 
 
-//Navigation
+
+
+
+
+//NAVIGATION
     //onClick of back button
     public void openPreviousActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), SuggestionsForImprovement.class);
@@ -153,7 +237,7 @@ public class ActionPlan extends BaseActivity {
 // AlertDialog based on http://www.mkyong.com/android/android-alert-dialog-example/ tutorial
 
 
-//Actionbar Menu
+//ACTIONBAR MENU
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

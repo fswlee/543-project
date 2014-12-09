@@ -4,9 +4,11 @@ package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,17 +21,23 @@ import java.util.List;
 
 public class YourCustomers extends BaseActivity {
 
+    List bpSuggestions = new ArrayList<Suggestion>(); //initially an empty list
+    String prename = "mypref";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_customers);
 
-        //clear the suggestion list from shared preferences
-        SharedPreferencesUtility.clearSuggestionList(this, "recommendation");
-
         //call method to add suggestions to sharedPreferences
         //if the user gets to this page, but selects nothing, all eight suggestions
         //should be added to the sharedPreferences
+
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+        editor.remove("suggestions");
+        editor.apply();
+
         calculateRecommendations();
 
     }
@@ -78,8 +86,8 @@ public class YourCustomers extends BaseActivity {
                 selectedHome = false;
                 whereTotal -= 1;
             }
-            Log.i("MyActivity", "Where Total " + whereTotal);
-            Log.i("MyActivity", "Home Selected? " + selectedHome);
+//            Log.i("MyActivity", "Where Total " + whereTotal);
+//            Log.i("MyActivity", "Home Selected? " + selectedHome);
         }
 
         else if (view.getId() == R.id.buttonNeighborhood) {
@@ -92,8 +100,8 @@ public class YourCustomers extends BaseActivity {
                 selectedNeighborhood = false;
                 whereTotal -= 1;
             }
-            Log.i("MyActivity", "Where Total " + whereTotal);
-            Log.i("MyActivity", "Neighborhood Selected? " + selectedNeighborhood);
+//            Log.i("MyActivity", "Where Total " + whereTotal);
+//            Log.i("MyActivity", "Neighborhood Selected? " + selectedNeighborhood);
         }
 
         else if (view.getId() == R.id.buttonCart) {
@@ -106,8 +114,8 @@ public class YourCustomers extends BaseActivity {
                 selectedCart = false;
                 whereTotal -= 1;
             }
-            Log.i("MyActivity", "Where Total " + whereTotal);
-            Log.i("MyActivity", "Cart Selected? " + selectedCart);
+//            Log.i("MyActivity", "Where Total " + whereTotal);
+//            Log.i("MyActivity", "Cart Selected? " + selectedCart);
         }
 
         else if (view.getId() == R.id.buttonStore) {
@@ -120,8 +128,8 @@ public class YourCustomers extends BaseActivity {
                 selectedStore = false;
                 whereTotal -= 1;
             }
-            Log.i("MyActivity", "Where Total " + whereTotal);
-            Log.i("MyActivity", "Store Selected? " + selectedStore);
+//            Log.i("MyActivity", "Where Total " + whereTotal);
+//            Log.i("MyActivity", "Store Selected? " + selectedStore);
         }
 
         else if (view.getId() == R.id.buttonFamily) {
@@ -134,8 +142,8 @@ public class YourCustomers extends BaseActivity {
                 selectedFamily = false;
                 whoTotal -= 1;
             }
-            Log.i("MyActivity", "Where Total " + whoTotal);
-            Log.i("MyActivity", "Family? " + selectedFamily);
+//            Log.i("MyActivity", "Where Total " + whoTotal);
+//            Log.i("MyActivity", "Family? " + selectedFamily);
         }
         else if (view.getId() == R.id.buttonFriends) {
             if (selectedFriends == false) {
@@ -147,8 +155,8 @@ public class YourCustomers extends BaseActivity {
                 selectedFriends = false;
                 whoTotal -= 1;
             }
-            Log.i("MyActivity", "Where Total " + whoTotal);
-            Log.i("MyActivity", "Friends? " + selectedFriends);
+//            Log.i("MyActivity", "Where Total " + whoTotal);
+//            Log.i("MyActivity", "Friends? " + selectedFriends);
         }
         else if (view.getId() == R.id.buttonNeighbors) {
             if (selectedNeighbors == false) {
@@ -160,8 +168,8 @@ public class YourCustomers extends BaseActivity {
                 selectedNeighbors = false;
                 whoTotal -= 1;
             }
-            Log.i("MyActivity", "Where Total " + whoTotal);
-            Log.i("MyActivity", "Neighbors? " + selectedNeighbors);
+//            Log.i("MyActivity", "Where Total " + whoTotal);
+//            Log.i("MyActivity", "Neighbors? " + selectedNeighbors);
         }
         else if (view.getId() == R.id.buttonPublic) {
             if (selectedPublic == false) {
@@ -173,11 +181,11 @@ public class YourCustomers extends BaseActivity {
                 selectedPublic = false;
                 whoTotal -= 1;
             }
-            Log.i("MyActivity", "Who Total " + whoTotal);
-            Log.i("MyActivity", "Public? " + selectedPublic);
+//            Log.i("MyActivity", "Who Total " + whoTotal);
+//            Log.i("MyActivity", "Public? " + selectedPublic);
         }
-        Log.i("MyActivity", "Who Total: " + whoTotal);
-        Log.i("MyActivity", "Where Total: " + whereTotal);
+//        Log.i("MyActivity", "Who Total: " + whoTotal);
+//        Log.i("MyActivity", "Where Total: " + whereTotal);
 
         //call the calculateRecommendations method to update the sharedPreferences
         calculateRecommendations();
@@ -188,7 +196,7 @@ public class YourCustomers extends BaseActivity {
         List<String> suggestionList = new ArrayList<String>(); //empty list
 
         //if fewer than two buttons from the group are selected
-            //add suggestions only if the button has not been selected
+        //add suggestions only if the button has not been selected
         if (whereTotal <= 2) {
             if (selectedHome == false) {
                 String suggestion = "Try selling at home";
@@ -205,7 +213,8 @@ public class YourCustomers extends BaseActivity {
             if (selectedStore == false) {
                 String suggestion = "Try selling in a store";
                 suggestionList.add(suggestion);
-            }}
+            }
+        }
         if (whoTotal <= 2) {
             if (selectedFamily == false) {
                 String suggestion = "Try selling to your family";
@@ -225,31 +234,57 @@ public class YourCustomers extends BaseActivity {
             }
         }
 
-            Log.i("MyActivity", "suggestionList " + suggestionList);
+        bpSuggestions = suggestionList;
+
+        Log.i("YourCustomers", "getting suggestionList: " + bpSuggestions);
+    }
 
             //add the suggestionList to the sharedPreferences using
             //  the method in the SharedPreferences Utility class
-            SharedPreferencesUtility.putStringList(this, "recommendation", suggestionList);
+            //String stringList = SharedPreferencesUtility.putStringList(this, "suggestions", suggestionList);
             //use the lines below to test whether the correct suggestions were added
-            suggestionList = SharedPreferencesUtility.getStringList(this, "recommendation");
-            Log.i("MyActivity", "sharedPreferences " + suggestionList);
+
+    public void addSharedPreferences(List suggestionList) {
+
+        String suggestionStringList = stringListUtility(suggestionList);
+
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+        editor.putString("suggestions", suggestionStringList);
+        editor.apply();
+
+        String debugSuggestions = mySharedPreferences.getString("suggestions", "");
+        Log.i("YourCustomers", "SP suggestions: " + debugSuggestions);
+
+        //check complete SharedPreferences
+        Log.i("YourCustomers", "SP ALL: " + mySharedPreferences.getAll());
 
     }
 
-//Navigation
+    public String stringListUtility(List list) {
+        //takes in a List and returns a string with list items delimited by a ";"
+        String listString = TextUtils.join(";", list);
+
+        return listString;
+    }
+
+//NAVIGATION
     //onClick of back button
     public void openPreviousActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), BusinessInformation.class);
+        addSharedPreferences(bpSuggestions);
         startActivity(intent);
     }
 
     //onClick of forward button
     public void openNextActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), YourHours.class);
+        addSharedPreferences(bpSuggestions);
         startActivity(intent);
     }
 
-//Actionbar menu
+//ACTIONBAR MENU
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

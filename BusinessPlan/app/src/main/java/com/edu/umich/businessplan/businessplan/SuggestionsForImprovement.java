@@ -3,8 +3,12 @@
 
 package com.edu.umich.businessplan.businessplan;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,40 +29,84 @@ import android.widget.Toast;
 
 public class SuggestionsForImprovement extends BaseActivity {
 
+    //create Shared Preferences object
+    SharedPreferences sharedpreferences;
+    final String prename = "mypref";
     MyCustomAdapter dataAdapter = null;
+
+    List bpSuggestions = new ArrayList<String>();
+    List bpActions = new ArrayList<String>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggestions_for_improvement);
 
-        //Generate listView of suggestions from ArrayList
-        displayListView();
+        //gets SharedPreferences
+        bpSuggestions = getSharedPreferences();
+
+        //Generates listView of suggestions from ArrayList
+        displayListView(bpSuggestions);
 
     }
     int selectedCount = 0;
 
-    private void displayListView() {
+    public List getSharedPreferences() {
+        //gets the suggestions from SP, key: "suggestions"
+
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+        //get the string of suggestions, delimited by ";"
+        String suggestionsStringList = mySharedPreferences.getString("suggestions", "");
+
+        List returnList = constructSuggestions(suggestionsStringList);
+
+        return returnList;
+    }
+
+    public List constructSuggestions(String stringList) {
+        //takes a string of suggestions delimited by ";" and returns a List of suggestions
+        List<String> list = new ArrayList<String>(); //default list
+
+        if(stringList.length() != 0) {
+        // string.split will create an array returning everything in between the provided "delimiter"
+        // parameter
+        // example: if the string is hello;world;!, calling split(";") on it would return an array
+        // with 3 items: "hello", "world", and "!"
+            String[] items = stringList.split(";");
+// loop through the array and add it to a list so we can give it back to the method caller
+            for (String i : items) {
+                list.add(i);
+            }
+        }
+
+        return list;
+    }
+
+    private void displayListView(List list) {
         //create an array list with class Suggestion (String, boolean) called suggestionList
-        ArrayList<Suggestion> suggestionList = new ArrayList<Suggestion>();
+        ArrayList<Suggestion> suggestionClassList = new ArrayList<Suggestion>();
+        List<String> suggestionList = list;
         //create an instance of the class Suggestion (String, boolean)
 
-        List<String> sharedList = new ArrayList<String>();
-        sharedList = SharedPreferencesUtility.getStringList(this, "recommendation");
+//        List<String> sharedList = new ArrayList<String>();
+//        sharedList = SharedPreferencesUtility.getStringList(this, "recommendation");
 
-        for (String t: sharedList) {
+
+        for (String t: suggestionList) {
             //create an instance of the class Suggestion (String, boolean)
             Suggestion suggestion = new Suggestion(t,false);
 
             //add the instance to the array list, suggestionList
-            suggestionList.add(suggestion);
+            suggestionClassList.add(suggestion);
 
         }
 
 
         //create an ArrayAdaptar from the Array
         dataAdapter = new MyCustomAdapter(this,
-                R.layout.suggestion_info, suggestionList);
+                R.layout.suggestion_info, suggestionClassList);
         ListView listView = (ListView) findViewById(R.id.listView1);
         // Assign adapter to ListView
         listView.setAdapter(dataAdapter);
@@ -155,14 +203,16 @@ public class SuggestionsForImprovement extends BaseActivity {
 
     //initialize an empty list to hold the suggestions that are checked (and will need to appear on
     // the next activity
-    List<String> actionList = new ArrayList<String>(); //empty list
+    //List<String> actionList = new ArrayList<String>(); //empty list
 
 //TODO implement another dialog alert box to appear if the actionList includes fewer than 3 actions
     //adds an action to actionList when it is checked
     public void addAction(String action) {
-        actionList.add(action);
-        Log.i("SuggestionsForImprovement", "Action List: " + actionList);
-        calculateActions(actionList);
+        bpActions.add(action);
+        Log.i("SuggestionsForImprovement", "Action Added: " +  action);
+        Log.i("SuggestionsForImprovement", "Updated Action List: " + bpActions);
+        //calculateActions(bpActions);
+
 
         //DEBUGGING - use the lines below to test whether the correct suggestions were added
         //actionList = SharedPreferencesUtility.getStringList(this, "action");
@@ -171,31 +221,57 @@ public class SuggestionsForImprovement extends BaseActivity {
 
     //removes an action from actionList when it is unchecked
     public void removeAction(String action) {
-        actionList.remove(action);
-        calculateActions(actionList);
-        Log.i("MyActivity", "Action List: " + actionList);
+        bpActions.remove(action);
+        Log.i("SuggestionsForImprovement", "Action Removed: " +  action);
+        Log.i("SuggestionsForImprovement", "Updated Action List: " +  bpActions);
+        //calculateActions(bpActions);
+    }
+
+    public String stringListUtility(List list) {
+        //takes in a List and returns a string with list items delimited by a ";"
+        String listString = TextUtils.join(";", list);
+
+        return listString;
     }
 
     //adds the list of actions to sharedPreferences for display on ActionPlan activity
     public void calculateActions(List actionList) {
-        SharedPreferencesUtility.putStringList(this, "action", actionList);
+
+        String actionStringList = stringListUtility(actionList);
+
+        // save values into sharedpreferences
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+        editor.putString("actions", actionStringList);
+        editor.apply();
+
+        String debugActions = mySharedPreferences.getString("actions", "");
+        Log.i("SuggestionsForImprovement", "SP actions: " + debugActions);
+
+        //check complete SharedPreferences
+        Log.i("SuggestionsForImprovement", "SP ALL: " + mySharedPreferences.getAll());
+
+
     }
 
 
-//Button Navigation
+//NAVIGATION
     //onClick of back button
     public void openPreviousActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), YouAndYourCommunity.class);
+        calculateActions(bpActions);
         startActivity(intent);
     }
 
     //onClick of forward button
     public void openNextActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), ActionPlan.class);
+        calculateActions(bpActions);
         startActivity(intent);
     }
 
-//Action Bar Menu
+//ACTIONBAR MENU
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -54,9 +54,13 @@ public class ClientInformation extends BaseActivity {
 
     //these variables will be altered based on user input
     //they will then be used to construct and modify a BusinessPlan object
-    String bpClientName = null; //name
-    String bpCity = null; //city
-    Integer bpHousehold = null; //number of people in the household
+    String bpClientName = ""; //name
+    String bpCity = ""; //city
+    Integer bpHousehold = 0; //number of people in the household
+
+    //create Shared Preferences object
+    SharedPreferences sharedpreferences;
+    final String prename = "mypref";
 
 
     @Override
@@ -64,9 +68,6 @@ public class ClientInformation extends BaseActivity {
         //create a variable of type SharedPreferences:
 
 
-        //create Shared Preferences object
-        SharedPreferences sharedpreferences;
-        final String prename = "mypref";
 
 
         super.onCreate(savedInstanceState);
@@ -98,7 +99,7 @@ public class ClientInformation extends BaseActivity {
                         if (!hasFocus) { //SAVE the DATA
                             final String name = editText1.getText().toString();
                             bpClientName = name;
-                            Log.i("Client Information", "Getting name " + name);
+                            Log.i("Client Information", "Getting name " + bpClientName);
                         }
 
                     }
@@ -112,8 +113,7 @@ public class ClientInformation extends BaseActivity {
                         if (!hasFocus) { //SAVE the DATA
                             final String city = editText2.getText().toString();
                             bpCity = city;
-
-
+                            Log.i("Client Information", "Getting city " + bpCity);
                         }
 
                     }
@@ -142,15 +142,15 @@ public class ClientInformation extends BaseActivity {
                         int position = spinner.getSelectedItemPosition();
 
 
-                        int folks = spinner.getSelectedItemPosition();
-                        bpHousehold = folks;
+                        int num_people = spinner.getSelectedItemPosition();
+                        bpHousehold = num_people;
 
-                        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = mySharedPreferences.edit();
-
-                        editor.putInt("num_people", folks);
-
-                        editor.apply();
+//                        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+//                        SharedPreferences.Editor editor = mySharedPreferences.edit();
+//
+//                        editor.putInt("num_people", folks);
+//
+//                        editor.apply();
 
 
                     }
@@ -219,17 +219,38 @@ public class ClientInformation extends BaseActivity {
 
     //called when user clicks next button - creates a BusinessPlan Object
         //saves BusinessPlan object to SharedPreferences
-    public void initBusinessPlan() {
-    //create a business plan object with the name, city, and income
+//    public void initBusinessPlan() {
+//    //create a business plan object with the name, city, and income
+//
+//        BusinessPlan businessPlan = new BusinessPlan(bpClientName);
+//        Log.i("Client Information", "creating BP" + businessPlan.getName());
+//        businessPlan.setCity(bpCity);
+//        businessPlan.setHousehold(bpHousehold);
+//
+//        //add the BP to SharedPreferences
+//        SharedPreferencesUtility.putBusinessPlan(this, "Business Plan", businessPlan);
+//        //"Business Plan": "name;;city;;household;;income;;Suggestion;;action"
+//
+//    }
 
-        BusinessPlan businessPlan = new BusinessPlan(bpClientName);
-        Log.i("Client Information", "creating BP" + businessPlan.getName());
-        businessPlan.setCity(bpCity);
-        businessPlan.setHousehold(bpHousehold);
+    public void addSharedPreferences() {
+        // save values into sharedpreferences
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
 
-        //add the BP to SharedPreferences
-        SharedPreferencesUtility.putBusinessPlan(this, "Business Plan", businessPlan);
-        //"Business Plan": "name;;city;;household;;income;;Suggestion;;action"
+        editor.putString("name", bpClientName);
+        editor.putString("city", bpCity);
+        editor.putInt("household", bpHousehold);
+        editor.apply();
+
+        String debugName = mySharedPreferences.getString("name","");
+        Log.i("Client Information", "SP name: " + debugName);
+
+        String debugCity = mySharedPreferences.getString("city", "");
+        Log.i("Client Information", "SP city: " + debugCity);
+
+        int debugHousehold = mySharedPreferences.getInt("household", 0);
+        Log.i("Client Information", "SP household: " + debugHousehold);
 
     }
 
@@ -237,11 +258,12 @@ public class ClientInformation extends BaseActivity {
     //onCLick of next button
     public void openNextActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), BusinessInformation.class);
-        initBusinessPlan(); //create new BusinessPlan
+        //initBusinessPlan(); //create new BusinessPlan
+        addSharedPreferences();
         startActivity(intent); //go to next activity
 
-        Log.i("Client Information", "Name: " + bpClientName);
-        Log.i("Client Information", "City: " + bpCity);
+//        Log.i("Client Information", "Name: " + bpClientName);
+//        Log.i("Client Information", "City: " + bpCity);
     }
 
 //ACTION BAR MENU -- see BaseActivity.java
