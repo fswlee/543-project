@@ -217,15 +217,8 @@ public class ClientInformation extends BaseActivity {
 
     }
 
-    //method to add user input (name and city) to SharedPreferences Object
-    public void addSharedPreferences(String key, BusinessPlan value) {
-
-        //SharedPreferencesUtility.putBusinessPlan(this, "Business Plan", value);
-        //"Business Plan": "name;;city;;household;;income;;suggestion;suggestion;suggestion;;action;action;action"
-
-    }
-
     //called when user clicks next button - creates a BusinessPlan Object
+        //saves BusinessPlan object to SharedPreferences
     public void initBusinessPlan() {
     //create a business plan object with the name, city, and income
 
@@ -234,12 +227,9 @@ public class ClientInformation extends BaseActivity {
         businessPlan.setCity(bpCity);
         businessPlan.setHousehold(bpHousehold);
 
-
+        //add the BP to SharedPreferences
         SharedPreferencesUtility.putBusinessPlan(this, "Business Plan", businessPlan);
-        //"Business Plan": "name;;city;;household;;income;;suggestion;suggestion;suggestion;;action;action;action"
-
-        //add this business plan to shared preferences
-        //addSharedPreferences("Business Plan", businessPlan);
+        //"Business Plan": "name;;city;;household;;income;;Suggestion;;action"
 
     }
 
