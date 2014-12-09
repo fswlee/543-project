@@ -5,93 +5,95 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="6dip" >
-<ScrollView
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
+    android:padding="6dip"
     style="@style/background">
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="60dp">
+        android:layout_marginBottom="60dp"
+        style="@style/suggestion">
 
 
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="This is your business plan overview:"
+        android:text="An Overview of your Business Plan"
         android:id="@+id/textView1"
         style="@style/instructions" />
+
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="Name:"
         android:id="@+id/field1"
-        style="@style/instructions"
+        style="@style/helptext"
         android:layout_below="@+id/textView1"/>
+
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        style="@style/response"
         android:padding="10dp"
         android:id="@+id/name"
         android:layout_below="@+id/field1"/>
         />
+
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="City:"
         android:id="@+id/field2"
-        style="@style/instructions"
-        android:layout_below="@+id/name"/>/>
+        style="@style/helptext"
+        android:layout_below="@+id/name"/>
+
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:id="@+id/city"
+        style="@style/response"
         android:layout_below="@+id/field2"/>
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/action_plan"
+        android:text="Action Plan"
+        android:layout_marginTop="10dp"
+        style="@style/helptext"/>
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        style="@style/question"
-        android:layout_below="@+id/city"/>
-
+        android:layout_height="fill_parent"
+        style="@style/suggestion"
+        android:layout_below="@+id/action_plan"
+        android:layout_marginTop="10dp"
+        />
     </LinearLayout>
-    </ScrollView>
-
 
     <Button
         style="@style/navbuttonprev"
         android:id="@+id/previous"
         android:text="&lt;"
-        android:layout_marginRight="94dp"
-        android:layout_alignParentRight="true"
-        android:onClick="openPreviousActivity"
         android:layout_toLeftOf="@+id/next"
-        android:layout_marginBottom="20dp"
-        android:layout_alignParentBottom="true" />
+        android:onClick="openPreviousActivity" />
 
     <Button
         style="@style/navbutton"
-        android:layout_alignParentBottom="true"
         android:id="@+id/next"
         android:text="&gt;"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="34dp"
-        android:layout_alignParentRight="true"
         android:onClick="openNewPlan" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="34dp"
         android:text="8/8"
         style="@style/pagination"/>
+
+
     </RelativeLayout>
 
     <!--when the user selects "button1" (the back button),
