@@ -91,19 +91,6 @@ public class ClientInformation extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
 
-                //grab input from editText1 after focus has changed - convert to String
-                //add the client name to shared preferences
-                editText1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-
-                    public void onFocusChange(View v, boolean hasFocus) {
-                        if (!hasFocus) { //SAVE the DATA
-                            final String name = editText1.getText().toString();
-                            bpClientName = name;
-                            Log.i("Client Information", "Getting name " + bpClientName);
-                        }
-
-                    }
-                });
 
                 //grab input from editText2 after focus has changed - convert to String
                 //add the city to shared preferences
@@ -119,11 +106,28 @@ public class ClientInformation extends BaseActivity {
                     }
                 });
 
+                //grab input from editText1 after focus has changed - convert to String
+                //add the client name to shared preferences
+                editText1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+                    public void onFocusChange(View v, boolean hasFocus) {
+                        if (!hasFocus) { //SAVE the DATA
+                            final String name = editText1.getText().toString();
+                            bpClientName = name;
+                            Log.i("Client Information", "Getting name " + bpClientName);
+                        }
+
+                    }
+                });
 
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
+
+
+
+
             }
         };
 
