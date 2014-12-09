@@ -24,19 +24,19 @@ public class BusinessPlan {
     String city;
     Integer household; //number of people in household
     Integer income;
-    List suggestions;
-    List actions;
+    List<Suggestion> suggestions;
+    List<String> actions;
 
     //constructor creates BusinessPlan object using name and city
         //also includes default income, suggestions, and actions (all empty)
     public BusinessPlan(String name) {
         super();
         this.name = name;
-        this.city = null;
-        this.household = null;
-        this.income = null;
-        this.suggestions = null;
-        this.actions = null;
+        this.city = "";
+        this.household = 0;
+        this.income = 0;
+        this.suggestions = new ArrayList<Suggestion>() ;
+        this.actions = new ArrayList<String>();
     }
 
     //there is no set for name or because this is set using the constructor and should not
