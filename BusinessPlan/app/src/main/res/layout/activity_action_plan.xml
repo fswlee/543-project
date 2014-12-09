@@ -5,7 +5,6 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="6dip"
     style="@style/background">
 
     <LinearLayout
@@ -27,31 +26,29 @@
 
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:text="Name:"
         android:id="@+id/field1"
-        style="@style/helptext"
+        style="@style/question"
         android:layout_below="@+id/textView1"/>
 
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         style="@style/response"
-        android:padding="10dp"
+        android:padding="5dp"
         android:id="@+id/name"
         android:layout_below="@+id/field1"/>
         />
 
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:text="City:"
         android:id="@+id/field2"
-        style="@style/helptext"
+        style="@style/question"
         android:layout_below="@+id/name"/>
 
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:padding="5dp"
         android:id="@+id/city"
         style="@style/response"
         android:layout_below="@+id/field2"/>
@@ -62,16 +59,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/action_plan"
         android:text="Action Plan"
-        android:layout_marginTop="10dp"
-        style="@style/helptext"/>
+        style="@style/question"/>
+
     <ListView
         android:id="@+id/listView"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        style="@style/suggestion"
+        style="@style/question"
         android:layout_below="@+id/action_plan"
         android:layout_marginTop="10dp"
         />
+
+
+
+
     </LinearLayout>
 
     <Button
