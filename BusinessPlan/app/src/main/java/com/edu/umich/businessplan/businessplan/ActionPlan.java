@@ -149,7 +149,7 @@ public class ActionPlan extends BaseActivity {
 
         String bpListString = stringListUtility(bpList);
 
-        bpListString += ";_;"; //put a ";;" at the end of each users BP
+       // bpListString += ";_;"; //put a ";;" at the end of each users BP
         Log.i("ActionPlan", "BP ListString w/ ;; " + bpListString);
 
 
@@ -157,8 +157,13 @@ public class ActionPlan extends BaseActivity {
         SharedPreferences.Editor editor = mySharedPreferences.edit();
 
         String currentBPString = mySharedPreferences.getString("Business Plan", "");
-        String combinedBPString = currentBPString + bpListString;
-        editor.putString("Business Plan", combinedBPString);
+        if(currentBPString.length() != 0) {
+            String combinedBPString = bpListString + ";_;" + currentBPString;
+            editor.putString("Business Plan", combinedBPString);
+        }
+        else {
+            editor.putString("Business Plan", bpListString);
+        }
 
         editor.apply();
 

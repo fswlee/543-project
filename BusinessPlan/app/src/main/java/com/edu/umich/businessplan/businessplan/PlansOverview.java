@@ -42,6 +42,7 @@ public class PlansOverview extends BaseActivity {
 
         bpListString = getSharedPreferences();
         // we call this initiList function to fill in our list class variable with our team names
+
         initList(bpListString);
 
 // adapters are what we use to associate the list variable and its contents with the list view
@@ -68,6 +69,7 @@ public class PlansOverview extends BaseActivity {
 
     public List initList(String businessPlanString) {
         String bpString = businessPlanString;
+        Log.i("PlansOverview", "initlist() string" + bpString);
 //        List<String> clientList2 = SharedPreferencesUtility.getStringList(this, "client");
 //        Log.i("MyActivity", "What The Hell is Happening: " + clientList2);
 //        for(String t: clientList2) {
