@@ -4,6 +4,7 @@ package com.edu.umich.businessplan.businessplan;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -12,18 +13,32 @@ import android.view.View;
 
 public class NewPlan extends BaseActivity {
 
+    //create Shared Preferences object
+    SharedPreferences sharedpreferences;
+    final String prename = "mypref";
 
-	
-
-    //display textView1//
-    //display button1//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_plan);
 
         //deletes shared preferences from previous plan
-        SharedPreferencesUtility.clearAll(this);
+        clearCurrentBP();
+    }
+
+    public void clearCurrentBP() {
+        // save values into sharedpreferences
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+        editor.remove("name");
+        editor.remove("city");
+        editor.remove("household");
+        editor.remove("income");
+        editor.remove("suggestions");
+        editor.remove("actions");
+
+        editor.apply();
     }
 
     //when user selects button1, load activity 2 (ClientInformation)//
