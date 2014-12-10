@@ -33,9 +33,10 @@ public class ActionPlan extends BaseActivity {
     //they will then be used to construct and modify a BusinessPlan object
     String bpClientName = ""; //name
     String bpCity = ""; //city
-    Integer bpHousehold = 0; //number of people in the household
-    Integer bpIncome = 0; //income
+//    Integer bpHousehold = 0; //number of people in the household
+//    Integer bpIncome = 0; //income
     List bpActions = new ArrayList<String>(); //list of Action Plan items
+    String bpActionStringList = "";
 
     //create Shared Preferences object
     SharedPreferences sharedpreferences;
@@ -61,9 +62,13 @@ public class ActionPlan extends BaseActivity {
         String city1 = mySharedPreferences.getString("city", " ");
 
         name.setText(name1);
+        bpClientName = name1;
         city.setText(city1);
+        bpCity = city1;
+
 
         bpActions = getSharedPreferences();
+
 
         String actionsListString = mySharedPreferences.getString("actions", "");
         Log.i("ActionPlan", "SP Actions: " + actionsListString);
@@ -88,6 +93,7 @@ public class ActionPlan extends BaseActivity {
         //get the string of suggestions, delimited by ";"
         String actionsStringList = mySharedPreferences.getString("actions", "");
 
+        bpActionStringList = actionsStringList;
         List returnList = constructActionsList(actionsStringList);
 
 
@@ -121,60 +127,17 @@ public class ActionPlan extends BaseActivity {
         return action;
     }
 
-//    private void displayContent(String name){
-//        String input = name;
-//        SimpleAdapter <String> simpleAdapter = new SimpleAdapter(this, input, R.id.name);
-//    }
+    public void saveBusinessPlan() {
+        //create BusinessPlan list from attributes
+        List bpList = new ArrayList<String>();
 
-//    public void initList(String listString) {
-//
-////        //gets the actions from SP, key: "actions"
-////        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
-////        SharedPreferences.Editor editor = mySharedPreferences.edit();
-////
-////        //get the string of actions, delimited by ";"
-////        String actionsStringList = mySharedPreferences.getString("actions", "");
-//
-//        List returnList = constructSuggestions(listString);
-//
-////        return returnList;
-//
-//        List<String> displayActionsList = SharedPreferencesUtility.getStringList(this, "action");
-//        for (String t : displayActionsList) {
-//            actionList.add(createAction("action", t));
-//        }
-//    }
-//
-//    public List constructSuggestions(String stringList) {
-//        //takes a string of suggestions delimited by ";" and returns a List of suggestions
-//        List<String> list = new ArrayList<String>(); //default list
-//
-//        if(stringList.length() != 0) {
-//        // string.split will create an array returning everything in between the provided "delimiter"
-//        // parameter
-//        // example: if the string is hello;world;!, calling split(";") on it would return an array
-//        // with 3 items: "hello", "world", and "!"
-//            String[] items = stringList.split(";");
-//
-//// loop through the array and add it to a list so we can give it back to the method caller
-//            for (String i : items) {
-//                list.add(i);
-//            }
-//        }
-//
-//        return list;
-//    }
-//
-////        }
-//
-////        List<String> summaryList = mySharedPreferences.getString("name", " ");
-//
+        Log.i("ActionPlan", "client name in save method " + bpClientName);
+        bpList.add(0, bpClientName);
+        bpList.add(1, bpCity);
+        bpList.add(2, bpActionStringList);
 
-
-
-
-
-
+        Log.i("ActionPlan", "BP list " + bpList);
+    }
 
 //NAVIGATION
     //onClick of back button
@@ -199,6 +162,10 @@ public class ActionPlan extends BaseActivity {
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+
+                        //save users Business Plan
+                        saveBusinessPlan();
+
                         // if this button is clicked, close
                         // current activity
                         Toast.makeText(getApplicationContext(), "Thank you! Your plan has been submitted. Returning to the main screen.", Toast.LENGTH_SHORT).show();
