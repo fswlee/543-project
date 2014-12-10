@@ -346,6 +346,7 @@ public class YourHours extends BaseActivity {
     public String stringListUtility(List list) {
         //takes in a List and returns a string with list items delimited by a ";"
         String listString = TextUtils.join(";", list);
+        listString = ";" + listString;
 
 
         return listString;
