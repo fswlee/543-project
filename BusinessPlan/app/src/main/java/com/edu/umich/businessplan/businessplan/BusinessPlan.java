@@ -33,9 +33,6 @@ public class BusinessPlan {
         super();
         this.name = name;
         this.city = "";
-        this.household = 0;
-        this.income = 0;
-        this.suggestions = new ArrayList<Suggestion>() ;
         this.actions = new ArrayList<String>();
     }
 
