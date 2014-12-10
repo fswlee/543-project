@@ -52,8 +52,6 @@
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp">
 
-
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,8 +64,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Name:"
         android:id="@+id/textView1"
-        style="@style/question"
-        />
+        style="@style/question" />
 
     <EditText
         android:layout_width="match_parent"
@@ -150,60 +147,58 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
-        <ImageButton
-            style="@style/imagebutton"
-            android:id="@+id/imageButton1"
-            android:src="@drawable/rural"
-            android:onClick="selectButton"
-            />
-        <!-- place holder image -->
+            <ImageButton
+                style="@style/imagebutton"
+                android:id="@+id/imageButton1"
+                android:src="@drawable/rural"
+                android:onClick="selectButton"
+                />
 
-        <ImageButton
-            style="@style/imagebutton"
-            android:id="@+id/imageButton2"
-            android:src="@drawable/suburban"
-            android:onClick="selectButton"/>
-        <!-- place holder image -->
+            <ImageButton
+                style="@style/imagebutton"
+                android:id="@+id/imageButton2"
+                android:src="@drawable/suburban"
+                android:onClick="selectButton"/>
 
-        <ImageButton
-            style="@style/imagebutton"
-            android:id="@+id/imageButton3"
-            android:src="@drawable/urban"
-            android:onClick="selectButton"/>
-        <!-- place holder image -->
+            <ImageButton
+                style="@style/imagebutton"
+                android:id="@+id/imageButton3"
+                android:src="@drawable/urban"
+                android:onClick="selectButton"/>
+
         </TableRow>
 
         <TableRow
             android:id="@+id/tableRowLabel1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
-        <TextView
-            android:id="@+id/rural"
-            android:layout_height="20dp"
-            android:layout_width="fill_parent"
-            android:gravity="center"
-            android:textSize="10dp"
-            android:textAllCaps="true"
-            android:text="Rural"
-            />
+            <TextView
+                android:id="@+id/rural"
+                android:layout_height="20dp"
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textAllCaps="true"
+                android:text="Rural"
+                />
 
-        <TextView
-            android:id="@+id/suburban"
-            android:layout_height="20dp"
-            android:layout_width="60dp"
-            android:layout_marginLeft="15dp"
-            android:textSize="10dp"
-            android:textAllCaps="true"
-            android:text="Suburban"/>
+            <TextView
+                android:id="@+id/suburban"
+                android:layout_height="20dp"
+                android:layout_width="60dp"
+                android:layout_marginLeft="15dp"
+                android:textSize="10dp"
+                android:textAllCaps="true"
+                android:text="Suburban"/>
 
-        <TextView
-            android:id="@+id/urban"
-            android:layout_height="20dp"
-            android:layout_width="30dp"
-            android:layout_marginLeft="15dp"
-            android:textSize="10dp"
-            android:textAllCaps="true"
-            android:text="Urban"/>
+            <TextView
+                android:id="@+id/urban"
+                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_marginLeft="15dp"
+                android:textSize="10dp"
+                android:textAllCaps="true"
+                android:text="Urban"/>
         </TableRow>
         </TableLayout>
     </LinearLayout>

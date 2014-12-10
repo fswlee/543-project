@@ -1,3 +1,5 @@
+<!-- Plans Overview Activity -->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -45,7 +47,8 @@
         android:layout_marginBottom="20dp"
         android:layout_marginRight="34dp"
         android:layout_alignParentRight="true"
-        android:onClick="goBack" />
+        android:onClick="goBack"
+        android:textSize="12dp"/>
 
 
 </RelativeLayout>

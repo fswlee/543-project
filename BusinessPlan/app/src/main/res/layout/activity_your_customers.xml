@@ -83,8 +83,6 @@
                 android:textAllCaps="true"
                 android:text="Neighborhood"/>
 
-
-
         </TableRow>
 
 
@@ -132,8 +130,6 @@
                 android:textSize="10dp"
                 android:textAllCaps="true"
                 android:text="Store"/>
-
-
 
         </TableRow>
     </TableLayout>
