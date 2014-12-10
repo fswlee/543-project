@@ -81,7 +81,7 @@ public class ActionPlan extends BaseActivity {
 
         // adapters are what we use to associate the list variable and its contents with the list view
         ListView actionListView = (ListView) findViewById(R.id.listView);
-        SimpleAdapter simpleAdpt = new SimpleAdapter(this, bpActions, android.R.layout.simple_list_item_1, new String[] {"action"}, new int[] {android.R.id.text1});
+        SimpleAdapter simpleAdpt = new SimpleAdapter(this, bpActions, R.layout.action_plan, new String[] {"action"}, new int[] {android.R.id.text1});
         actionListView.setAdapter(simpleAdpt);
 
         Log.i("ActionPlan", "Action List: " + actionList);
