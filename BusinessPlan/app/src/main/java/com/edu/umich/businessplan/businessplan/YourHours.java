@@ -311,12 +311,6 @@ public class YourHours extends BaseActivity {
 
         Log.i("YourHours", "getting suggestionList: " + bpSuggestions);
 
-//        //save the new list of suggestions to shared preferences
-//        SharedPreferencesUtility.putStringList(this, "recommendation", suggestionList);
-//
-//        //DEBUGGING: use the lines below to test whether the correct suggestions were added
-//        suggestionList = SharedPreferencesUtility.getStringList(this, "recommendation");
-//        Log.i("MyActivity", "sharedPreferences " + suggestionList);
 
     }
 
@@ -337,13 +331,7 @@ public class YourHours extends BaseActivity {
         else {
             editor.putString("suggestions", suggestionStringList);
         }
-//
-//        String combinedSuggestionStringList = currentSuggestionString + suggestionStringList;
-//
-//        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
-//        SharedPreferences.Editor editor = mySharedPreferences.edit();
-//
-//        editor.putString("suggestions", combinedSuggestionStringList);
+
         editor.apply();
 
         String debugSuggestions = mySharedPreferences.getString("suggestions", "");
