@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -127,16 +128,41 @@ public class ActionPlan extends BaseActivity {
         return action;
     }
 
+
+    public String stringListUtility(List list) {
+        //takes in a List and returns a string with list items delimited by a ";"
+        String listString = TextUtils.join(";", list);
+
+        return listString;
+    }
+
     public void saveBusinessPlan() {
         //create BusinessPlan list from attributes
         List bpList = new ArrayList<String>();
 
         Log.i("ActionPlan", "client name in save method " + bpClientName);
-        bpList.add(0, bpClientName);
-        bpList.add(1, bpCity);
-        bpList.add(2, bpActionStringList);
+        bpList.add(0, ";_;" + bpClientName); //put a ";;" at the begining of each users BP
+        bpList.add(1, ";;" + bpCity);
+        bpList.add(2, ";;" + bpActionStringList);
 
         Log.i("ActionPlan", "BP list " + bpList);
+
+        String bpListString = stringListUtility(bpList);
+
+        bpListString += ";_;"; //put a ";;" at the end of each users BP
+        Log.i("ActionPlan", "BP ListString w/ ;; " + bpListString);
+
+
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+        editor.putString("Business Plan", bpListString);
+        editor.apply();
+
+        String debugName = mySharedPreferences.getString("Business Plan","");
+        Log.i("ActionPlan", "SP BP: " + debugName);
+
+
     }
 
 //NAVIGATION
