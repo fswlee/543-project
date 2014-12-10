@@ -28,7 +28,7 @@ import java.util.Map;
 public class PlansOverview extends BaseActivity {
 
     // the string variable we use for sending messages with intents
-    public final static String EXTRA_MESSAGE = "edu.umich.teamivore.MESSAGE";
+//    public final static String EXTRA_MESSAGE = "edu.umich.teamivore.MESSAGE";
 
     MyCustomAdapter dataAdapter = null;
 
