@@ -327,12 +327,23 @@ public class YourHours extends BaseActivity {
         //concatenate the string of suggestions already saved in SP (saved in YourCustomers)
         //with the string of suggestions generated during this activity
 
-        String combinedSuggestionStringList = currentSuggestionString + suggestionStringList;
-
         SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = mySharedPreferences.edit();
+        if(currentSuggestionString.length() != 0) {
 
-        editor.putString("suggestions", combinedSuggestionStringList);
+            String combinedSuggestionStringList = currentSuggestionString + suggestionStringList;
+            editor.putString("suggestions", combinedSuggestionStringList);
+        }
+        else {
+            editor.putString("suggestions", suggestionStringList);
+        }
+//
+//        String combinedSuggestionStringList = currentSuggestionString + suggestionStringList;
+//
+//        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+//        SharedPreferences.Editor editor = mySharedPreferences.edit();
+//
+//        editor.putString("suggestions", combinedSuggestionStringList);
         editor.apply();
 
         String debugSuggestions = mySharedPreferences.getString("suggestions", "");
