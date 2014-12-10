@@ -29,7 +29,6 @@ public class YourCustomers extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_customers);
 
-        //call method to add suggestions to sharedPreferences
         //if the user gets to this page, but selects nothing, all eight suggestions
         //should be added to the sharedPreferences
 
@@ -100,8 +99,8 @@ public class YourCustomers extends BaseActivity {
                 selectedNeighborhood = false;
                 whereTotal -= 1;
             }
-//            Log.i("MyActivity", "Where Total " + whereTotal);
-//            Log.i("MyActivity", "Neighborhood Selected? " + selectedNeighborhood);
+            Log.i("MyActivity", "Where Total " + whereTotal);
+            Log.i("MyActivity", "Neighborhood Selected? " + selectedNeighborhood);
         }
 
         else if (view.getId() == R.id.buttonCart) {
@@ -114,8 +113,8 @@ public class YourCustomers extends BaseActivity {
                 selectedCart = false;
                 whereTotal -= 1;
             }
-//            Log.i("MyActivity", "Where Total " + whereTotal);
-//            Log.i("MyActivity", "Cart Selected? " + selectedCart);
+            Log.i("MyActivity", "Where Total " + whereTotal);
+            Log.i("MyActivity", "Cart Selected? " + selectedCart);
         }
 
         else if (view.getId() == R.id.buttonStore) {
@@ -128,8 +127,8 @@ public class YourCustomers extends BaseActivity {
                 selectedStore = false;
                 whereTotal -= 1;
             }
-//            Log.i("MyActivity", "Where Total " + whereTotal);
-//            Log.i("MyActivity", "Store Selected? " + selectedStore);
+            Log.i("MyActivity", "Where Total " + whereTotal);
+            Log.i("MyActivity", "Store Selected? " + selectedStore);
         }
 
         else if (view.getId() == R.id.buttonFamily) {
@@ -142,8 +141,8 @@ public class YourCustomers extends BaseActivity {
                 selectedFamily = false;
                 whoTotal -= 1;
             }
-//            Log.i("MyActivity", "Where Total " + whoTotal);
-//            Log.i("MyActivity", "Family? " + selectedFamily);
+            Log.i("MyActivity", "Where Total " + whoTotal);
+            Log.i("MyActivity", "Family? " + selectedFamily);
         }
         else if (view.getId() == R.id.buttonFriends) {
             if (selectedFriends == false) {
@@ -155,8 +154,8 @@ public class YourCustomers extends BaseActivity {
                 selectedFriends = false;
                 whoTotal -= 1;
             }
-//            Log.i("MyActivity", "Where Total " + whoTotal);
-//            Log.i("MyActivity", "Friends? " + selectedFriends);
+            Log.i("MyActivity", "Where Total " + whoTotal);
+            Log.i("MyActivity", "Friends? " + selectedFriends);
         }
         else if (view.getId() == R.id.buttonNeighbors) {
             if (selectedNeighbors == false) {
@@ -168,8 +167,8 @@ public class YourCustomers extends BaseActivity {
                 selectedNeighbors = false;
                 whoTotal -= 1;
             }
-//            Log.i("MyActivity", "Where Total " + whoTotal);
-//            Log.i("MyActivity", "Neighbors? " + selectedNeighbors);
+            Log.i("MyActivity", "Where Total " + whoTotal);
+            Log.i("MyActivity", "Neighbors? " + selectedNeighbors);
         }
         else if (view.getId() == R.id.buttonPublic) {
             if (selectedPublic == false) {
@@ -181,11 +180,11 @@ public class YourCustomers extends BaseActivity {
                 selectedPublic = false;
                 whoTotal -= 1;
             }
-//            Log.i("MyActivity", "Who Total " + whoTotal);
-//            Log.i("MyActivity", "Public? " + selectedPublic);
+            Log.i("MyActivity", "Who Total " + whoTotal);
+            Log.i("MyActivity", "Public? " + selectedPublic);
         }
-//        Log.i("MyActivity", "Who Total: " + whoTotal);
-//        Log.i("MyActivity", "Where Total: " + whereTotal);
+        Log.i("MyActivity", "Who Total: " + whoTotal);
+        Log.i("MyActivity", "Where Total: " + whereTotal);
 
         //call the calculateRecommendations method to update the sharedPreferences
         calculateRecommendations();
