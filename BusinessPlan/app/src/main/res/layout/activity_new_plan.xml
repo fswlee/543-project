@@ -13,13 +13,13 @@
         android:id="@+id/textView1"
         android:textSize="75px"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="135dp" />
+        android:layout_marginTop="105dp" />
 
     <TextView
         style="@style/question"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Click Create New Plan to start working with a new client on a new business plan. Talk through all the text-based response questions and type in the answers for the client. Let the client select their answers with the image-based responses."
+        android:text="Click Create New Plan to start working with a new client on a new business plan. Talk through all the text-based response questions and type in the answers for the client. Let the client select their answers with the image-based responses. Click See Plan Summaries to see action plans previously entered in the system."
         android:id="@+id/textView2"
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
