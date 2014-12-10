@@ -17,6 +17,8 @@ public class NewPlan extends BaseActivity {
     SharedPreferences sharedpreferences;
     final String prename = "mypref";
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,12 +26,16 @@ public class NewPlan extends BaseActivity {
 
         //deletes shared preferences from previous plan
         clearCurrentBP();
+
+
     }
 
     public void clearCurrentBP() {
         // save values into sharedpreferences
         SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+        //editor.clear();
 
         editor.remove("name");
         editor.remove("city");
