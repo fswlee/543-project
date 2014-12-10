@@ -38,6 +38,18 @@
         android:background="#363839"
         android:textColor="#ffffff"/>
 
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="See Plan Summaries"
+        android:id="@+id/see_plans"
+        android:onClick="seePlans"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="90dp"
+        android:background="#363839"
+        android:textColor="#ffffff"/>
 
 </RelativeLayout>
 
