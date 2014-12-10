@@ -43,6 +43,7 @@ public class NewPlan extends BaseActivity {
         editor.remove("income");
         editor.remove("suggestions");
         editor.remove("actions");
+        editor.remove("new");
 
         editor.apply();
 

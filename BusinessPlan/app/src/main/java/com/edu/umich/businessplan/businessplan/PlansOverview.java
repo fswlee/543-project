@@ -26,6 +26,10 @@ import java.util.Map;
 
 
 public class PlansOverview extends BaseActivity {
+
+    // the string variable we use for sending messages with intents
+    public final static String EXTRA_MESSAGE = "edu.umich.teamivore.MESSAGE";
+
     MyCustomAdapter dataAdapter = null;
 
     //List<Map<String, String>> clientList = new ArrayList<Map<String,String>>();
@@ -121,6 +125,7 @@ public class PlansOverview extends BaseActivity {
                 editor.putString("name", name);
                 editor.putString("city", city);
                 editor.putString("actions", actionsString);
+                editor.putBoolean("new", false);
                 editor.apply();
 
                 String debugName = mySharedPreferences.getString("name", "");

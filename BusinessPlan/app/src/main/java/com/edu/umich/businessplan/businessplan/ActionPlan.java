@@ -31,6 +31,8 @@ import android.os.*;
 
 public class ActionPlan extends BaseActivity {
 
+
+
     //they will then be used to construct and modify a BusinessPlan object
     String bpClientName = ""; //name
     String bpCity = ""; //city
@@ -38,6 +40,7 @@ public class ActionPlan extends BaseActivity {
 //    Integer bpIncome = 0; //income
     List bpActions = new ArrayList<String>(); //list of Action Plan items
     String bpActionStringList = "";
+    Boolean bpSave = true;
 
     //create Shared Preferences object
     SharedPreferences sharedpreferences;
@@ -61,6 +64,7 @@ public class ActionPlan extends BaseActivity {
         SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
         String name1 = mySharedPreferences.getString("name", " ");
         String city1 = mySharedPreferences.getString("city", " ");
+        bpSave = mySharedPreferences.getBoolean("new", true);
 
         name.setText(name1);
         bpClientName = name1;
@@ -196,9 +200,11 @@ public class ActionPlan extends BaseActivity {
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        if (bpSave == true) {
+                            //save users Business Plan
+                            saveBusinessPlan();
+                        }
 
-                        //save users Business Plan
-                        saveBusinessPlan();
 
                         // if this button is clicked, close
                         // current activity
