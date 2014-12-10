@@ -29,8 +29,6 @@ public class BusinessInformation extends BaseActivity {
     //this SP won't be deleted, but when a user starts a new plan, the other SPs will be cleared
 
 
-    //these variables will be altered based on user input
-    //they will then be used to construct and modify a BusinessPlan object
     Integer bpIncome = 0; //number of people in the household
 
     String prename = "mypref";
@@ -65,35 +63,6 @@ public class BusinessInformation extends BaseActivity {
         });
     }
 
-//    public void editBusinessPlan() {
-//        String bpListString = "";
-//        //get the existing BP list from SP
-//            //construct the business plan using the income
-//            //remove the BP from SP and add the new one
-//
-//        //grab the BP list from SP
-//            //edit the list to include an the user input income
-//            //re-save to SP
-//        //create a business plan object with the name, city, and income
-//
-//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        SharedPreferences.Editor editor = preferences.edit();
-//        editor.getClass(); //Add the BP object to shared prefs
-//        //it looks like this:
-//        //"Business Plan": "name;;city;;household;;income;;suggestion;suggestion;suggestion;;action;action;action"
-//        editor.apply();
-//
-//
-//
-//
-//        Log.i("Business Information", "editBusinessPlan() is called");
-//        //SharedPreferencesUtility.getBusinessPlan(this, "Business Plan");
-//
-//        //add the BP to SharedPreferences
-//        //SharedPreferencesUtility.putBusinessPlan(this, "Business Plan", businessPlan);
-//        //"Business Plan": "name;;city;;household;;income;;Suggestion;;action"
-//
-//    }
 
     public void addSharedPreferences() {
         // saves users income to SharedPreferences using key, "income"
@@ -118,7 +87,6 @@ public class BusinessInformation extends BaseActivity {
             addSharedPreferences();
             startActivity(intent);
         }
-
 
     //onClick of forward button
     public void openNextActivity(View view) {
