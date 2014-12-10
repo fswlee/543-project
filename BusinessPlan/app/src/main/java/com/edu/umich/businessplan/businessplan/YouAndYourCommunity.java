@@ -25,8 +25,6 @@ import com.jjoe64.graphview.GraphView.GraphViewData;
 import com.jjoe64.graphview.GraphViewSeries;
 
 
-// household
-// over18
 // create new variable annual_income by muliplying income_per_month by 12.
 
 // display the main menu button.
@@ -137,7 +135,7 @@ public class YouAndYourCommunity extends BaseActivity {
     }
 
 
-
+//NAVIGATION
     //onClick of back button
     public void openPreviousActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), HowIsBusiness.class);
@@ -150,7 +148,7 @@ public class YouAndYourCommunity extends BaseActivity {
         startActivity(intent);
     }
 
-
+//ACTIONBAR MENU
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
