@@ -26,6 +26,12 @@ public class YourHours extends BaseActivity {
     String currentSuggestionString = "";
     String prename = "mypref";
 
+    //initialize total variables (int)
+    int weekdayTotal = 0;
+    int weekendTotal = 0;
+    int morningTotal = 0;
+    int afternoonTotal = 0;
+    int eveningTotal = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +43,10 @@ public class YourHours extends BaseActivity {
         SharedPreferences.Editor editor = mySharedPreferences.edit();
 
         currentSuggestionString = mySharedPreferences.getString("suggestions", "");
+        Log.i("YourHours", "getting current suggestionList: " + currentSuggestionString);
 
-        calculateRecommendations();
+
+//        calculateRecommendations();
     }
 
     //initialize selected status variables (bool)
@@ -70,12 +78,12 @@ public class YourHours extends BaseActivity {
     boolean selectedSundayEvening = false;
 
 
-    //initialize total variables (int)
-    int weekdayTotal = 0;
-    int weekendTotal = 0;
-    int morningTotal = 0;
-    int afternoonTotal = 0;
-    int eveningTotal = 0;
+//    //initialize total variables (int)
+//    int weekdayTotal = 0;
+//    int weekendTotal = 0;
+//    int morningTotal = 0;
+//    int afternoonTotal = 0;
+//    int eveningTotal = 0;
 
     //receives the buttonID, the current selection status of the button, a string representing
     //  the weekday or weekend, and a string representing morning, afternoon, or evening
@@ -119,6 +127,7 @@ public class YourHours extends BaseActivity {
             }
             if (time == "morning") {
                 morningTotal -= 1;
+                Log.i("YourHours", "morning total " + morningTotal);
             }
             else if (time == "afternoon") {
                 afternoonTotal -= 1;
@@ -164,6 +173,7 @@ public class YourHours extends BaseActivity {
         if (view.getId() == R.id.mondayMorning) {
             String day = "weekday";
             String time = "morning";
+            Log.i("YourHours", "Monday Morning selected");
             selectedMondayMorning = select(mondayMorning, selectedMondayMorning, day, time);
         }
         else if (view.getId() == R.id.tuesdayMorning) {
@@ -273,7 +283,7 @@ public class YourHours extends BaseActivity {
     public void calculateRecommendations() {
         //get the current list of recommendations from shared preferences
         List<String> suggestionList = new ArrayList<String>(); //empty list
-        suggestionList = SharedPreferencesUtility.getStringList(this, "recommendation");
+        //suggestionList = SharedPreferencesUtility.getStringList(this, "recommendation");
 
         //if the condition is met, add the suggestion to the suggestionList
         if (weekdayTotal<= 7) {
@@ -316,12 +326,13 @@ public class YourHours extends BaseActivity {
 
         //concatenate the string of suggestions already saved in SP (saved in YourCustomers)
         //with the string of suggestions generated during this activity
+
         String combinedSuggestionStringList = currentSuggestionString + suggestionStringList;
 
         SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = mySharedPreferences.edit();
 
-        editor.putString("suggestions", suggestionStringList);
+        editor.putString("suggestions", combinedSuggestionStringList);
         editor.apply();
 
         String debugSuggestions = mySharedPreferences.getString("suggestions", "");
@@ -336,6 +347,7 @@ public class YourHours extends BaseActivity {
         //takes in a List and returns a string with list items delimited by a ";"
         String listString = TextUtils.join(";", list);
 
+
         return listString;
     }
 
@@ -343,6 +355,7 @@ public class YourHours extends BaseActivity {
     //onClick of back button
     public void openPreviousActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), YourCustomers.class);
+        calculateRecommendations();
         addSharedPreferences(bpSuggestions);
         startActivity(intent);
     }
@@ -350,6 +363,7 @@ public class YourHours extends BaseActivity {
     //onClick of forward button
     public void openNextActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), HowIsBusiness.class);
+        calculateRecommendations();
         addSharedPreferences(bpSuggestions);
         startActivity(intent);
     }
