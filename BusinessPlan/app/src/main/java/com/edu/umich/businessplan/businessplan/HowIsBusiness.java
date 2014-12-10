@@ -75,6 +75,7 @@ public class HowIsBusiness extends BaseActivity {
 
     }
 
+//NAVIGATION
     //onClick of back button
     public void openPreviousActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), YourHours.class);
@@ -87,6 +88,7 @@ public class HowIsBusiness extends BaseActivity {
         startActivity(intent);
     }
 
+//ACTIONBAR MENU
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
