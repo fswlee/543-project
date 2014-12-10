@@ -11,14 +11,6 @@
     android:layout_marginRight="20dp"
     android:layout_marginLeft="20dp">
 
-    <!--<TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/instructions"
-        android:id="@+id/textView1"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="How Is Business?\n" />-->
-
     <TextView
         style="@style/question"
         android:layout_width="wrap_content"
@@ -34,11 +26,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp">
-
-
-        <!-- //if the user selects any of the buttons in the first grid,
-        update the "where do you live" variable in the algorithm that generates
-        data based on poverty levels based on where people live-->
 
         <ImageButton
             android:id="@+id/supersad"
@@ -72,10 +59,6 @@
             style="@style/smiles"
             android:onClick="selectButton"/>
 
-
-
-        <!-- //if the user selects any of the buttons in the first grid,
-    update the "how is business" variable in the algorithm    -->
     </LinearLayout>
 
 </LinearLayout>

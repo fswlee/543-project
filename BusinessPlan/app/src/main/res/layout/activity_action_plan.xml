@@ -40,7 +40,7 @@
         android:id="@+id/name"
         android:layout_below="@+id/field1"
         android:background="#ffffff"/>
-        />
+
 
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
         style="@style/response"
         android:layout_below="@+id/field2"
         android:background="#ffffff"/>
-        />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -75,7 +75,6 @@
         android:layout_marginTop="10dp"
         style="@style/actionPlan"
         />
-
 
     </LinearLayout>
 
@@ -100,17 +99,3 @@
 
 
     </RelativeLayout>
-
-    <!--when the user selects "button1" (the back button),
-    an onClick event is triggered for the instantiation of the previous
-    activity -->
-
-
-
-    <!--when the user selects "button2" (the forward button), an onClick
-    event is triggered for the instantiation of the next activity -->
-        <!-- UPDATE - This button is a "done" button. The user should
-        be able to exit the app -->
-
-
-<!--</RelativeLayout>-->
