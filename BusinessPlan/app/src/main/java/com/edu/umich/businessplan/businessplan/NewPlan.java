@@ -39,6 +39,9 @@ public class NewPlan extends BaseActivity {
         editor.remove("actions");
 
         editor.apply();
+
+        String debugAllBP = mySharedPreferences.getString("Business Plan", "");
+        Log.i("New Plan", "SP ALL BP " + debugAllBP);
     }
 
     //when user selects button1, load activity 2 (ClientInformation)//
