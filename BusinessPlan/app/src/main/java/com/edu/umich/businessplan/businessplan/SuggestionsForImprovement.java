@@ -90,9 +90,6 @@ public class SuggestionsForImprovement extends BaseActivity {
         List<String> suggestionList = list;
         //create an instance of the class Suggestion (String, boolean)
 
-//        List<String> sharedList = new ArrayList<String>();
-//        sharedList = SharedPreferencesUtility.getStringList(this, "recommendation");
-
 
         for (String t: suggestionList) {
             //create an instance of the class Suggestion (String, boolean)
@@ -201,11 +198,7 @@ public class SuggestionsForImprovement extends BaseActivity {
     }
 
 
-    //initialize an empty list to hold the suggestions that are checked (and will need to appear on
-    // the next activity
-    //List<String> actionList = new ArrayList<String>(); //empty list
 
-//TODO implement another dialog alert box to appear if the actionList includes fewer than 3 actions
     //adds an action to actionList when it is checked
     public void addAction(String action) {
         bpActions.add(action);
