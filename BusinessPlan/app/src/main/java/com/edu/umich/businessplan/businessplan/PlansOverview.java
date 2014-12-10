@@ -24,8 +24,15 @@ public class PlansOverview extends BaseActivity {
     List<Map<String, String>> clientList = new ArrayList<Map<String,String>>();
     final Context context = this;
 
-    //Intent previousActivity;
+    //create Shared Preferences object
+    SharedPreferences sharedpreferences;
+    final String prename = "mypref";
 
+    String bpListString = "";
+    List bpList = new ArrayList<List>();
+    String bpClientName = ""; //name
+    String bpClientListString = "";
+    List bpClientList = new ArrayList<List>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +40,9 @@ public class PlansOverview extends BaseActivity {
         setContentView(R.layout.activity_plans_overview);
 
 
+        bpListString = getSharedPreferences();
         // we call this initiList function to fill in our list class variable with our team names
-        initList();
+        initList(bpListString);
 
 // adapters are what we use to associate the list variable and its contents with the list view
         ListView clientListView = (ListView) findViewById(R.id.listView1);
@@ -47,23 +55,55 @@ public class PlansOverview extends BaseActivity {
 // in a real app, this would be where we query our database to retrieve the list of teams, but
 // we can perform some shared preferences data storing for now
 
+    public String getSharedPreferences() {
+        // save values into sharedpreferences
+        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
 
-    private void initList() {
-        List<String> clientList2 = SharedPreferencesUtility.getStringList(this, "client");
-        Log.i("MyActivity", "What The Hell is Happening: " + clientList2);
-        for(String t: clientList2) {
-            clientList.add(createClient("client", t));
+        String returnString = mySharedPreferences.getString("Business Plan", "");
+        Log.i("PlansOverview", "SP Business Plan " + returnString);
+
+        return returnString;
+    }
+
+    public List initList(String businessPlanString) {
+        String bpString = businessPlanString;
+//        List<String> clientList2 = SharedPreferencesUtility.getStringList(this, "client");
+//        Log.i("MyActivity", "What The Hell is Happening: " + clientList2);
+//        for(String t: clientList2) {
+//            clientList.add(createClient("client", t));
+//        }
+        //takes a string of suggestions delimited by ";" and returns a List of suggestions
+//        List<String> list = new ArrayList<String>(); //default list
+
+        if(bpString.length() != 0) {
+            // string.split will create an array returning everything in between the provided "delimiter"
+            // parameter
+            // example: if the string is hello;world;!, calling split(";") on it would return an array
+            // with 3 items: "hello", "world", and "!"
+            String[] items = bpString.split(";_;");
+// loop through the array and add it to a list so we can give it back to the method caller
+            for (String i : items) {
+                bpList.add(i);
+                Log.i("PlansOverview", "list of business plans " + bpList);
+//            for (String i : items) {
+//                bpList.add(createAction("action", i));
+//            }
         }
+
+
+
+    }        return bpList;
     }
 
 
     // this method helps us minimize the amount of repeat calls we need to make in initList to place
 //a team name into out list
-    private HashMap<String, String> createClient(String key, String t) {
-        HashMap<String, String> client = new HashMap<String, String>();
-        client.put(key, t);
-        return client;
-    }
+//    private HashMap<String, String> createClient(String key, String t) {
+//        HashMap<String, String> client = new HashMap<String, String>();
+//        client.put(key, t);
+//        return client;
+//    }
 
 
 

@@ -131,7 +131,7 @@ public class ActionPlan extends BaseActivity {
 
     public String stringListUtility(List list) {
         //takes in a List and returns a string with list items delimited by a ";"
-        String listString = TextUtils.join(";", list);
+        String listString = TextUtils.join(";;", list);
 
         return listString;
     }
@@ -141,9 +141,9 @@ public class ActionPlan extends BaseActivity {
         List bpList = new ArrayList<String>();
 
         Log.i("ActionPlan", "client name in save method " + bpClientName);
-        bpList.add(0, ";_;" + bpClientName); //put a ";;" at the begining of each users BP
-        bpList.add(1, ";;" + bpCity);
-        bpList.add(2, ";;" + bpActionStringList);
+        bpList.add(0,  bpClientName); //put a ";;" at the begining of each users BP
+        bpList.add(1,  bpCity);
+        bpList.add(2,  bpActionStringList);
 
         Log.i("ActionPlan", "BP list " + bpList);
 
@@ -156,7 +156,10 @@ public class ActionPlan extends BaseActivity {
         SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = mySharedPreferences.edit();
 
-        editor.putString("Business Plan", bpListString);
+        String currentBPString = mySharedPreferences.getString("Business Plan", "");
+        String combinedBPString = currentBPString + bpListString;
+        editor.putString("Business Plan", combinedBPString);
+
         editor.apply();
 
         String debugName = mySharedPreferences.getString("Business Plan","");
