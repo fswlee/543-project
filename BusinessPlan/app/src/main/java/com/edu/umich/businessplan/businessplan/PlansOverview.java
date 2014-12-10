@@ -43,19 +43,8 @@ public class PlansOverview extends BaseActivity {
         bpListString = getSharedPreferences();
         // we call this initiList function to fill in our list class variable with our team names
 
-        clientList = initList(bpListString);
+        initList(bpListString);
 
-        // adapters are what we use to associate the list variable and its contents with the list view
-        ListView teamListView = (ListView) findViewById(R.id.listView);
-        SimpleAdapter simpleAdpt = new SimpleAdapter(this, clientList, android.R.layout.simple_list_item_1, new String[] {"team"}, new int[] {android.R.id.text1});
-        teamListView.setAdapter(simpleAdpt);
-// setOnItemClickListener tells the activity what to do when a list item is clicked on
-        teamListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
-                                    long id) {
-                //openTeamDetail(id);
-            }
-        });
 
 // adapters are what we use to associate the list variable and its contents with the list view
         ListView clientListView = (ListView) findViewById(R.id.listView1);
@@ -79,7 +68,7 @@ public class PlansOverview extends BaseActivity {
         return returnString;
     }
 
-    public List initList(String businessPlanString) {
+    public void initList(String businessPlanString) {
         String bpString = businessPlanString;
         Log.i("PlansOverview", "initlist() string" + bpString);
 //        List<String> clientList2 = SharedPreferencesUtility.getStringList(this, "client");
@@ -91,7 +80,7 @@ public class PlansOverview extends BaseActivity {
         List<BusinessPlan> bps = new ArrayList<BusinessPlan>(); //default list
 
 
-        if(bpString.length() != 0) {
+        if (bpString.length() != 0) {
             String[] businessPlans = bpString.split(";_;");
 // loop through teams
             for (String bp : businessPlans) {
@@ -107,15 +96,13 @@ public class PlansOverview extends BaseActivity {
                 newBP.addActions(actions);
 
                 //Team newTeam = new Team(name, description);
-                bps.add(createClient("client", newBP));
+                clientList.add(createClient("client", newBP));
             }
-            Log.i("PlansOverview", "bpList" + list);
+            //Log.i("PlansOverview", "bpList" + list);
         }
+    }
 
 
-
-            return list;
-        }
 
 
 
