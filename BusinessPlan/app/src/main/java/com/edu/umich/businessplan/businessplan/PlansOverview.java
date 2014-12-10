@@ -43,7 +43,19 @@ public class PlansOverview extends BaseActivity {
         bpListString = getSharedPreferences();
         // we call this initiList function to fill in our list class variable with our team names
 
-        initList(bpListString);
+        clientList = initList(bpListString);
+
+        // adapters are what we use to associate the list variable and its contents with the list view
+        ListView teamListView = (ListView) findViewById(R.id.listView);
+        SimpleAdapter simpleAdpt = new SimpleAdapter(this, clientList, android.R.layout.simple_list_item_1, new String[] {"team"}, new int[] {android.R.id.text1});
+        teamListView.setAdapter(simpleAdpt);
+// setOnItemClickListener tells the activity what to do when a list item is clicked on
+        teamListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
+                                    long id) {
+                //openTeamDetail(id);
+            }
+        });
 
 // adapters are what we use to associate the list variable and its contents with the list view
         ListView clientListView = (ListView) findViewById(R.id.listView1);
@@ -76,36 +88,45 @@ public class PlansOverview extends BaseActivity {
 //            clientList.add(createClient("client", t));
 //        }
         //takes a string of suggestions delimited by ";" and returns a List of suggestions
-//        List<String> list = new ArrayList<String>(); //default list
+        List<BusinessPlan> bps = new ArrayList<BusinessPlan>(); //default list
+
 
         if(bpString.length() != 0) {
-            // string.split will create an array returning everything in between the provided "delimiter"
-            // parameter
-            // example: if the string is hello;world;!, calling split(";") on it would return an array
-            // with 3 items: "hello", "world", and "!"
-            String[] items = bpString.split(";_;");
-// loop through the array and add it to a list so we can give it back to the method caller
-            for (String i : items) {
-                bpList.add(i);
-                Log.i("PlansOverview", "list of business plans " + bpList);
-//            for (String i : items) {
-//                bpList.add(createAction("action", i));
-//            }
+            String[] businessPlans = bpString.split(";_;");
+// loop through teams
+            for (String bp : businessPlans) {
+                Log.i("PlansOverview", "bp" + bp);
+                String[] bpAttributes = bp.split(";;");
+                String name = bpAttributes[0];
+                Log.i("PlansOverview", "name" + name);
+                String city = bpAttributes[1];
+                String actions = bpAttributes[2];
+
+                BusinessPlan newBP = new BusinessPlan(name);
+                newBP.setCity(city);
+                newBP.addActions(actions);
+
+                //Team newTeam = new Team(name, description);
+                bps.add(createClient("client", newBP));
+            }
+            Log.i("PlansOverview", "bpList" + list);
         }
 
 
 
-    }        return bpList;
-    }
+            return list;
+        }
+
 
 
     // this method helps us minimize the amount of repeat calls we need to make in initList to place
 //a team name into out list
-//    private HashMap<String, String> createClient(String key, String t) {
-//        HashMap<String, String> client = new HashMap<String, String>();
-//        client.put(key, t);
-//        return client;
-//    }
+    private HashMap<String, String> createClient(String key, BusinessPlan t) {
+        HashMap<String, String> client = new HashMap<String, String>();
+        String name = t.getName();
+        client.put(key, name);
+        return client;
+    }
 
 
 
