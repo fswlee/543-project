@@ -53,7 +53,7 @@ public class ClientInformation extends BaseActivity {
     };
 
     //these variables will be altered based on user input
-    //they will then be used to construct and modify a BusinessPlan object
+    //they will then be saved to SharedPrefernces
     String bpClientName = ""; //name
     String bpCity = ""; //city
     Integer bpHousehold = 0; //number of people in the household
@@ -65,16 +65,12 @@ public class ClientInformation extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //create a variable of type SharedPreferences:
-
-
 
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_information);
 
         //use code below to grab text after focus changes
-
         EditText editText = (EditText) findViewById(R.id.editText1);
 
 
@@ -91,23 +87,6 @@ public class ClientInformation extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
 
-
-//                //grab input from editText2 after focus has changed - convert to String
-//                //add the city to shared preferences
-//                editText2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//
-//                    public void onFocusChange(View v, boolean hasFocus) {
-//                        if (!hasFocus) { //SAVE the DATA
-//                            final String city = editText2.getText().toString();
-//                            bpCity = city;
-//                            Log.i("Client Information", "Getting city " + bpCity);
-//                        }
-//
-//                    }
-//                });
-
-                //grab input from editText1 after focus has changed - convert to String
-                //add the client name to shared preferences
                 editText1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
                     public void onFocusChange(View v, boolean hasFocus) {
@@ -151,13 +130,6 @@ public class ClientInformation extends BaseActivity {
                         int num_people = spinner.getSelectedItemPosition();
                         bpHousehold = num_people;
 
-//                        SharedPreferences mySharedPreferences = getSharedPreferences(prename, Activity.MODE_PRIVATE);
-//                        SharedPreferences.Editor editor = mySharedPreferences.edit();
-//
-//                        editor.putInt("num_people", folks);
-//
-//                        editor.apply();
-
 
                     }
 
@@ -165,11 +137,7 @@ public class ClientInformation extends BaseActivity {
                     public void onNothingSelected(AdapterView<?> arg0) {
 
                     }
-
-
                 }
-
-
         );
 
         spinner18 = (Spinner) findViewById(R.id.spinner18);
@@ -223,21 +191,6 @@ public class ClientInformation extends BaseActivity {
 
     }
 
-    //called when user clicks next button - creates a BusinessPlan Object
-        //saves BusinessPlan object to SharedPreferences
-//    public void initBusinessPlan() {
-//    //create a business plan object with the name, city, and income
-//
-//        BusinessPlan businessPlan = new BusinessPlan(bpClientName);
-//        Log.i("Client Information", "creating BP" + businessPlan.getName());
-//        businessPlan.setCity(bpCity);
-//        businessPlan.setHousehold(bpHousehold);
-//
-//        //add the BP to SharedPreferences
-//        SharedPreferencesUtility.putBusinessPlan(this, "Business Plan", businessPlan);
-//        //"Business Plan": "name;;city;;household;;income;;Suggestion;;action"
-//
-//    }
 
     public void addSharedPreferences() {
         // save values into sharedpreferences
@@ -265,7 +218,7 @@ public class ClientInformation extends BaseActivity {
     public void openNextActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), BusinessInformation.class);
         //initBusinessPlan(); //create new BusinessPlan
-        addSharedPreferences();
+        addSharedPreferences(); //save SharedPreferences
         startActivity(intent); //go to next activity
 
 //        Log.i("Client Information", "Name: " + bpClientName);
